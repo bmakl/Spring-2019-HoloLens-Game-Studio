@@ -95,9 +95,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5402cc3e40e0ac48be9a327bac45945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies: []
+  enemies:
+  - Pumpkin(Clone)
   pumpkinKill: 1
-  bulletSpeed: 0
+  bulletSpeed: 10
 --- !u!135 &135896733134912988
 SphereCollider:
   m_ObjectHideFlags: 1
