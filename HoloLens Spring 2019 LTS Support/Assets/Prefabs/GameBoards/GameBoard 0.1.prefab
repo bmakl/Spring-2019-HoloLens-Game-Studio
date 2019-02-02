@@ -10581,7 +10581,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1254364937568156}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.72, y: -0.17423606, z: 0.054641485}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children:
   - {fileID: 4647819503591686}
@@ -26295,7 +26295,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 1427315013456752, guid: 7c48c244524453b4ba836836db6135ff,
     type: 2}
-  enemyFastPrefab: {fileID: 0}
+  enemyFastPrefab: {fileID: 1427315013456752, guid: 98b547cfefe25134cb3dd48571617e33,
+    type: 2}
   spawnPoint: {fileID: 4770698886587842}
   timeBetweenWaves: 5
   timeBetweenEnemies: 0.5
@@ -26445,7 +26446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5619430d69a9614e940ad0e48ccc065, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tower: {fileID: 1969790931601910}
+  tower: {fileID: 1133828830887534, guid: 16a189a6d42c9d841b24f2d2889db5d9, type: 2}
   nodes: []
 --- !u!114 &114273845749065002
 MonoBehaviour:
@@ -26548,7 +26549,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5619430d69a9614e940ad0e48ccc065, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tower: {fileID: 1019244535152830}
+  tower: {fileID: 1133828830887534, guid: d1b4f6190008d7f49853803d475b2eb7, type: 2}
   nodes: []
 --- !u!114 &114300401129071354
 MonoBehaviour:
@@ -28280,7 +28281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5619430d69a9614e940ad0e48ccc065, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tower: {fileID: 1434594992458290}
+  tower: {fileID: 1133828830887534, guid: aa67ea2bc5e17224083ff35bf6983587, type: 2}
   nodes: []
 --- !u!114 &114910200388274186
 MonoBehaviour:
@@ -28326,7 +28327,7 @@ MonoBehaviour:
   health: 100
   endPoint: {fileID: 1930556758890258}
   waveCount: 1
-  money: 0
+  coins: 0
   enemyPrefab: []
   spawnPoint: {fileID: 4770698886587842}
   enemyType: 0

@@ -24,8 +24,8 @@ GameObject:
   - component: {fileID: 23899515190417506}
   - component: {fileID: 114533737474666238}
   m_Layer: 0
-  m_Name: Pumpkin
-  m_TagString: Pumpkin
+  m_Name: Skeleton
+  m_TagString: Skeleton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1427315013456752}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.273964, y: -5.3748, z: -0.8854}
+  m_LocalPosition: {x: -3.6736007, y: -2.569, z: -1.78}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_Children: []
   m_Father: {fileID: 0}
@@ -57,7 +57,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: abcfa63849b231742be539eee6a7115b, type: 2}
+  - {fileID: 2100000, guid: 25f015666a8e5ff469220ef19b631abd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -98,6 +98,7 @@ MonoBehaviour:
   damageToPlayer: 1
   speed: 0.5
   health: 2
+  coinDrop: 0
   eligibleTarget: 0
   waypointPassed: 0
 --- !u!135 &135185410132549042
