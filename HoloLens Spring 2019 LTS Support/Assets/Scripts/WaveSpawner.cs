@@ -10,28 +10,21 @@ public class WaveSpawner : MonoBehaviour
 
     public float timeBetweenWaves = 5f;
     private float countdown = 2f;
+    public bool canStart = true;
     public float timeBetweenEnemies = 0.5f;
 
     private int waveIndex = 0;
 
-    void Update()
-    {
-        if (countdown <= 0f)
-        {
-            StartCoroutine(SpawnWave());
-            countdown = timeBetweenWaves;
-        }
-
-        countdown -= Time.deltaTime;
-    }
-    IEnumerator SpawnWave()
+    public IEnumerator SpawnWave()
     {
         waveIndex++;
         for (int i = 0; i < waveIndex; i++)
         {
+            canStart = false;
             SpawnEnemy();
             yield return new WaitForSeconds(timeBetweenEnemies);
         }
+        canStart = true;
 
     }
 
