@@ -456,6 +456,11 @@ Prefab:
       propertyPath: roomModel
       value: 
       objectReference: {fileID: 100002, guid: b9399fb5a729cea4b85656e80360bb41, type: 3}
+    - target: {fileID: 114397629702939078, guid: 6f27dc09be1a52748aa2059f64630881,
+        type: 2}
+      propertyPath: drawVisualMeshes
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6f27dc09be1a52748aa2059f64630881, type: 2}
   m_IsPrefabParent: 0
