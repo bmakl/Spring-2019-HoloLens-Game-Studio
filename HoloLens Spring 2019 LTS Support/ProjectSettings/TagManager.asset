@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Enemy
   - Node
+  - Pumpkin
+  - Ghost
+  - Skeleton
+  - Bat
+  - Boss
   layers:
   - Default
   - TransparentFX

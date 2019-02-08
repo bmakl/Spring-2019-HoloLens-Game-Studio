@@ -21,12 +21,12 @@ public class GameManager : MonoBehaviour
     }
 
     [Header("Level Stats")]
-    public int health = 100;
+    public float health = 100f;
     public GameObject endPoint;  //if enemy collides with this - 1 health
     public int waveCount = 1;   //counts the wave and is ther multi for num of enemies spawned
 
-    [Header("Money")]
-    public int money;
+    [Header("Coins")]
+    public int coins;
 
     [Header("Spawner")]
     public GameObject[] enemyPrefab;
@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
         Spawner(); // so it spawns without the start button
         if (enemyCount >= enemyChange)    // changes the enemy type 
         {
-            enemyType = enemyDif;   // logic needs to eb changed later after design
+            enemyType = enemyDif;   // logic needs to be changed later after design
         }
     }
     IEnumerator SpawnWave()
