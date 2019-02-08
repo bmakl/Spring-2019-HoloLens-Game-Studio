@@ -14,17 +14,7 @@ public class WaveSpawner : MonoBehaviour
 
     private int waveIndex = 0;
 
-    void Update()
-    {
-        if (countdown <= 0f)
-        {
-            StartCoroutine(SpawnWave());
-            countdown = timeBetweenWaves;
-        }
-
-        countdown -= Time.deltaTime;
-    }
-    IEnumerator SpawnWave()
+    public IEnumerator SpawnWave()
     {
         if (waveIndex <= 9)
         {
@@ -43,6 +33,7 @@ public class WaveSpawner : MonoBehaviour
                 yield return new WaitForSeconds(timeBetweenEnemies);
             }
         }
+        canStart = true;
 
     }
 
