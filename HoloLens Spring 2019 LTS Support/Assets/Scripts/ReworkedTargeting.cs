@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using HoloToolkit.Unity.InputModule;
 
-public class TowerTemplate : MonoBehaviour, IInputClickHandler
+[RequireComponent(typeof(SphereCollider))]
+public class ReworkedTargeting : MonoBehaviour, IInputClickHandler
 {
 
 
@@ -48,7 +49,6 @@ public class TowerTemplate : MonoBehaviour, IInputClickHandler
     private void Awake()
     {
         targetQueue = new Queue<Transform>();
-        inQueueCheck = new HashSet<Transform>();
     }
 
     private void Start()
@@ -59,8 +59,6 @@ public class TowerTemplate : MonoBehaviour, IInputClickHandler
 
     private void Update()
     {
-
-        UpdateTarget();
         if (target == null) //If no target does nothing
         {
             return;
@@ -83,66 +81,7 @@ public class TowerTemplate : MonoBehaviour, IInputClickHandler
     }
 
 
-    public virtual void UpdateTarget() //Updates the target to the first target that enters the radius
-    {
-        Debug.Log("In Queue " + inQueueCheck.Count);
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
-
-        foreach (GameObject enemy in enemies)
-        {
-            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-            if (distanceToEnemy <= radius)
-            {
-                Debug.Log(targetQueue.Count);
-                Enqueue(enemy.transform);
-            }
-        }
-
-        if (targetQueue.Count > 0)
-        {
-            if (target == null)
-            {
-                tempTarget = targetQueue.Dequeue();
-                inQueueCheck.Remove(tempTarget);
-            }
-
-            if (tempTarget == null)
-            {
-                return;
-            }
-
-            float distanceToRadiusTemp = Vector3.Distance(transform.position, tempTarget.transform.position);
-
-            if (distanceToRadiusTemp > radius)
-            {
-                //Enqueue(tempTarget);
-                target = null;
-                tempTarget = null;
-                Enqueue(tempTarget);
-            }
-
-            else if (distanceToRadiusTemp <= radius)
-            {
-                target = tempTarget;
-            }
-
-
-        }
-
-
-
-
-
-    }
-
-
-    public virtual void RotateTower() //Rotates tower to track target
-    {
-        Vector3 direction = target.position - transform.position;
-        Quaternion lookRotation = Quaternion.LookRotation(direction);
-        Vector3 rotation = Quaternion.Lerp(rotatingPart.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
-        rotatingPart.rotation = Quaternion.Euler(0f, rotation.y, 0f);
-    }
+   
 
 
     public virtual void Shoot()
@@ -160,18 +99,19 @@ public class TowerTemplate : MonoBehaviour, IInputClickHandler
         }
     }
 
-    public virtual void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, radius);
-    }
+   
 
     public virtual void Enqueue(Transform enemy)
     {
-            if (!targetQueue.Contains(enemy))
-            {
-                targetQueue.Enqueue(enemy);
-            }
+        if (!targetQueue.Contains(enemy))
+        {
+            targetQueue.Enqueue(enemy);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        
     }
 
     public void OnInputClicked(InputClickedEventData eventData)
@@ -205,5 +145,73 @@ public class TowerTemplate : MonoBehaviour, IInputClickHandler
         attackSpeed = upgrade2AttackSpeed;
 
     }
+
+    /* public virtual void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, radius);
+    }*/
+
+
+    /*public virtual void UpdateTarget() //Updates the target to the first target that enters the radius
+   {
+       Debug.Log("In Queue " + inQueueCheck.Count);
+       GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
+
+       foreach (GameObject enemy in enemies)
+       {
+           float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+           if (distanceToEnemy <= radius)
+           {
+               Debug.Log(targetQueue.Count);
+               Enqueue(enemy.transform);
+           }
+       }
+
+       if (targetQueue.Count > 0)
+       {
+           if (target == null)
+           {
+               tempTarget = targetQueue.Dequeue();
+               inQueueCheck.Remove(tempTarget);
+           }
+
+           if (tempTarget == null)
+           {
+               return;
+           }
+
+           float distanceToRadiusTemp = Vector3.Distance(transform.position, tempTarget.transform.position);
+
+           if (distanceToRadiusTemp > radius)
+           {
+               //Enqueue(tempTarget);
+               target = null;
+               tempTarget = null;
+               Enqueue(tempTarget);
+           }
+
+           else if (distanceToRadiusTemp <= radius)
+           {
+               target = tempTarget;
+           }
+
+
+       }
+
+
+
+
+
+   }*/
+
+
+    /*public virtual void RotateTower() //Rotates tower to track target
+    {
+        Vector3 direction = target.position - transform.position;
+        Quaternion lookRotation = Quaternion.LookRotation(direction);
+        Vector3 rotation = Quaternion.Lerp(rotatingPart.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
+        rotatingPart.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+    }*/
 }
 
