@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -44,6 +45,8 @@ public class GameManager : MonoBehaviour
     public int enemyChange = 1; // change to the type of enemy at this number of enemies spawned
     private int enemyDif = 1; // the enemy type that is being spawned
 
+    public Text crashCount;
+
     void Update()
     {
         Spawner(); // so it spawns without the start button
@@ -51,6 +54,8 @@ public class GameManager : MonoBehaviour
         {
             enemyType = enemyDif;   // logic needs to be changed later after design
         }
+
+        crashCount.text = "Spawned " + enemyCount.ToString();
     }
     IEnumerator SpawnWave()
     {

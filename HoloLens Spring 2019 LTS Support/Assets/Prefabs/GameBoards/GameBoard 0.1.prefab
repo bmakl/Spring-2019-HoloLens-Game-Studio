@@ -26288,7 +26288,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1303738014816218}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f6b39f6478791f4f9b37d7b1ec1c1ea, type: 3}
   m_Name: 
@@ -28328,13 +28328,16 @@ MonoBehaviour:
   endPoint: {fileID: 1930556758890258}
   waveCount: 1
   coins: 0
-  enemyPrefab: []
+  enemyPrefab:
+  - {fileID: 1427315013456752, guid: 7c48c244524453b4ba836836db6135ff, type: 2}
+  - {fileID: 1427315013456752, guid: 98b547cfefe25134cb3dd48571617e33, type: 2}
   spawnPoint: {fileID: 4770698886587842}
   enemyType: 0
   timeBetweenWaves: 5
   timeBetweenEnemies: 0.5
-  waveSize: 10
+  waveSize: 10000
   enemyChange: 1
+  crashCount: 0
 --- !u!114 &114921136079587076
 MonoBehaviour:
   m_ObjectHideFlags: 1

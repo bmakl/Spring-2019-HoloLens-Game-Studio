@@ -27211,7 +27211,7 @@ MonoBehaviour:
   health: 100
   endPoint: {fileID: 1277118534682042}
   waveCount: 1
-  money: 0
+  coins: 0
   enemyPrefab: []
   spawnPoint: {fileID: 4268241930757442}
   enemyType: 0
@@ -27219,6 +27219,7 @@ MonoBehaviour:
   timeBetweenEnemies: 0.5
   waveSize: 10
   enemyChange: 1
+  crashCount: 0
 --- !u!114 &114606724944040172
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -28363,7 +28364,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1146012777714560}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f6b39f6478791f4f9b37d7b1ec1c1ea, type: 3}
   m_Name: 
