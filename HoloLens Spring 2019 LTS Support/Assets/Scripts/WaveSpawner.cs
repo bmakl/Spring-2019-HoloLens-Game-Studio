@@ -33,7 +33,7 @@ public class WaveSpawner : MonoBehaviour
                 yield return new WaitForSeconds(timeBetweenEnemies);
             }
         }
-        canStart = true;
+        //canStart = true;
 
     }
 

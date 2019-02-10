@@ -11,6 +11,7 @@ TagManager:
   - Skeleton
   - Bat
   - Boss
+  - Path
   layers:
   - Default
   - TransparentFX

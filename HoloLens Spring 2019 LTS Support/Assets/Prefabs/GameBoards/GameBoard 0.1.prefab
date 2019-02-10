@@ -453,9 +453,10 @@ GameObject:
   - component: {fileID: 33532922134031236}
   - component: {fileID: 65806566453529496}
   - component: {fileID: 23338869392632934}
+  - component: {fileID: 114159584538837642}
   m_Layer: 0
   m_Name: Path (8)
-  m_TagString: Untagged
+  m_TagString: Path
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -656,9 +657,10 @@ GameObject:
   - component: {fileID: 33064043531251386}
   - component: {fileID: 65314765974391652}
   - component: {fileID: 23903157011193784}
+  - component: {fileID: 114315856302828302}
   m_Layer: 0
   m_Name: Path (4)
-  m_TagString: Untagged
+  m_TagString: Path
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -867,9 +869,10 @@ GameObject:
   - component: {fileID: 33538115125279736}
   - component: {fileID: 65243953097797422}
   - component: {fileID: 23539318662740564}
+  - component: {fileID: 114480905629223858}
   m_Layer: 0
   m_Name: Path (11)
-  m_TagString: Untagged
+  m_TagString: Path
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -964,9 +967,10 @@ GameObject:
   - component: {fileID: 33095063074328422}
   - component: {fileID: 65122359620544552}
   - component: {fileID: 23799969332540362}
+  - component: {fileID: 114627293565847498}
   m_Layer: 0
   m_Name: Path (6)
-  m_TagString: Untagged
+  m_TagString: Path
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1035,9 +1039,10 @@ GameObject:
   - component: {fileID: 33825926432544018}
   - component: {fileID: 65466016456845854}
   - component: {fileID: 23878634868969670}
+  - component: {fileID: 114512609738922996}
   m_Layer: 0
   m_Name: Path (25)
-  m_TagString: Untagged
+  m_TagString: Path
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1272,9 +1277,10 @@ GameObject:
   - component: {fileID: 33201383441255506}
   - component: {fileID: 65985138143608864}
   - component: {fileID: 23638837016199884}
+  - component: {fileID: 114087357443104214}
   m_Layer: 0
   m_Name: Path
-  m_TagString: Untagged
+  m_TagString: Path
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1797,9 +1803,10 @@ GameObject:
   - component: {fileID: 33471879501847284}
   - component: {fileID: 65578106054845722}
   - component: {fileID: 23038069250294702}
+  - component: {fileID: 114401097513525156}
   m_Layer: 0
   m_Name: Path (26)
-  m_TagString: Untagged
+  m_TagString: Path
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2028,9 +2035,10 @@ GameObject:
   - component: {fileID: 33719300870044630}
   - component: {fileID: 65847896594636476}
   - component: {fileID: 23073054200664366}
+  - component: {fileID: 114427872470223496}
   m_Layer: 0
   m_Name: Path (22)
-  m_TagString: Untagged
+  m_TagString: Path
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2065,9 +2073,10 @@ GameObject:
   - component: {fileID: 33459524030038620}
   - component: {fileID: 65121368281884770}
   - component: {fileID: 23330918986495336}
+  - component: {fileID: 114479134214220422}
   m_Layer: 0
   m_Name: Path (3)
-  m_TagString: Untagged
+  m_TagString: Path
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2317,9 +2326,10 @@ GameObject:
   - component: {fileID: 33658732660429936}
   - component: {fileID: 65861899911356080}
   - component: {fileID: 23843856319179180}
+  - component: {fileID: 114836553844481574}
   m_Layer: 0
   m_Name: Path (5)
-  m_TagString: Untagged
+  m_TagString: Path
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2426,7 +2436,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1304192357583266
 GameObject:
   m_ObjectHideFlags: 1
@@ -2525,9 +2535,10 @@ GameObject:
   - component: {fileID: 33174590895964806}
   - component: {fileID: 65289155791457236}
   - component: {fileID: 23670179676818182}
+  - component: {fileID: 114491090053895950}
   m_Layer: 0
   m_Name: Path (7)
-  m_TagString: Untagged
+  m_TagString: Path
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2611,9 +2622,10 @@ GameObject:
   - component: {fileID: 33001843617711442}
   - component: {fileID: 65392249734569366}
   - component: {fileID: 23182130234080740}
+  - component: {fileID: 114916218193950304}
   m_Layer: 0
   m_Name: Path (1)
-  m_TagString: Untagged
+  m_TagString: Path
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2720,9 +2732,10 @@ GameObject:
   - component: {fileID: 33076409816092088}
   - component: {fileID: 65081759637113928}
   - component: {fileID: 23981743632647936}
+  - component: {fileID: 114914917979735552}
   m_Layer: 0
   m_Name: Path (2)
-  m_TagString: Untagged
+  m_TagString: Path
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2787,9 +2800,10 @@ GameObject:
   - component: {fileID: 33916130214068166}
   - component: {fileID: 65692278983135416}
   - component: {fileID: 23811475905959822}
+  - component: {fileID: 114190835855768444}
   m_Layer: 0
   m_Name: Path (9)
-  m_TagString: Untagged
+  m_TagString: Path
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2888,9 +2902,10 @@ GameObject:
   - component: {fileID: 33032059007544634}
   - component: {fileID: 65748584148853588}
   - component: {fileID: 23526665529205434}
+  - component: {fileID: 114042142542773466}
   m_Layer: 0
   m_Name: Path (27)
-  m_TagString: Untagged
+  m_TagString: Path
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3789,9 +3804,10 @@ GameObject:
   - component: {fileID: 33813797891981398}
   - component: {fileID: 65692694211288654}
   - component: {fileID: 23239299331976206}
+  - component: {fileID: 114466289519611802}
   m_Layer: 0
   m_Name: Path (21)
-  m_TagString: Untagged
+  m_TagString: Path
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3970,9 +3986,10 @@ GameObject:
   - component: {fileID: 33337688939311090}
   - component: {fileID: 65333202495217480}
   - component: {fileID: 23367310457263150}
+  - component: {fileID: 114004037878178846}
   m_Layer: 0
   m_Name: Path (12)
-  m_TagString: Untagged
+  m_TagString: Path
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4580,9 +4597,10 @@ GameObject:
   - component: {fileID: 33268698511538784}
   - component: {fileID: 65091726710011318}
   - component: {fileID: 23577317307965198}
+  - component: {fileID: 114287628504674416}
   m_Layer: 0
   m_Name: Path (16)
-  m_TagString: Untagged
+  m_TagString: Path
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4598,9 +4616,10 @@ GameObject:
   - component: {fileID: 33932045329042410}
   - component: {fileID: 65974184147442790}
   - component: {fileID: 23503886606549142}
+  - component: {fileID: 114173771886969592}
   m_Layer: 0
   m_Name: Path (24)
-  m_TagString: Untagged
+  m_TagString: Path
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5084,9 +5103,10 @@ GameObject:
   - component: {fileID: 33159431763118466}
   - component: {fileID: 65572684174038874}
   - component: {fileID: 23622228251324740}
+  - component: {fileID: 114936180620174574}
   m_Layer: 0
   m_Name: Path (14)
-  m_TagString: Untagged
+  m_TagString: Path
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5119,9 +5139,10 @@ GameObject:
   - component: {fileID: 33401215170337328}
   - component: {fileID: 65035208540285454}
   - component: {fileID: 23151960202712658}
+  - component: {fileID: 114910605863613758}
   m_Layer: 0
   m_Name: Path (15)
-  m_TagString: Untagged
+  m_TagString: Path
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5439,9 +5460,10 @@ GameObject:
   - component: {fileID: 33366625275033986}
   - component: {fileID: 65933214331693568}
   - component: {fileID: 23602821490312208}
+  - component: {fileID: 114003900806717916}
   m_Layer: 0
   m_Name: Path (19)
-  m_TagString: Untagged
+  m_TagString: Path
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6380,9 +6402,10 @@ GameObject:
   - component: {fileID: 33944715959815440}
   - component: {fileID: 65365895069776476}
   - component: {fileID: 23893384496144908}
+  - component: {fileID: 114860360800563040}
   m_Layer: 0
   m_Name: Path (20)
-  m_TagString: Untagged
+  m_TagString: Path
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6432,9 +6455,10 @@ GameObject:
   - component: {fileID: 33962458692344354}
   - component: {fileID: 65552446960799272}
   - component: {fileID: 23987489892529492}
+  - component: {fileID: 114208472142189784}
   m_Layer: 0
   m_Name: Path (17)
-  m_TagString: Untagged
+  m_TagString: Path
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6503,9 +6527,10 @@ GameObject:
   - component: {fileID: 33519216445165028}
   - component: {fileID: 65223832030998478}
   - component: {fileID: 23273765433920626}
+  - component: {fileID: 114486922878812598}
   m_Layer: 0
   m_Name: Path (23)
-  m_TagString: Untagged
+  m_TagString: Path
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6932,9 +6957,10 @@ GameObject:
   - component: {fileID: 33281161287951004}
   - component: {fileID: 65467011806571818}
   - component: {fileID: 23091672746790778}
+  - component: {fileID: 114765675163044634}
   m_Layer: 0
   m_Name: Path (13)
-  m_TagString: Untagged
+  m_TagString: Path
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7105,9 +7131,10 @@ GameObject:
   - component: {fileID: 33544005995907932}
   - component: {fileID: 65286583575228644}
   - component: {fileID: 23059431504395042}
+  - component: {fileID: 114907231171410592}
   m_Layer: 0
   m_Name: Path (10)
-  m_TagString: Untagged
+  m_TagString: Path
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7175,9 +7202,10 @@ GameObject:
   - component: {fileID: 33064856228598130}
   - component: {fileID: 65430756643813120}
   - component: {fileID: 23753465234003420}
+  - component: {fileID: 114397704039415542}
   m_Layer: 0
   m_Name: Path (18)
-  m_TagString: Untagged
+  m_TagString: Path
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10581,7 +10609,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1254364937568156}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -8.72, y: -0.17423606, z: 0.054641485}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children:
   - {fileID: 4647819503591686}
@@ -25594,6 +25622,30 @@ MonoBehaviour:
   turretToBuild: {fileID: 0}
   towerPrefab: {fileID: 0}
   nodeEnabled: 1
+--- !u!114 &114003900806717916
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1682041101031476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e71d1f4475d738744abbd82c79bd9d00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barrier: {fileID: 1764300308992622, guid: 84f97a0bd04910044a58b8e0d37b85b7, type: 2}
+--- !u!114 &114004037878178846
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1474210494518028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e71d1f4475d738744abbd82c79bd9d00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barrier: {fileID: 1764300308992622, guid: 84f97a0bd04910044a58b8e0d37b85b7, type: 2}
 --- !u!114 &114013056355274300
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -25714,6 +25766,18 @@ MonoBehaviour:
   turretToBuild: {fileID: 0}
   towerPrefab: {fileID: 0}
   nodeEnabled: 1
+--- !u!114 &114042142542773466
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1346518408732136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e71d1f4475d738744abbd82c79bd9d00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barrier: {fileID: 1764300308992622, guid: 84f97a0bd04910044a58b8e0d37b85b7, type: 2}
 --- !u!114 &114046777632592392
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -25879,6 +25943,18 @@ MonoBehaviour:
   turretToBuild: {fileID: 0}
   towerPrefab: {fileID: 0}
   nodeEnabled: 1
+--- !u!114 &114087357443104214
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1163054822947734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e71d1f4475d738744abbd82c79bd9d00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barrier: {fileID: 1764300308992622, guid: 84f97a0bd04910044a58b8e0d37b85b7, type: 2}
 --- !u!114 &114088626606514806
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -26117,6 +26193,18 @@ MonoBehaviour:
   turretToBuild: {fileID: 0}
   towerPrefab: {fileID: 0}
   nodeEnabled: 1
+--- !u!114 &114159584538837642
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1064173247371546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e71d1f4475d738744abbd82c79bd9d00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barrier: {fileID: 1764300308992622, guid: 84f97a0bd04910044a58b8e0d37b85b7, type: 2}
 --- !u!114 &114160032598373904
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -26177,6 +26265,30 @@ MonoBehaviour:
   turretToBuild: {fileID: 0}
   towerPrefab: {fileID: 0}
   nodeEnabled: 1
+--- !u!114 &114173771886969592
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1576997695096580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e71d1f4475d738744abbd82c79bd9d00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barrier: {fileID: 1764300308992622, guid: 84f97a0bd04910044a58b8e0d37b85b7, type: 2}
+--- !u!114 &114190835855768444
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1340524544707994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e71d1f4475d738744abbd82c79bd9d00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barrier: {fileID: 1764300308992622, guid: 84f97a0bd04910044a58b8e0d37b85b7, type: 2}
 --- !u!114 &114191964421018630
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -26282,6 +26394,18 @@ MonoBehaviour:
   turretToBuild: {fileID: 0}
   towerPrefab: {fileID: 0}
   nodeEnabled: 1
+--- !u!114 &114208472142189784
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1839645969866638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e71d1f4475d738744abbd82c79bd9d00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barrier: {fileID: 1764300308992622, guid: 84f97a0bd04910044a58b8e0d37b85b7, type: 2}
 --- !u!114 &114218693823964052
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -26523,6 +26647,18 @@ MonoBehaviour:
   turretToBuild: {fileID: 0}
   towerPrefab: {fileID: 0}
   nodeEnabled: 1
+--- !u!114 &114287628504674416
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1571909412970860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e71d1f4475d738744abbd82c79bd9d00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barrier: {fileID: 1764300308992622, guid: 84f97a0bd04910044a58b8e0d37b85b7, type: 2}
 --- !u!114 &114289811679573568
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -26581,6 +26717,18 @@ MonoBehaviour:
   turretToBuild: {fileID: 0}
   towerPrefab: {fileID: 0}
   nodeEnabled: 1
+--- !u!114 &114315856302828302
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1091624106728724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e71d1f4475d738744abbd82c79bd9d00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barrier: {fileID: 1764300308992622, guid: 84f97a0bd04910044a58b8e0d37b85b7, type: 2}
 --- !u!114 &114322186068713442
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -26791,6 +26939,18 @@ MonoBehaviour:
   turretToBuild: {fileID: 0}
   towerPrefab: {fileID: 0}
   nodeEnabled: 1
+--- !u!114 &114397704039415542
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1938570176402560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e71d1f4475d738744abbd82c79bd9d00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barrier: {fileID: 1764300308992622, guid: 84f97a0bd04910044a58b8e0d37b85b7, type: 2}
 --- !u!114 &114398226815791086
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -26806,6 +26966,18 @@ MonoBehaviour:
   turretToBuild: {fileID: 0}
   towerPrefab: {fileID: 0}
   nodeEnabled: 1
+--- !u!114 &114401097513525156
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1229735321490710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e71d1f4475d738744abbd82c79bd9d00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barrier: {fileID: 1764300308992622, guid: 84f97a0bd04910044a58b8e0d37b85b7, type: 2}
 --- !u!114 &114405748195081822
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -26892,6 +27064,18 @@ MonoBehaviour:
   turretToBuild: {fileID: 0}
   towerPrefab: {fileID: 0}
   nodeEnabled: 1
+--- !u!114 &114427872470223496
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1254663359589334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e71d1f4475d738744abbd82c79bd9d00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barrier: {fileID: 1764300308992622, guid: 84f97a0bd04910044a58b8e0d37b85b7, type: 2}
 --- !u!114 &114448766268522130
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -26952,6 +27136,18 @@ MonoBehaviour:
   turretToBuild: {fileID: 0}
   towerPrefab: {fileID: 0}
   nodeEnabled: 1
+--- !u!114 &114466289519611802
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1441717078952052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e71d1f4475d738744abbd82c79bd9d00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barrier: {fileID: 1764300308992622, guid: 84f97a0bd04910044a58b8e0d37b85b7, type: 2}
 --- !u!114 &114473653690824812
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -26967,6 +27163,30 @@ MonoBehaviour:
   turretToBuild: {fileID: 0}
   towerPrefab: {fileID: 0}
   nodeEnabled: 1
+--- !u!114 &114479134214220422
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1259307299947640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e71d1f4475d738744abbd82c79bd9d00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barrier: {fileID: 1764300308992622, guid: 84f97a0bd04910044a58b8e0d37b85b7, type: 2}
+--- !u!114 &114480905629223858
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1124960645855926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e71d1f4475d738744abbd82c79bd9d00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barrier: {fileID: 1764300308992622, guid: 84f97a0bd04910044a58b8e0d37b85b7, type: 2}
 --- !u!114 &114482764660966206
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -26997,6 +27217,30 @@ MonoBehaviour:
   turretToBuild: {fileID: 0}
   towerPrefab: {fileID: 0}
   nodeEnabled: 1
+--- !u!114 &114486922878812598
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1850068252938008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e71d1f4475d738744abbd82c79bd9d00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barrier: {fileID: 1764300308992622, guid: 84f97a0bd04910044a58b8e0d37b85b7, type: 2}
+--- !u!114 &114491090053895950
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1310462209819966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e71d1f4475d738744abbd82c79bd9d00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barrier: {fileID: 1764300308992622, guid: 84f97a0bd04910044a58b8e0d37b85b7, type: 2}
 --- !u!114 &114491128181476406
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -27147,6 +27391,18 @@ MonoBehaviour:
   turretToBuild: {fileID: 0}
   towerPrefab: {fileID: 0}
   nodeEnabled: 1
+--- !u!114 &114512609738922996
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1147477420677690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e71d1f4475d738744abbd82c79bd9d00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barrier: {fileID: 1764300308992622, guid: 84f97a0bd04910044a58b8e0d37b85b7, type: 2}
 --- !u!114 &114519532328630964
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -27520,6 +27776,18 @@ MonoBehaviour:
   turretToBuild: {fileID: 0}
   towerPrefab: {fileID: 0}
   nodeEnabled: 1
+--- !u!114 &114627293565847498
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1140426715017662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e71d1f4475d738744abbd82c79bd9d00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barrier: {fileID: 1764300308992622, guid: 84f97a0bd04910044a58b8e0d37b85b7, type: 2}
 --- !u!114 &114630451357109196
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -27940,6 +28208,18 @@ MonoBehaviour:
   turretToBuild: {fileID: 0}
   towerPrefab: {fileID: 0}
   nodeEnabled: 1
+--- !u!114 &114765675163044634
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1898125299256538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e71d1f4475d738744abbd82c79bd9d00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barrier: {fileID: 1764300308992622, guid: 84f97a0bd04910044a58b8e0d37b85b7, type: 2}
 --- !u!114 &114767049750950772
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -28045,6 +28325,18 @@ MonoBehaviour:
   turretToBuild: {fileID: 0}
   towerPrefab: {fileID: 0}
   nodeEnabled: 1
+--- !u!114 &114836553844481574
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1293021465773486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e71d1f4475d738744abbd82c79bd9d00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barrier: {fileID: 1764300308992622, guid: 84f97a0bd04910044a58b8e0d37b85b7, type: 2}
 --- !u!114 &114838290408681822
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -28135,6 +28427,18 @@ MonoBehaviour:
   turretToBuild: {fileID: 0}
   towerPrefab: {fileID: 0}
   nodeEnabled: 1
+--- !u!114 &114860360800563040
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1831795714204918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e71d1f4475d738744abbd82c79bd9d00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barrier: {fileID: 1764300308992622, guid: 84f97a0bd04910044a58b8e0d37b85b7, type: 2}
 --- !u!114 &114872568788354498
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -28270,6 +28574,18 @@ MonoBehaviour:
   turretToBuild: {fileID: 0}
   towerPrefab: {fileID: 0}
   nodeEnabled: 1
+--- !u!114 &114907231171410592
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1923887365439714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e71d1f4475d738744abbd82c79bd9d00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barrier: {fileID: 1764300308992622, guid: 84f97a0bd04910044a58b8e0d37b85b7, type: 2}
 --- !u!114 &114908871289231628
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -28298,6 +28614,18 @@ MonoBehaviour:
   turretToBuild: {fileID: 0}
   towerPrefab: {fileID: 0}
   nodeEnabled: 1
+--- !u!114 &114910605863613758
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1639570599639752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e71d1f4475d738744abbd82c79bd9d00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barrier: {fileID: 1764300308992622, guid: 84f97a0bd04910044a58b8e0d37b85b7, type: 2}
 --- !u!114 &114911350847927996
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -28335,6 +28663,30 @@ MonoBehaviour:
   timeBetweenEnemies: 0.5
   waveSize: 10
   enemyChange: 1
+--- !u!114 &114914917979735552
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1334792911196500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e71d1f4475d738744abbd82c79bd9d00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barrier: {fileID: 1764300308992622, guid: 84f97a0bd04910044a58b8e0d37b85b7, type: 2}
+--- !u!114 &114916218193950304
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1325255057150664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e71d1f4475d738744abbd82c79bd9d00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barrier: {fileID: 1764300308992622, guid: 84f97a0bd04910044a58b8e0d37b85b7, type: 2}
 --- !u!114 &114921136079587076
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -28380,6 +28732,18 @@ MonoBehaviour:
   turretToBuild: {fileID: 0}
   towerPrefab: {fileID: 0}
   nodeEnabled: 1
+--- !u!114 &114936180620174574
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1637484840565226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e71d1f4475d738744abbd82c79bd9d00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barrier: {fileID: 1764300308992622, guid: 84f97a0bd04910044a58b8e0d37b85b7, type: 2}
 --- !u!114 &114939344141860336
 MonoBehaviour:
   m_ObjectHideFlags: 1
