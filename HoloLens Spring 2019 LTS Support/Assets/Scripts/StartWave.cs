@@ -12,5 +12,5 @@ public class StartWave : MonoBehaviour {
     {
         if(waveSpawner.canStart) //if the wave can start, set canStart to false and begin SpawnWave couroutine
             StartCoroutine(waveSpawner.SpawnWave());
-    }
+    }*/
 }

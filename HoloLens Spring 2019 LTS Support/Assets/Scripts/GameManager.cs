@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
     private int enemyDif = 1; // the enemy type that is being spawned
 
     public Text crashCount;
+    public Text coinCount;
 
     void Update()
     {
@@ -56,6 +57,7 @@ public class GameManager : MonoBehaviour
         }
 
         crashCount.text = "Spawned " + enemyCount.ToString();
+        coinCount.text = "Coins: " + coins.ToString();
     }
     IEnumerator SpawnWave()
     {

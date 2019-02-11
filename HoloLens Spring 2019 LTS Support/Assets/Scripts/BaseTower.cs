@@ -65,7 +65,10 @@ public class BaseTower : MonoBehaviour, IInputClickHandler
         UpdateTarget();
 
         //RotateTower();
-
+        if(currentTarget == null)
+        {
+            return;
+        }
         if (currentTarget.GetComponent<BaseEnemy>().health > 0 && fireRate <= 0f) //checks if the attack is off cooldown 
         {
 
@@ -93,6 +96,11 @@ public class BaseTower : MonoBehaviour, IInputClickHandler
         {
             if (Skeleton.Count != 0)
             {
+                if(Skeleton.Peek() == null)
+                {
+                    Skeleton.Dequeue();
+                    return;
+                }
                 tempTarget = Skeleton.Dequeue();
                 tempTargetScript = tempTarget.GetComponent<BaseEnemy>();
                 if (tempTarget.GetComponent<BaseEnemy>() == null)
@@ -119,6 +127,11 @@ public class BaseTower : MonoBehaviour, IInputClickHandler
             }
             if (Pumpkin.Count != 0 && Bat.Count == 0 && Skeleton.Count == 0)
             {
+                if (Pumpkin.Peek() == null)
+                {
+                    Pumpkin.Dequeue();
+                    return;
+                }
                 tempTarget = Pumpkin.Dequeue();
                 tempTargetScript = tempTarget.GetComponent<BaseEnemy>();
                 if (tempTarget.GetComponent<BaseEnemy>() == null)
@@ -200,13 +213,21 @@ public class BaseTower : MonoBehaviour, IInputClickHandler
         Debug.Log("Enemy Entered");
         if (other.CompareTag("Pumpkin"))
         {
-            Pumpkin.Dequeue();
-            Debug.Log("Pumpkin detected");
+            if(Pumpkin.Count > 0)
+            {
+                Pumpkin.Dequeue();
+                Debug.Log("Pumpkin detected");
+            }
+            
         }
         else if (other.CompareTag("Skeleton"))
         {
-            Skeleton.Dequeue();
-            Debug.Log("Skeleton detected");
+            if(Skeleton.Count > 0)
+            {
+                Skeleton.Dequeue();
+                Debug.Log("Skeleton detected");
+            }
+           
         }
         else if (other.CompareTag("Ghost"))
         {

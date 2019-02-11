@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
+using HoloToolkit.Unity.InputModule;
 
-public class BaseEnemy : MonoBehaviour
+public class BaseEnemy : MonoBehaviour, IInputClickHandler
 {
 
     [Header("Enemy Stats")]
@@ -14,6 +16,11 @@ public class BaseEnemy : MonoBehaviour
     private int WavePointIndex = 0;
     public int waypointPassed;
 
+    public int playerDamage;
+    public int SkeletonsKilled;
+
+    public Text successfulHits;
+
     private void Awake()
     {
         if(this.gameObject.CompareTag("Pumpkin"))
@@ -21,6 +28,7 @@ public class BaseEnemy : MonoBehaviour
             speed = 0.3f;
             health = 20;
             coinDrop = 10;
+            playerDamage = 15;
             
         }
         if(this.gameObject.CompareTag("Ghost"))
@@ -40,6 +48,7 @@ public class BaseEnemy : MonoBehaviour
             speed = 0.7f;
             health = 10;
             coinDrop = 5;
+            playerDamage = 10;
         }
         if (this.gameObject.CompareTag("Boss"))
         {
@@ -63,6 +72,12 @@ public class BaseEnemy : MonoBehaviour
         {
             GetNextWaypoint();
         }
+
+        if(health <= 0)
+        {
+            GameManager.instance.coins += coinDrop;
+            Destroy(this.gameObject);
+        }
     }
 
     void GetNextWaypoint()
@@ -84,6 +99,10 @@ public class BaseEnemy : MonoBehaviour
         WavePointIndex++;
         waypointPassed++;
         target = Waypoints.points[WavePointIndex];
+        if(WavePointIndex >= Waypoints.points.Length -1)
+        {
+            WavePointIndex = 0;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -94,14 +113,12 @@ public class BaseEnemy : MonoBehaviour
         }
         if(other.CompareTag("Bullet"))
         {
-            if(health <= 0)
+            health -= other.GetComponent<Bullet>().bulletDamage;
+            Destroy(other.gameObject);
+            if (health <= 0)
             {
                 GameManager.instance.coins += coinDrop;
                 Destroy(this.gameObject);
-            }
-            if(health > 0)
-            {
-                health -= other.GetComponent<Bullet>().bulletDamage;
             }
         }
     }
@@ -114,5 +131,15 @@ public class BaseEnemy : MonoBehaviour
         }
     }
 
-
+    public void OnInputClicked(InputClickedEventData eventData)
+    {
+        if(GazeManager.Instance.HitInfo.transform.CompareTag("Skeleton"))
+        {
+            Debug.Log("Player Hit A Skeleton");
+            GazeManager.Instance.HitInfo.transform.gameObject.GetComponent<BaseEnemy>().health -= playerDamage;
+            SkeletonsKilled++;
+            successfulHits.text = "Successful Hits: " + SkeletonsKilled.ToString();
+        }
+        throw new System.NotImplementedException();
+    }
 }

@@ -15,7 +15,7 @@ public class WaveSpawner : MonoBehaviour
 
     private int waveIndex = 0;
 
-    public IEnumerator SpawnWave()
+    /*public IEnumerator SpawnWave()
     {
             waveIndex++;
             for (int i = 0; i < waveIndex; i++)
@@ -42,5 +42,5 @@ public class WaveSpawner : MonoBehaviour
         Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
         Instantiate(enemyFastPrefab, spawnPoint.position, spawnPoint.rotation);
 
-    }
+    }*/
 }
