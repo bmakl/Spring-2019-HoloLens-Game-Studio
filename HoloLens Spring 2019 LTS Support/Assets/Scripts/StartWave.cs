@@ -8,7 +8,7 @@ public class StartWave : MonoBehaviour {
     WaveSpawner waveSpawner;
 
 
-    public void OnInputClicked(InputClickedEventData eventData)
+    /*public void OnInputClicked(InputClickedEventData eventData)
     {
         if(waveSpawner.canStart) //if the wave can start, set canStart to false and begin SpawnWave couroutine
             StartCoroutine(waveSpawner.SpawnWave());

@@ -24,8 +24,16 @@ public class WaveSpawner : MonoBehaviour
                 SpawnEnemy();
                 yield return new WaitForSeconds(timeBetweenEnemies);
             }
-
-        canStart = true;
+        }
+        if(waveIndex >= 10)
+        {
+            for(int i = 0; i >= 1; i++)
+            {
+                SpawnEnemy();
+                yield return new WaitForSeconds(timeBetweenEnemies);
+            }
+        }
+        //canStart = true;
 
     }
 
