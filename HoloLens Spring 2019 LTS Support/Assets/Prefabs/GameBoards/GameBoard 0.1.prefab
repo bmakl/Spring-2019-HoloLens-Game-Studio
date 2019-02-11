@@ -28944,8 +28944,8 @@ MonoBehaviour:
   waveCount: 1
   coins: 0
   enemyPrefab:
-  - {fileID: 1427315013456752, guid: 7c48c244524453b4ba836836db6135ff, type: 2}
-  - {fileID: 1427315013456752, guid: 98b547cfefe25134cb3dd48571617e33, type: 2}
+  - {fileID: 1993603284027850, guid: dceeaac21adccfd41ba5ba3de8dd82ef, type: 2}
+  - {fileID: 1993603284027850, guid: dceeaac21adccfd41ba5ba3de8dd82ef, type: 2}
   spawnPoint: {fileID: 4770698886587842}
   enemyType: 0
   timeBetweenWaves: 5
