@@ -26,12 +26,10 @@ public class PathItems : MonoBehaviour, IInputClickHandler
             {
                 if (GameManager.instance.coins > 0) 
                 {
-
+                    //(PlaceItem()); For testing cooldown if needed
+                    GameManager.instance.coins -= 100;
+                    Instantiate(fence, GazeManager.Instance.HitInfo.point, GazeManager.Instance.HitInfo.transform.rotation);
                 }
-                //(PlaceItem()); For testing cooldown if needed
-                GameManager.instance.coins -= 100;
-                Instantiate(fence, GazeManager.Instance.HitInfo.point, GazeManager.Instance.HitInfo.transform.rotation);
-
             }
         }
     }
