@@ -11,6 +11,8 @@ TagManager:
   - Skeleton
   - Bat
   - Boss
+  - Tower
+  - Barricade
   layers:
   - Default
   - TransparentFX
