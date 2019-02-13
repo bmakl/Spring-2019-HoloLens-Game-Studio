@@ -179,12 +179,12 @@ public class BaseTower : MonoBehaviour, IInputClickHandler
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Enemy Entered");
-        if(other.CompareTag("Pumpkin"))
+        if (other.CompareTag("Pumpkin"))
         {
             Pumpkin.Enqueue(other.gameObject);
             Debug.Log("Pumpkin detected");
         }
-        else if(other.CompareTag("Skeleton"))
+        else if (other.CompareTag("Skeleton"))
         {
             Skeleton.Enqueue(other.gameObject);
             Debug.Log("Skeleton detected");
@@ -200,6 +200,10 @@ public class BaseTower : MonoBehaviour, IInputClickHandler
         else if (other.CompareTag("Boss"))
         {
             Boss.Enqueue(other.gameObject);
+        }
+        else if (other.CompareTag("Bullet"))
+        {
+            Debug.Log("Bullet Fired");
         }
         else
         {
@@ -243,7 +247,7 @@ public class BaseTower : MonoBehaviour, IInputClickHandler
         }
         else
         {
-            Debug.LogError("Nothing found. Check enemy tags");
+            Debug.LogWarning("Nothing found. Check enemy tags");
         }
     }
 

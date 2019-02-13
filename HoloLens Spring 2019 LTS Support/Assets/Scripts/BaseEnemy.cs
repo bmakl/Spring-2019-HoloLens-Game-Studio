@@ -140,6 +140,5 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
             SkeletonsKilled++;
             successfulHits.text = "Successful Hits: " + SkeletonsKilled.ToString();
         }
-        throw new System.NotImplementedException();
     }
 }

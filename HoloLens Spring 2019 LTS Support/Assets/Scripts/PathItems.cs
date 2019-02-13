@@ -24,7 +24,7 @@ public class PathItems : MonoBehaviour, IInputClickHandler
             Debug.Log(GazeManager.Instance.HitInfo.collider.name);
             if (GazeManager.Instance.HitInfo.collider.CompareTag("Path"))
             {
-                if (GameManager.instance.coins > 0) 
+                if (GameManager.instance.coins >=100 ) 
                 {
                     //(PlaceItem()); For testing cooldown if needed
                     GameManager.instance.coins -= 100;
