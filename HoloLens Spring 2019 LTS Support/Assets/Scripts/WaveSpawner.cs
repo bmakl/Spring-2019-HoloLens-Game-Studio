@@ -8,23 +8,32 @@ public class WaveSpawner : MonoBehaviour
     public GameObject enemyFastPrefab;
     public Transform spawnPoint;
 
-    public float timeBetweenWaves = 5f;
+    public float timeBetweenWaves = 9f;
     private float countdown = 2f;
-    public bool canStart = true;
-    public float timeBetweenEnemies = 0.5f;
+    public float timeBetweenEnemies = 1f;
+    public bool canStart;
 
     private int waveIndex = 0;
 
-    public IEnumerator SpawnWave()
+    /*public IEnumerator SpawnWave()
     {
-        waveIndex++;
-        for (int i = 0; i < waveIndex; i++)
-        {
-            canStart = false;
-            SpawnEnemy();
-            yield return new WaitForSeconds(timeBetweenEnemies);
+            waveIndex++;
+            for (int i = 0; i < waveIndex; i++)
+            {
+                canStart = false;
+                SpawnEnemy();
+                yield return new WaitForSeconds(timeBetweenEnemies);
+            }
         }
-        canStart = true;
+        if(waveIndex >= 10)
+        {
+            for(int i = 0; i >= 1; i++)
+            {
+                SpawnEnemy();
+                yield return new WaitForSeconds(timeBetweenEnemies);
+            }
+        }
+        //canStart = true;
 
     }
 
@@ -33,5 +42,5 @@ public class WaveSpawner : MonoBehaviour
         Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
         Instantiate(enemyFastPrefab, spawnPoint.position, spawnPoint.rotation);
 
-    }
+    }*/
 }

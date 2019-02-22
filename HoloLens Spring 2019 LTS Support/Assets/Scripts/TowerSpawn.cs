@@ -10,6 +10,7 @@ public class TowerSpawn : MonoBehaviour, IInputHandler, IInputClickHandler
     public GameObject turretToBuild;
     public GameObject towerPrefab;
     public bool nodeEnabled = true;
+    public GameObject[] Towers;
 
     Renderer rend;
     public void Start()
@@ -33,24 +34,29 @@ public class TowerSpawn : MonoBehaviour, IInputHandler, IInputClickHandler
                 Debug.Log("Already Turret On Node");
                 return;
             }
-            towerPrefab = turretToBuild;
+            PlaceTower();
             Instantiate(towerPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
         }
         else
         {
 
         }
-    }
-
-    /* this was to test if the turret actually spawns but my PC (Thomas Murphy) won't let me click with the Hololens Kit.
-    void Update()
+    }private void PlaceTower()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        switch (TowerManager.towerNumber)
         {
-            Instantiate(towerPrefab, transform.position, transform.rotation);
+            case 0:
+                towerPrefab = Towers[0];
+                break;
+
+            case 1:
+                towerPrefab = Towers[1];
+                break;
+            case 2:
+                towerPrefab = Towers[2];
+                break;
         }
-    }
-    */
+    }   
 
     public void OnInputDown(InputEventData eventData)
     {

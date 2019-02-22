@@ -7,20 +7,17 @@ public class UITowerSelect : MonoBehaviour, IInputHandler, IInputClickHandler
 {
     public GameObject tower;
     public GameObject[] nodes;
+    [SerializeField] private int towerID;
 
     void Start()
     {
-        nodes = GameObject.FindGameObjectsWithTag("Node");
+
     }
 
     public void OnInputClicked(InputClickedEventData eventData)
     {
         Debug.Log("nice click");
-        foreach (GameObject node in nodes)
-        {
-            Debug.Log("node lol");
-            node.GetComponent<TowerSpawn>().turretToBuild = tower;
-        }
+        TowerManager.towerNumber = towerID;
     }
 
     public void OnInputDown(InputEventData eventData)
