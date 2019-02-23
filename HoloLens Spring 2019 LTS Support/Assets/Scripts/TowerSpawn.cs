@@ -10,6 +10,7 @@ public class TowerSpawn : MonoBehaviour, IInputHandler, IInputClickHandler
     public GameObject turretToBuild;
     public GameObject towerPrefab;
     public bool nodeEnabled = true;
+    [Header("Available Towers")]
     public GameObject[] Towers;
 
     Renderer rend;
@@ -36,24 +37,35 @@ public class TowerSpawn : MonoBehaviour, IInputHandler, IInputClickHandler
             }
             PlaceTower();
             Instantiate(towerPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
+            GameManager.instance.coins -= towerPrefab.gameObject.GetComponent<BaseTower>().price;
         }
         else
         {
 
         }
-    }private void PlaceTower()
+    }
+
+    private void PlaceTower()
     {
+        //Assigns Tower Prefab
         switch (TowerManager.towerNumber)
         {
             case 0:
+                //Base Tower
                 towerPrefab = Towers[0];
                 break;
 
             case 1:
+                //Melee Tower
                 towerPrefab = Towers[1];
                 break;
             case 2:
+                //Debuff Tower
                 towerPrefab = Towers[2];
+                break;
+            case 3:
+                //Powerful Tower
+                towerPrefab = Towers[3];
                 break;
         }
     }   

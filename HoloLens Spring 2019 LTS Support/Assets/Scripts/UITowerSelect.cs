@@ -7,7 +7,7 @@ public class UITowerSelect : MonoBehaviour, IInputHandler, IInputClickHandler
 {
     public GameObject tower;
     public GameObject[] nodes;
-    [SerializeField] private int towerID;
+    public int towerID;
 
     void Start()
     {
@@ -16,7 +16,7 @@ public class UITowerSelect : MonoBehaviour, IInputHandler, IInputClickHandler
 
     public void OnInputClicked(InputClickedEventData eventData)
     {
-        Debug.Log("nice click");
+        Debug.Log("Tower Prefab Selected");
         TowerManager.towerNumber = towerID;
     }
 

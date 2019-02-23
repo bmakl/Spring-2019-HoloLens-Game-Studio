@@ -21,6 +21,7 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
 
     public Text successfulHits;
 
+    #region EnemySetup
     private void Awake()
     {
         if(this.gameObject.CompareTag("Pumpkin"))
@@ -57,6 +58,7 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
             coinDrop = 250;
         }
     }
+    #endregion
 
     void Start()
     {

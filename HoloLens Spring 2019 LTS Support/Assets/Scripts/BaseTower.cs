@@ -10,9 +10,11 @@ public class BaseTower : MonoBehaviour, IInputClickHandler
     [Header("Turret Base Stats")]
     public float radius = 5f;
     public float attackSpeed = 1f;
+    public int price = 100;
     [HideInInspector]
     public float fireRate = 0f;
     public float attackDamage = 10f;
+
 
     [Header("Turret Upgrade 1 Stats")]
     public float upgrade1Damage = 3f;
@@ -42,7 +44,7 @@ public class BaseTower : MonoBehaviour, IInputClickHandler
 
     public float clicks = 0;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         Pumpkin = new Queue<GameObject>();
         Skeleton = new Queue<GameObject>();
@@ -50,6 +52,40 @@ public class BaseTower : MonoBehaviour, IInputClickHandler
         Ghost = new Queue<GameObject>();
         Boss = new Queue<GameObject>();
         TargetingLevel = 1;
+        #region TowerAssign
+        if(this.gameObject.CompareTag("BaseTower"))
+        {
+            radius = 5f;
+            attackDamage = 10f;
+            attackSpeed = 1f;
+            fireRate = 0f;
+            price = 100;
+        }
+        if(this.gameObject.CompareTag("MeleeTower"))
+        {
+            radius = 1f;
+            attackDamage = 15f;
+            fireRate = 0f;
+            attackSpeed = 0.5f;
+            price = 150;
+        }
+        if(this.gameObject.CompareTag("DebuffTower"))
+        {
+            radius = 3f;
+            attackDamage = 5f;
+            attackSpeed = 1.5f;
+            fireRate = 0f;
+            price = 250;
+        }
+        if(this.gameObject.CompareTag("PowerfulTower"))
+        {
+            radius = 5f;
+            attackDamage = 30f;
+            attackSpeed = 0.5f;
+            fireRate = 0f;
+            price = 700;
+        }
+        #endregion
     }
 
     private void Start()
@@ -92,6 +128,7 @@ public class BaseTower : MonoBehaviour, IInputClickHandler
     public virtual void UpdateTarget() //Updates the target to the first target that enters the radius
     {
         BaseEnemy tempTargetScript;
+        #region TargetingLevel1
         if(TargetingLevel == 1)
         {
             if (Skeleton.Count != 0)
@@ -171,6 +208,7 @@ public class BaseTower : MonoBehaviour, IInputClickHandler
             }
 
         }
+        #endregion
 
 
 

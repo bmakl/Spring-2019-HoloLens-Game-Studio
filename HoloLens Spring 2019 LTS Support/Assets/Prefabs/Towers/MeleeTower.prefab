@@ -53,6 +53,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4438563501866786}
+  - component: {fileID: 135412285166547006}
+  - component: {fileID: 114881053778569022}
   m_Layer: 0
   m_Name: MeleeTower
   m_TagString: Untagged
@@ -67,7 +69,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1376839291771696}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.128, y: -5.447, z: -0.82561}
+  m_LocalPosition: {x: -7.7971787, y: -0.22067907, z: 0.007329285}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children:
   - {fileID: 4984593556309008}
@@ -167,12 +169,56 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 1
   attackSpeed: 1
-  attackCountdown: 0
+  price: 100
+  fireRate: 0
   attackDamage: 1
-  health: 1
-  turnSpeed: 12
-  enemyTag: Enemy
-  target: {fileID: 0}
-  rotatingPart: {fileID: 0}
+  upgrade1Damage: 3
+  upgrade1AttackSpeed: 3
+  upgrade1Radius: 6
+  upgrade2Damage: 5
+  upgrade2AttackSpeed: 5
+  upgrade2Range: 7
   bulletPrefab: {fileID: 0}
   firePoint: {fileID: 0}
+  TargetingLevel: 0
+  clicks: 0
+  attackCountdown: 0
+--- !u!114 &114881053778569022
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1376839291771696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3edcbb6b3a5b1f45bd174fc79ef1adb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 5
+  attackSpeed: 1
+  price: 100
+  fireRate: 0
+  attackDamage: 10
+  upgrade1Damage: 3
+  upgrade1AttackSpeed: 3
+  upgrade1Radius: 6
+  upgrade2Damage: 5
+  upgrade2AttackSpeed: 5
+  upgrade2Range: 7
+  bulletPrefab: {fileID: 0}
+  firePoint: {fileID: 0}
+  TargetingLevel: 0
+  clicks: 0
+  attackCountdown: 0
+--- !u!135 &135412285166547006
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1376839291771696}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.75
+  m_Center: {x: 0, y: 0, z: 0}
