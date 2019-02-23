@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4902909960367968}
   - component: {fileID: 33050797184424054}
   - component: {fileID: 23805213407184292}
+  - component: {fileID: 64748603877092428}
+  - component: {fileID: 114116896726168920}
   m_Layer: 0
   m_Name: pCube11
   m_TagString: Untagged
@@ -50,7 +52,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1366295198757008}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -8.80933, y: -0.122864544, z: 0.6673619}
+  m_LocalPosition: {x: -8.773344, y: -0.1234, z: 0.89736223}
   m_LocalScale: {x: 0.0007, y: 0.0005, z: 0.0007}
   m_Children:
   - {fileID: 4902909960367968}
@@ -64,7 +66,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1024193035481836}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 29.2, z: 0}
+  m_LocalPosition: {x: -0, y: 88.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4574863425577560}
@@ -111,3 +113,29 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1024193035481836}
   m_Mesh: {fileID: 4300000, guid: 65a4349c522da134d8cfbb84158f5875, type: 3}
+--- !u!64 &64748603877092428
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1024193035481836}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 65a4349c522da134d8cfbb84158f5875, type: 3}
+--- !u!114 &114116896726168920
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1024193035481836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 734f7ddd084871f41a6d0ed0108850e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageToEnemy: 30
