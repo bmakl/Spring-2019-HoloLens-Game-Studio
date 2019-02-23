@@ -4,30 +4,15 @@ using UnityEngine;
 using HoloToolkit.Unity.InputModule;
 using UnityEngine.UI;
 
-public class TowerInfo : MonoBehaviour {
+public class TowerInfo : MonoBehaviour, IInputClickHandler
+{
 
     public Text txt;
     public BaseTower baseTower;
 
-    void OnFocusEnter()
+    public void OnInputClicked(InputClickedEventData eventData)
     {
-        StartCoroutine(showInfo());
-    }
-
-    void OnFocusExit()
-    {
-        StartCoroutine(hideInfo());
-    }
-
-    IEnumerator showInfo()
-    {
-        yield return new WaitForSeconds(2);
-        txt.text = "Damage: " + baseTower.attackDamage + " Radius: " + baseTower.radius + " Fire rate: " + baseTower.attackSpeed;
-    }
-
-    IEnumerator hideInfo()
-    {
-        txt.text = " ";
-        yield return new WaitForSeconds(0);
+        BaseTower stats = GazeManager.Instance.HitInfo.transform.GetComponent<BaseTower>();
+        txt.text = "Damage: " + stats.attackDamage + " Attack Speed: " + stats.attackSpeed + " Range: " + stats.radius;
     }
 }
