@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using HoloToolkit.Unity.InputModule;
 
-public class UITowerSelect : MonoBehaviour, IInputHandler, IInputClickHandler
+public class UITowerSelect : MonoBehaviour, IInputClickHandler
 {
     public GameObject tower;
     public GameObject[] nodes;
@@ -18,15 +18,5 @@ public class UITowerSelect : MonoBehaviour, IInputHandler, IInputClickHandler
     {
         Debug.Log("Tower Prefab Selected");
         TowerManager.towerNumber = towerID;
-    }
-
-    public void OnInputDown(InputEventData eventData)
-    {
-        Debug.Log("down click");
-    }
-
-    public void OnInputUp(InputEventData eventData)
-    {
-        Debug.Log("up click");
     }
 }

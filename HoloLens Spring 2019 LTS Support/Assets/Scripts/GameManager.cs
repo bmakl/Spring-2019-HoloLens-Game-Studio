@@ -48,6 +48,9 @@ public class GameManager : MonoBehaviour
     public Text crashCount;
     public Text coinCount;
 
+    public GameObject trapToSpawn;
+    public float trapCost;
+
     void Update()
     {
         Spawner(); // so it spawns without the start button

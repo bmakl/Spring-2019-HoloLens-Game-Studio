@@ -15,6 +15,12 @@ TagManager:
   - Barricade
   - Path
   - Bullet
+  - BaseTower
+  - MeleeTower
+  - DebuffTower
+  - PowerfulTower
+  - FenceTrapUI
+  - NetTrapUI
   layers:
   - Default
   - TransparentFX

@@ -99,15 +99,17 @@ public class BaseTower : MonoBehaviour, IInputClickHandler
     {
 
         UpdateTarget();
-
+        Debug.Log(fireRate);
+        Debug.Log(currentTarget);
         //RotateTower();
         if(currentTarget == null)
         {
+            Debug.LogWarning("No Enemy");
             return;
         }
         if (currentTarget.GetComponent<BaseEnemy>().health > 0 && fireRate <= 0f) //checks if the attack is off cooldown 
         {
-
+            Debug.Log("shooting at" + currentTarget.tag);
             Shoot();
 
             fireRate = 1f / attackSpeed;

@@ -109,7 +109,7 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Tower"))
+        if(other.CompareTag("BaseTower") || other.CompareTag("PowerfulTower") || other.CompareTag("DebuffTower") || other.CompareTag("MeleeTower"))
         {
             eligibleTarget = true;
         }

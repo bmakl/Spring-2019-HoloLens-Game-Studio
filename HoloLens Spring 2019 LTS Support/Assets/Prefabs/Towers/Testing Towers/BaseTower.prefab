@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 114089405356951970}
   m_Layer: 0
   m_Name: BaseTower
-  m_TagString: Tower
+  m_TagString: BaseTower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -224,6 +224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 5
   attackSpeed: 1
+  price: 100
   fireRate: 0
   attackDamage: 10
   upgrade1Damage: 3
