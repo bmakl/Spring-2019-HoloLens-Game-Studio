@@ -32,7 +32,7 @@ public class MeleeTower : BaseTower
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Pumpkin") || other.CompareTag("Skeleton") || other.CompareTag("Ghost")||other.CompareTag("Bat") || other.CompareTag("Zombie") || other.CompareTag("Boss"))
+        if(other.CompareTag("Pumpkin") || other.CompareTag("Skeleton") || other.CompareTag("Ghost")||other.CompareTag("Bat") || other.CompareTag("Boss"))
         {
             //found enemies   
             if (attackCountdown <= 0f) //checks if the attack is off cooldown 
