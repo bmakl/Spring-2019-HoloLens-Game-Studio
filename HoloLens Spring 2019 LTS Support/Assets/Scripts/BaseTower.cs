@@ -247,6 +247,18 @@ public class BaseTower : MonoBehaviour, IInputClickHandler
         {
             Debug.LogError("Nothing found. Check enemy tags");
         }
+
+        if(this.gameObject.CompareTag("Debuff Tower"))
+        {
+            if(!other.gameObject.GetComponent<BaseEnemy>().slowed)
+            {
+
+                other.gameObject.GetComponent<BaseEnemy>().speed = other.gameObject.GetComponent<BaseEnemy>().speed * 0.5f; ;
+                other.gameObject.GetComponent<BaseEnemy>().slowed = true;
+            }
+            
+        }
+
     }
 
     void OnTriggerExit(Collider other)
@@ -286,6 +298,12 @@ public class BaseTower : MonoBehaviour, IInputClickHandler
         else
         {
             Debug.LogWarning("Nothing found. Check enemy tags");
+        }
+
+        if(this.gameObject.CompareTag("Debuff Tower"))
+        {
+            other.gameObject.GetComponent<BaseEnemy>().speed = other.gameObject.GetComponent<BaseEnemy>().speed * 2f;
+            other.gameObject.GetComponent<BaseEnemy>().slowed = false;
         }
     }
 
