@@ -113,7 +113,20 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
         {
             eligibleTarget = true;
         }
-        if(other.CompareTag("Bullet"))
+        if (other.CompareTag("Bullet") && this.CompareTag("Ghost"))
+        {
+            var ghostScrirpt = GetComponent<GhostEnemy>();
+            if (!ghostScrirpt.targetable)
+            {
+                Destroy(other.gameObject);
+            }
+            else
+            {
+                GameManager.instance.coins += coinDrop;
+                Destroy(this.gameObject);
+            }
+        }
+        else if(other.CompareTag("Bullet"))
         {
             health -= other.GetComponent<Bullet>().bulletDamage;
             Destroy(other.gameObject);
