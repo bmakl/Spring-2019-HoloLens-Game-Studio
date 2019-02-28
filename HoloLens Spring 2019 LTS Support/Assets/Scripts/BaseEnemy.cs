@@ -11,6 +11,8 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
     public float health;
     public int coinDrop;
     public bool eligibleTarget;
+    public bool SkeletonHit;
+    public bool slowed;
 
     private Transform target;
     private int WavePointIndex = 0;
@@ -29,7 +31,8 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
             speed = 0.3f;
             health = 20;
             coinDrop = 10;
-            playerDamage = 15;
+            playerDamage = 1;
+            slowed = false;
             
         }
         if(this.gameObject.CompareTag("Ghost"))
@@ -37,25 +40,33 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
             speed = 0.1f;
             health = 35;
             coinDrop = 20;
+            playerDamage = 1;
+            slowed = false;
         }
         if (this.gameObject.CompareTag("Bat"))
         {
             speed = 0.6f;
             health = 15;
             coinDrop = 15;
+            playerDamage = 1;
+            slowed = false;
         }
         if (this.gameObject.CompareTag("Skeleton"))
         {
             speed = 0.7f;
             health = 10;
             coinDrop = 5;
-            playerDamage = 10;
+            playerDamage = 1;
+            SkeletonHit = false;
+            slowed = false;
         }
         if (this.gameObject.CompareTag("Boss"))
         {
             speed = 0.06f;
             health = 500;
             coinDrop = 250;
+            playerDamage = 1;
+            slowed = false;
         }
     }
     #endregion
@@ -80,6 +91,8 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
             GameManager.instance.coins += coinDrop;
             Destroy(this.gameObject);
         }
+
+       
     }
 
     void GetNextWaypoint()
@@ -109,7 +122,7 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("BaseTower") || other.CompareTag("PowerfulTower") || other.CompareTag("DebuffTower") || other.CompareTag("MeleeTower"))
+        if(other.CompareTag("Basic Tower") || other.CompareTag("Melee Tower") || other.CompareTag("Debuff Tower") || other.CompareTag("Powerful Tower"))
         {
             eligibleTarget = true;
         }
@@ -126,7 +139,35 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
                 Destroy(this.gameObject);
             }
         }
-        else if(other.CompareTag("Bullet"))
+        if(other.CompareTag("Bullet") && this.CompareTag("Skeleton"))
+        {
+            if(!SkeletonHit)
+            {
+                health -= other.GetComponent<Bullet>().bulletDamage;
+                Destroy(other.gameObject);
+                if (health <= 0)
+                {
+                    GameManager.instance.coins += coinDrop;
+                    Destroy(this.gameObject);
+                }
+                SkeletonHit = true;
+                if (SkeletonHit)
+                {
+                    this.gameObject.GetComponent<BaseEnemy>().speed *= 2;
+                }
+            }
+            else
+            {
+                health -= other.GetComponent<Bullet>().bulletDamage;
+                Destroy(other.gameObject);
+                if (health <= 0)
+                {
+                    GameManager.instance.coins += coinDrop;
+                    Destroy(this.gameObject);
+                }
+            }
+        }
+        else if(other.CompareTag("Bullet") && !this.CompareTag("Skeleton") && !this.CompareTag("Ghost"))
         {
             health -= other.GetComponent<Bullet>().bulletDamage;
             Destroy(other.gameObject);
@@ -135,6 +176,12 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
                 GameManager.instance.coins += coinDrop;
                 Destroy(this.gameObject);
             }
+        }
+
+        if(other.CompareTag("End"))
+        {
+            Destroy(this.gameObject);
+            GameManager.instance.health -= playerDamage;
         }
     }
 

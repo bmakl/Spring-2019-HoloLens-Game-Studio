@@ -355,7 +355,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4840770591072466, guid: a416ad26193535347b8fe548659c4075, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -8.2
+      value: -8.17
       objectReference: {fileID: 0}
     - target: {fileID: 4840770591072466, guid: a416ad26193535347b8fe548659c4075, type: 2}
       propertyPath: m_LocalPosition.y
@@ -562,6 +562,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114914415942736802, guid: 7d82aa180f50cc64898698e438005be0,
+        type: 2}
+      propertyPath: enemyPrefab.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4488335909121002, guid: 7d82aa180f50cc64898698e438005be0, type: 2}
       propertyPath: m_LocalPosition.x
       value: -8.72
@@ -613,7 +618,39 @@ Prefab:
       propertyPath: m_TagString
       value: Tower
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114914415942736802, guid: 7d82aa180f50cc64898698e438005be0,
+        type: 2}
+      propertyPath: coins
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 114914415942736802, guid: 7d82aa180f50cc64898698e438005be0,
+        type: 2}
+      propertyPath: enemyPrefab.Array.data[2]
+      value: 
+      objectReference: {fileID: 1993603284027850, guid: dceeaac21adccfd41ba5ba3de8dd82ef,
+        type: 2}
+    - target: {fileID: 114914415942736802, guid: 7d82aa180f50cc64898698e438005be0,
+        type: 2}
+      propertyPath: enemyPrefab.Array.data[3]
+      value: 
+      objectReference: {fileID: 1993603284027850, guid: dceeaac21adccfd41ba5ba3de8dd82ef,
+        type: 2}
+    - target: {fileID: 114914415942736802, guid: 7d82aa180f50cc64898698e438005be0,
+        type: 2}
+      propertyPath: waveSize
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 65997018729909684, guid: 7d82aa180f50cc64898698e438005be0,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930556758890258, guid: 7d82aa180f50cc64898698e438005be0, type: 2}
+      propertyPath: m_TagString
+      value: End
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114218693823964052, guid: 7d82aa180f50cc64898698e438005be0, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 7d82aa180f50cc64898698e438005be0, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1892611209
