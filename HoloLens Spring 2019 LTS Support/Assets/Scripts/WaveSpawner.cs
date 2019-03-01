@@ -3,44 +3,55 @@ using System.Collections;
 
 public class WaveSpawner : MonoBehaviour
 {
+    public static int enemiesAlive;
+    public static bool waveStart = false;
+    [SerializeField] Wave[] waves;
 
-    public GameObject enemyPrefab;
-    public GameObject enemyFastPrefab;
-    public Transform spawnPoint;
+    [SerializeField] Transform spawnPoint;
 
-    public float timeBetweenWaves = 9f;
+    [SerializeField] float timeBetweenWave = 5f;
     private float countdown = 2f;
-    public float timeBetweenEnemies = 1f;
-    public bool canStart;
 
     private int waveIndex = 0;
 
-    /*public IEnumerator SpawnWave()
+    private void Update()
     {
-            waveIndex++;
-            for (int i = 0; i < waveIndex; i++)
-            {
-                canStart = false;
-                SpawnEnemy();
-                yield return new WaitForSeconds(timeBetweenEnemies);
-            }
-        }
-        if(waveIndex >= 10)
+        if (!   GameManager.instance.Spawn)
         {
-            for(int i = 0; i >= 1; i++)
-            {
-                SpawnEnemy();
-                yield return new WaitForSeconds(timeBetweenEnemies);
-            }
+            Debug.Log("Wave status is " + waveStart);
+            countdown = 0;
+            return;
         }
-        //canStart = true;
+        if (countdown <= 0)
+        {
+            StartCoroutine(SpawnWave());
+            countdown = timeBetweenWave;
+            return;
+        }
 
+        countdown -= Time.deltaTime;
     }
 
-    void SpawnEnemy()
+    IEnumerator SpawnWave()
     {
-        Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
-        Instantiate(enemyFastPrefab, spawnPoint.position, spawnPoint.rotation);
+        Wave wave = waves[waveIndex];
+        Debug.Log("Wave Spawning");
+        for (int i = 0; i < wave.count; i++)
+        {
+            foreach (var e in wave.enemy)
+            {
+                SpawnEnemy(e);
+            }
+            yield return new WaitForSeconds(1f / wave.spawnRate);
+        }
+        GameManager.instance.Spawn = false;
+        waveIndex++;
+    }
 
-    }*/
+    void SpawnEnemy(GameObject enemy)
+    {
+        Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
+        enemiesAlive++;
+    }
+
 }
