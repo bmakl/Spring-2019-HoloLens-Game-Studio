@@ -417,7 +417,7 @@ Prefab:
     - target: {fileID: 114742747811649402, guid: 3eddd1c29199313478dd3f912bfab2ab,
         type: 2}
       propertyPath: Cursor
-      value: 
+      value:
       objectReference: {fileID: 1576676463}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3eddd1c29199313478dd3f912bfab2ab, type: 2}
@@ -509,11 +509,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 224712102654352220, guid: 7d82aa180f50cc64898698e438005be0,
+    - target: {fileID: 114005150097899864, guid: 7d82aa180f50cc64898698e438005be0,
         type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: defaultMaterial
+      value:
+      objectReference: {fileID: 1236123049}
+    - target: {fileID: 114914415942736802, guid: 7d82aa180f50cc64898698e438005be0,
+        type: 2}
+      propertyPath: crashCount
+      value:
+      objectReference: {fileID: 865146182}
+    - target: {fileID: 114914415942736802, guid: 7d82aa180f50cc64898698e438005be0,
+        type: 2}
+      propertyPath: coinCount
+      value:
+      objectReference: {fileID: 1896877459}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d82aa180f50cc64898698e438005be0, type: 2}
   m_IsPrefabParent: 0
