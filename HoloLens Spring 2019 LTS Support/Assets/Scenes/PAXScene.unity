@@ -331,6 +331,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114914415942736802, guid: 7d82aa180f50cc64898698e438005be0,
+        type: 2}
+      propertyPath: enemyPrefab.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4488335909121002, guid: 7d82aa180f50cc64898698e438005be0, type: 2}
       propertyPath: m_LocalPosition.x
       value: -8.72
@@ -373,7 +378,25 @@ Prefab:
       propertyPath: crashCount
       value: 
       objectReference: {fileID: 518285139}
-    m_RemovedComponents: []
+    - target: {fileID: 114914415942736802, guid: 7d82aa180f50cc64898698e438005be0,
+        type: 2}
+      propertyPath: enemyPrefab.Array.data[2]
+      value: 
+      objectReference: {fileID: 1427315013456752, guid: 2e9cc2a2d70fa404bae73cad6c4f2392,
+        type: 2}
+    - target: {fileID: 114914415942736802, guid: 7d82aa180f50cc64898698e438005be0,
+        type: 2}
+      propertyPath: enemyPrefab.Array.data[3]
+      value: 
+      objectReference: {fileID: 1427315013456752, guid: e5a7b2ca39c800149ae514b09acb3113,
+        type: 2}
+    - target: {fileID: 114914415942736802, guid: 7d82aa180f50cc64898698e438005be0,
+        type: 2}
+      propertyPath: waveSize
+      value: 10
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114218693823964052, guid: 7d82aa180f50cc64898698e438005be0, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 7d82aa180f50cc64898698e438005be0, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1892611209
