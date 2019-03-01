@@ -114,10 +114,6 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
         WavePointIndex++;
         waypointPassed++;
         target = Waypoints.points[WavePointIndex];
-        if(WavePointIndex >= Waypoints.points.Length -1)
-        {
-            WavePointIndex = 0;
-        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -178,16 +174,11 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
             }
         }
 
-        if(other.CompareTag("End"))
-        {
-            Destroy(this.gameObject);
-            GameManager.instance.health -= playerDamage;
-        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.CompareTag("Tower"))
+        if(other.CompareTag("Basic Tower") || other.CompareTag("Melee Tower") || other.CompareTag("Powerful Tower") || other.CompareTag("Debuff Tower"))
         {
             eligibleTarget = false;
         }
