@@ -36,8 +36,12 @@ public class TowerSpawn : MonoBehaviour, IInputHandler, IInputClickHandler
                 return;
             }
             PlaceTower();
-            Instantiate(towerPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
-            GameManager.instance.coins -= towerPrefab.gameObject.GetComponent<BaseTower>().price;
+            if (towerPrefab.gameObject.GetComponentInChildren<BaseTower>().price <= GameManager.instance.coins)
+            {
+                Instantiate(towerPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
+                GameManager.instance.coins -= towerPrefab.gameObject.GetComponentInChildren<BaseTower>().price;
+            }
+           
         }
         else
         {

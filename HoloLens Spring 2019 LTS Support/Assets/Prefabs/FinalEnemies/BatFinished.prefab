@@ -36,8 +36,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4238808857834062}
-  - component: {fileID: 54005948087077126}
-  - component: {fileID: 114989929852648682}
+  - component: {fileID: 135370223031638280}
+  - component: {fileID: 54649645108577582}
+  - component: {fileID: 114308140964956856}
   m_Layer: 0
   m_Name: BatFinished
   m_TagString: Bat
@@ -55,7 +56,6 @@ GameObject:
   - component: {fileID: 4071111127909928}
   - component: {fileID: 33120659959004660}
   - component: {fileID: 23918233327209176}
-  - component: {fileID: 64991046415154992}
   m_Layer: 0
   m_Name: textureEditorIsolateSelectSet_polySurface6
   m_TagString: Bat
@@ -83,7 +83,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1536739264251938}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.4214, y: -0.073, z: 0.266}
+  m_LocalPosition: {x: -0.38783348, y: -0.30317795, z: 2.2817352}
   m_LocalScale: {x: 0.0078, y: 0.0078, z: 0.0078}
   m_Children:
   - {fileID: 4651810647145726}
@@ -186,7 +186,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1137681828970172}
   m_Mesh: {fileID: 4300000, guid: fa2e05780affc2e4f86ae1a4546de7bc, type: 3}
---- !u!54 &54005948087077126
+--- !u!54 &54649645108577582
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -201,21 +201,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &64991046415154992
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1660579226287978}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300002, guid: fa2e05780affc2e4f86ae1a4546de7bc, type: 3}
---- !u!114 &114989929852648682
+--- !u!114 &114308140964956856
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -238,3 +224,15 @@ MonoBehaviour:
   playerDamage: 0
   SkeletonsKilled: 0
   successfulHits: {fileID: 0}
+--- !u!135 &135370223031638280
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1536739264251938}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.2
+  m_Center: {x: 0, y: 0, z: 0}
