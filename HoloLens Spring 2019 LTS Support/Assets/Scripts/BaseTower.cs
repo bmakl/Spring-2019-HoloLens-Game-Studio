@@ -66,7 +66,7 @@ public class BaseTower : MonoBehaviour, IInputClickHandler
             radius = 1f;
             attackDamage = 15f;
             fireRate = 0f;
-            attackSpeed = 0.5f;
+            attackSpeed = 0.25f;
             price = 150;
         }
         else if(this.gameObject.CompareTag("DebuffTower"))
