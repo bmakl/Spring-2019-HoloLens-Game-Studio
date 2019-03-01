@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4855360353324358}
   m_Layer: 0
   m_Name: PowerfulTower
-  m_TagString: Untagged
+  m_TagString: Powerful Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

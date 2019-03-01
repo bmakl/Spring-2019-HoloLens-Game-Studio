@@ -61,7 +61,7 @@ public class BaseTower : MonoBehaviour, IInputClickHandler
             fireRate = 0f;
             price = 100;
         }
-        if(this.gameObject.CompareTag("MeleeTower"))
+        else if(this.gameObject.CompareTag("MeleeTower"))
         {
             radius = 1f;
             attackDamage = 15f;
@@ -69,7 +69,7 @@ public class BaseTower : MonoBehaviour, IInputClickHandler
             attackSpeed = 0.5f;
             price = 150;
         }
-        if(this.gameObject.CompareTag("DebuffTower"))
+        else if(this.gameObject.CompareTag("DebuffTower"))
         {
             radius = 3f;
             attackDamage = 5f;
@@ -77,7 +77,7 @@ public class BaseTower : MonoBehaviour, IInputClickHandler
             fireRate = 0f;
             price = 250;
         }
-        if(this.gameObject.CompareTag("PowerfulTower"))
+        else if(this.gameObject.CompareTag("PowerfulTower"))
         {
             radius = 5f;
             attackDamage = 30f;

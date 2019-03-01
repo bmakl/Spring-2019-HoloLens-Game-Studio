@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4058830401342016}
   m_Layer: 0
   m_Name: MeleeTower
-  m_TagString: Untagged
+  m_TagString: Melee Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
