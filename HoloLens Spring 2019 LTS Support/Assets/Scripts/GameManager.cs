@@ -34,15 +34,15 @@ public class GameManager : MonoBehaviour
     //public GameObject enemyFastPrefab;
     public Transform spawnPoint;
 
-    public int enemyType = 0;
-    public float timeBetweenWaves = 5f;
+    public int enemyType = 0; // the enemy that si being spawned
+    public float timeBetweenWaves = 5f; // time between waves, can be changed in inspactor 
     private float countdown = 2f;
-    public float timeBetweenEnemies = 0.5f;
+    public float timeBetweenEnemies = 0.5f; //time between enemies can be changed in inspector
     public int waveSize = 10;
 
     private int waveIndex = 0;
-    private int enemyCount = 0; // how many enemies have spawned in the wave
-    public int enemyChange = 1; // change to the type of enemy at this number of enemies spawned
+    private int enemyCount = 0; // how many enemies have spawned in the wave, resets after each wave
+    // public int enemyChange = 1; 
     private int enemyDif = 1; // the enemy type that is being spawned
 
     public Text crashCount;
@@ -85,10 +85,9 @@ public class GameManager : MonoBehaviour
             SpawnEnemy();
             yield return new WaitForSeconds(timeBetweenEnemies);
         }
-        waveCount++;
-        enemyCount = 0;
-        waveSize = waveSize + 5;
-
+        enemyCount = 0; // each wave starts at zero
+        waveCount++; // wave count
+        waveSize = waveSize + 5; // how many spawn per wave, can be changed in inspector
     }
     void Spawner()
     {
