@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     public float health = 100f;
     public GameObject endPoint;  //if enemy collides with this - 1 health
     public int waveCount = 1;   //counts the wave and is ther multi for num of enemies spawned
+    public bool Spawn;
 
     [Header("Coins")]
     public int coins;
@@ -48,33 +49,43 @@ public class GameManager : MonoBehaviour
     public Text crashCount;
     public Text coinCount;
 
+    private void Start()
+    {
+        Spawn = true;
+    }
+
     void Update()
     {
-        Spawner(); // so it spawns without the start button DELETE IT ONCE ATTACKED TO BUTTON
+        if(Spawn)
+        {
+            Spawner(); // so it spawns without the start button DELETE IT ONCE ATTACKED TO BUTTON
 
-        if (enemyCount == 0)
-        {
-            enemyType = 0;
-        }
-        else if (enemyCount % 10 == 0)
-        {
-            enemyType = 3;
-        }
-        else if (enemyCount % 5 == 0)
-        {
-            enemyType = 2;
-        }
-        else if (enemyCount % 3 == 0)
-        {
-            enemyType = 1;
-        }
-        else
-        {
-            enemyType = 0;
-        }
+            if (enemyCount == 0)
+            {
+                enemyType = 0;
+            }
+            else if (enemyCount % 10 == 0)
+            {
+                enemyType = 3;
+            }
+            else if (enemyCount % 5 == 0)
+            {
+                enemyType = 2;
+            }
+            else if (enemyCount % 3 == 0)
+            {
+                enemyType = 1;
+            }
+            else
+            {
+                enemyType = 0;
+            }
 
-        crashCount.text = "Spawned " + enemyCount.ToString();
-        coinCount.text = "Coins: " + coins.ToString();
+            crashCount.text = "Spawned " + enemyCount.ToString();
+            coinCount.text = "Coins: " + coins.ToString();
+            Spawn = false;
+        }
+        
     }
     IEnumerator SpawnWave()
     {
