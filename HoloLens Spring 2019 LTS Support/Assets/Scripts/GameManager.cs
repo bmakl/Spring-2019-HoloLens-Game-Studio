@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour
 
             crashCount.text = "Spawned " + enemyCount.ToString();
             coinCount.text = "Coins: " + coins.ToString();
-            Spawn = false;
+
         }
         
     }
