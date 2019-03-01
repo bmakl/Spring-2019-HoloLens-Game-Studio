@@ -13,6 +13,7 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
     public bool eligibleTarget;
     public bool SkeletonHit;
     public bool slowed;
+    public float rotationStrength = 15f;
 
     private Transform target;
     private int WavePointIndex = 0;
@@ -78,8 +79,12 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
 
     void Update()
     {
+        Quaternion targetRotation = Quaternion.LookRotation(target.position - transform.position);
+        float str = Mathf.Min(rotationStrength * Time.deltaTime, 1);
+        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, str);
         Vector3 dir = target.position - transform.position;
         transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
+        
 
         if (Vector3.Distance(transform.position, target.position) <= 0.01f)
         {
