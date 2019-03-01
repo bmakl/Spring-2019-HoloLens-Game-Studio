@@ -3,7 +3,7 @@ using System.Collections;
 
 public class WaveSpawner : MonoBehaviour
 {
-    public static int enemiesAlive;
+    public int enemiesAlive;
     public static bool waveStart = false;
     [SerializeField] Wave[] waves;
 
@@ -12,7 +12,7 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] float timeBetweenWave = 5f;
     private float countdown = 2f;
 
-    private int waveIndex = 0;
+    [SerializeField] int waveIndex = 0;
 
     private void Update()
     {
@@ -35,17 +35,27 @@ public class WaveSpawner : MonoBehaviour
     IEnumerator SpawnWave()
     {
         Wave wave = waves[waveIndex];
-        Debug.Log("Wave Spawning");
-        for (int i = 0; i < wave.count; i++)
-        {
-            foreach (var e in wave.enemy)
+       // for(int i = 0; i< waves.Length ; i++)
+        //{
+            Debug.Log("Wave Spawning");
+            GameManager.instance.Spawn = false;
+            foreach (GameObject e in wave.enemy)
             {
                 SpawnEnemy(e);
+                yield return new WaitForSeconds(1f * wave.spawnRate);
             }
-            yield return new WaitForSeconds(1f / wave.spawnRate);
-        }
-        GameManager.instance.Spawn = false;
-        waveIndex++;
+
+
+
+            waveIndex++;
+       // }
+
+        /*if(waveIndex >= waves.Length+1)
+        {
+            yield return new WaitForSeconds(5f);
+            SceneController.instance.LoadMenu();
+        }*/
+        
     }
 
     void SpawnEnemy(GameObject enemy)

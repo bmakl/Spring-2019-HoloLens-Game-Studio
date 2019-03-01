@@ -53,7 +53,7 @@ public class BaseTower : MonoBehaviour, IInputClickHandler
         Boss = new Queue<GameObject>();
         TargetingLevel = 1;
         #region TowerAssign
-        if(this.gameObject.CompareTag("BaseTower"))
+        if(this.gameObject.CompareTag("Basic Tower"))
         {
             radius = 5f;
             attackDamage = 10f;
@@ -61,15 +61,15 @@ public class BaseTower : MonoBehaviour, IInputClickHandler
             fireRate = 0f;
             price = 100;
         }
-        else if(this.gameObject.CompareTag("MeleeTower"))
+        else if(this.gameObject.CompareTag("Melee Tower"))
         {
             radius = 1f;
             attackDamage = 15f;
             fireRate = 0f;
-            attackSpeed = 0.25f;
+            attackSpeed = 0.5f;
             price = 150;
         }
-        else if(this.gameObject.CompareTag("DebuffTower"))
+        else if(this.gameObject.CompareTag("Debuff Tower"))
         {
             radius = 3f;
             attackDamage = 5f;
@@ -77,7 +77,7 @@ public class BaseTower : MonoBehaviour, IInputClickHandler
             fireRate = 0f;
             price = 250;
         }
-        else if(this.gameObject.CompareTag("PowerfulTower"))
+        else if(this.gameObject.CompareTag("Powerful Tower"))
         {
             radius = 5f;
             attackDamage = 30f;

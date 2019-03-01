@@ -181,7 +181,7 @@ MonoBehaviour:
   upgrade2Range: 7
   bulletPrefab: {fileID: 0}
   firePoint: {fileID: 0}
-  TargetingLevel: 0
+  TargetingLevel: 1
   clicks: 0
   attackCountdown: 0
 --- !u!135 &135542215952677436

@@ -21,24 +21,41 @@ public class MeleeTower : BaseTower
 
         attackCountdown -= Time.deltaTime;
 
+        if(attackCountdown <= 0)
+        {
+            StartCoroutine(meleeAttackCoolDown(null));
+        }
+    }
 
+    IEnumerator meleeAttackCoolDown(Collider other)
+    {
+        attackCountdown = 0;
+        yield return new WaitForSeconds(0.5f);
+        if (other != null)
+        {
+
+            other.gameObject.GetComponent<BaseEnemy>().health -= attackDamage;
+
+        }
+        attackCountdown = 1f * attackSpeed;
     }
 
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if(other.CompareTag("Pumpkin") || other.CompareTag("Skeleton") || other.CompareTag("Ghost")||other.CompareTag("Bat") || other.CompareTag("Boss"))
         {
             Debug.Log("Melee Tower Found Enemies");
+
             //found enemies   
             if (attackCountdown <= 0f) //checks if the attack is off cooldown 
             {
+                StartCoroutine(meleeAttackCoolDown(other));
                 Debug.Log("Attack Countdown is fine");
-                other.gameObject.GetComponent<BaseEnemy>().health -= attackDamage;
+
                 Debug.Log(other.gameObject.GetComponent<BaseEnemy>().health);
                 //shooting
 
-                attackCountdown = 1f * attackSpeed;
             }
 
         }

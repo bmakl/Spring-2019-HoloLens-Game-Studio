@@ -24,6 +24,12 @@ public class SceneController : MonoBehaviour {
 		
 	}
 
+    public void LoadMenu()
+    {
+        SceneManager.LoadScene("FakeMenu");
+    }
+
+
     public void LoadPaxScene()
     {
         SceneManager.LoadScene("PAXScene");

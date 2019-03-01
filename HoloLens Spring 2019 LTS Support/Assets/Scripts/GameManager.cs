@@ -85,10 +85,10 @@ public class GameManager : MonoBehaviour
         {
             enemyType = 0;
         }
-
+        */
         crashCount.text = "Spawned " + enemyCount.ToString();
         coinCount.text = "Coins: " + coins.ToString();
-        */
+
 
 
     }
