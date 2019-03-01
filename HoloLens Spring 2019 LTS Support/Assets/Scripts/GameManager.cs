@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        countdown -= Time.deltaTime;
+        /*countdown -= Time.deltaTime;
         Spawner();
         if(countdown <= 0)
         {
@@ -88,9 +88,11 @@ public class GameManager : MonoBehaviour
 
         crashCount.text = "Spawned " + enemyCount.ToString();
         coinCount.text = "Coins: " + coins.ToString();
+        */
 
 
     }
+    /*
     public IEnumerator SpawnWave()
     {
         waveIndex = waveSize; // how many spawn per wave
@@ -132,4 +134,5 @@ public class GameManager : MonoBehaviour
         //Instantiate(enemyFastPrefab, spawnPoint.position, spawnPoint.rotation);
 
     }
+    */
 }
