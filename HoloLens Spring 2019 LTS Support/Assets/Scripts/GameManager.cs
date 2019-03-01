@@ -46,26 +46,48 @@ public class GameManager : MonoBehaviour
     private int enemyDif = 1; // the enemy type that is being spawned
 
     public Text crashCount;
+    public Text coinCount;
 
     void Update()
     {
-        Spawner(); // so it spawns without the start button
-        if (enemyCount >= enemyChange)    // changes the enemy type 
+        Spawner(); // so it spawns without the start button DELETE IT ONCE ATTACKED TO BUTTON
+
+        if (enemyCount == 0)
         {
-            enemyType = enemyDif;   // logic needs to be changed later after design
+            enemyType = 0;
+        }
+        else if (enemyCount % 10 == 0)
+        {
+            enemyType = 3;
+        }
+        else if (enemyCount % 5 == 0)
+        {
+            enemyType = 2;
+        }
+        else if (enemyCount % 3 == 0)
+        {
+            enemyType = 1;
+        }
+        else
+        {
+            enemyType = 0;
         }
 
         crashCount.text = "Spawned " + enemyCount.ToString();
+        coinCount.text = "Coins: " + coins.ToString();
     }
     IEnumerator SpawnWave()
     {
-        waveIndex = waveCount * waveSize; // how many spawn per wave
+        waveIndex = waveSize; // how many spawn per wave
         for (int i = 0; i < waveIndex; i++)
         {
             enemyCount++;
             SpawnEnemy();
             yield return new WaitForSeconds(timeBetweenEnemies);
         }
+        waveCount++;
+        enemyCount = 0;
+        waveSize = waveSize + 5;
 
     }
     void Spawner()
