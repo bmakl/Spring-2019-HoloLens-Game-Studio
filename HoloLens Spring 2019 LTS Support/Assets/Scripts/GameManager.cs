@@ -49,6 +49,9 @@ public class GameManager : MonoBehaviour
     public Text crashCount;
     public Text coinCount;
 
+    public float trapCost;
+    public GameObject trapToSpawn;
+
     private void Start()
     {
         Spawn = true;
@@ -83,7 +86,7 @@ public class GameManager : MonoBehaviour
 
             crashCount.text = "Spawned " + enemyCount.ToString();
             coinCount.text = "Coins: " + coins.ToString();
-            Spawn = false;
+            Spawn = true;
         }
         
     }
