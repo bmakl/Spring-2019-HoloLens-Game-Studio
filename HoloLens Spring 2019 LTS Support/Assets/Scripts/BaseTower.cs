@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using HoloToolkit.Unity.InputModule;
 
-public class BaseTower : MonoBehaviour, IInputClickHandler
+public class BaseTower : MonoBehaviour//, IInputClickHandler
 {
 
 
@@ -19,7 +19,7 @@ public class BaseTower : MonoBehaviour, IInputClickHandler
     [Header("Turret Upgrade 1 Stats")]
     public float upgrade1Damage = 3f;
     public float upgrade1AttackSpeed = 3f;
-    public float upgrade1Radius = 6f;
+    public float upgrade1Range = 6f;
 
     [Header("Turret Upgrade 2 Stats")]
     public float upgrade2Damage = 5f;
@@ -325,7 +325,7 @@ public class BaseTower : MonoBehaviour, IInputClickHandler
             Debug.LogError("Bullet does not exist");
         }
     }
-
+    /*
     public void OnInputClicked(InputClickedEventData eventData)
     {
         if (clicks == 0)
@@ -357,5 +357,6 @@ public class BaseTower : MonoBehaviour, IInputClickHandler
         attackSpeed = upgrade2AttackSpeed;
 
     }
+    */
 }
 
