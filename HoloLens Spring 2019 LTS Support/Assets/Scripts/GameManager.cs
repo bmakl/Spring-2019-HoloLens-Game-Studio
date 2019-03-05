@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     public float health = 100f;
     public GameObject endPoint;  //if enemy collides with this - 1 health
     public int waveCount = 1;   //counts the wave and is ther multi for num of enemies spawned
+    public bool Spawn;
 
     [Header("Coins")]
     public int coins;
@@ -48,40 +49,81 @@ public class GameManager : MonoBehaviour
     public Text crashCount;
     public Text coinCount;
 
-    public GameObject trapToSpawn;
     public float trapCost;
+    public GameObject trapToSpawn;
+
+    private void Start()
+    {
+        Spawn = false;
+    }
 
     void Update()
     {
-        Spawner(); // so it spawns without the start button
-        if (enemyCount >= enemyChange)    // changes the enemy type 
+        /*countdown -= Time.deltaTime;
+        Spawner();
+        if(countdown <= 0)
         {
-            enemyType = enemyDif;   // logic needs to be changed later after design
+            countdown = 2f;
+        }
+        if (enemyCount == 0)
+        {
+            enemyType = 0;
+        }
+        else if (enemyCount % 10 == 0)
+        {
+            enemyType = 3;
+        }
+        else if (enemyCount % 5 == 0)
+        {
+            enemyType = 2;
+        }
+        else if (enemyCount % 3 == 0)
+        {
+            enemyType = 1;
+        }
+        else
+        {
+            enemyType = 0;
         }
 
         crashCount.text = "Spawned " + enemyCount.ToString();
         coinCount.text = "Coins: " + coins.ToString();
+        */
+
+
     }
-    IEnumerator SpawnWave()
+    /*
+    public IEnumerator SpawnWave()
     {
-        waveIndex = waveCount * waveSize; // how many spawn per wave
+        waveIndex = waveSize; // how many spawn per wave
         for (int i = 0; i < waveIndex; i++)
         {
             enemyCount++;
             SpawnEnemy();
             yield return new WaitForSeconds(timeBetweenEnemies);
         }
-
+        waveCount++;
+        enemyCount = 0;
+        waveSize = waveSize + 5;
+        Spawn = false;
+        Debug.Log("Youve reached the end of SpawnWave");
     }
-    void Spawner()
+    public void Spawner()
     {
-        if (countdown <= 0f) // spawns waves 5sec apart
+        if(Spawn)
         {
-            StartCoroutine(SpawnWave());
-            countdown = timeBetweenWaves;
+            if (countdown <= 0f) // spawns waves 5sec apart
+            {
+                StartCoroutine(SpawnWave());
+                countdown = timeBetweenWaves;
+            }
         }
+        else
+        {
+            Spawn = false;
+        }
+      
 
-        countdown -= Time.deltaTime;
     }
 
     void SpawnEnemy()
@@ -92,4 +134,5 @@ public class GameManager : MonoBehaviour
         //Instantiate(enemyFastPrefab, spawnPoint.position, spawnPoint.rotation);
 
     }
+    */
 }

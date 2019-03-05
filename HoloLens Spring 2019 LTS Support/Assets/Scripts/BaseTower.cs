@@ -61,15 +61,15 @@ public class BaseTower : MonoBehaviour, IInputClickHandler
             fireRate = 0f;
             price = 100;
         }
-        if(this.gameObject.CompareTag("MeleeTower"))
+        else if(this.gameObject.CompareTag("MeleeTower"))
         {
             radius = 1f;
             attackDamage = 15f;
             fireRate = 0f;
-            attackSpeed = 0.5f;
+            attackSpeed = 0.25f;
             price = 150;
         }
-        if(this.gameObject.CompareTag("DebuffTower"))
+        else if(this.gameObject.CompareTag("DebuffTower"))
         {
             radius = 3f;
             attackDamage = 5f;
@@ -77,7 +77,7 @@ public class BaseTower : MonoBehaviour, IInputClickHandler
             fireRate = 0f;
             price = 250;
         }
-        if(this.gameObject.CompareTag("PowerfulTower"))
+        else if(this.gameObject.CompareTag("PowerfulTower"))
         {
             radius = 5f;
             attackDamage = 30f;
@@ -249,6 +249,18 @@ public class BaseTower : MonoBehaviour, IInputClickHandler
         {
             Debug.LogError("Nothing found. Check enemy tags");
         }
+
+        if(this.gameObject.CompareTag("Debuff Tower"))
+        {
+            if(!other.gameObject.GetComponent<BaseEnemy>().slowed)
+            {
+
+                other.gameObject.GetComponent<BaseEnemy>().speed = other.gameObject.GetComponent<BaseEnemy>().speed * 0.5f; ;
+                other.gameObject.GetComponent<BaseEnemy>().slowed = true;
+            }
+            
+        }
+
     }
 
     void OnTriggerExit(Collider other)
@@ -288,6 +300,12 @@ public class BaseTower : MonoBehaviour, IInputClickHandler
         else
         {
             Debug.LogWarning("Nothing found. Check enemy tags");
+        }
+
+        if(this.gameObject.CompareTag("Debuff Tower"))
+        {
+            other.gameObject.GetComponent<BaseEnemy>().speed = other.gameObject.GetComponent<BaseEnemy>().speed * 2f;
+            other.gameObject.GetComponent<BaseEnemy>().slowed = false;
         }
     }
 
