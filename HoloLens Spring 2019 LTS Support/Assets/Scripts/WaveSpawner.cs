@@ -14,6 +14,8 @@ public class WaveSpawner : MonoBehaviour
 
     [SerializeField] int waveIndex = 0;
 
+    bool waveStarted = false;
+
     private void Update()
     {
         if (!   GameManager.instance.Spawn)
@@ -42,6 +44,7 @@ public class WaveSpawner : MonoBehaviour
             foreach (GameObject e in wave.enemy)
             {
                 SpawnEnemy(e);
+                GameManager.instance.enemyCount++;
                 yield return new WaitForSeconds(1f * wave.spawnRate);
             }
 

@@ -95,6 +95,7 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
         {
             GameManager.instance.coins += coinDrop;
             Destroy(this.gameObject);
+            GameManager.instance.enemyCount--;
         }
 
        
@@ -112,6 +113,7 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
             {
                 damageToPlayer = health * 0.1f;
             }
+            GameManager.instance.enemyCount--;
             Destroy(gameObject);
             GameManager.instance.health -= damageToPlayer;
             return;
