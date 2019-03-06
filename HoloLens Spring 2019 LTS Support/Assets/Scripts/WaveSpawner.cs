@@ -40,17 +40,17 @@ public class WaveSpawner : MonoBehaviour
        // for(int i = 0; i< waves.Length ; i++)
         //{
             Debug.Log("Wave Spawning");
-            GameManager.instance.Spawn = false;
             foreach (GameObject e in wave.enemy)
             {
                 SpawnEnemy(e);
                 GameManager.instance.enemyCount++;
                 yield return new WaitForSeconds(1f * wave.spawnRate);
             }
+        GameManager.instance.Spawn = false;
 
 
 
-            waveIndex++;
+        waveIndex++;
        // }
 
         /*if(waveIndex >= waves.Length+1)

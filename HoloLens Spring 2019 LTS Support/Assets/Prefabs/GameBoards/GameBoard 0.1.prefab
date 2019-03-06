@@ -391,6 +391,7 @@ GameObject:
   - component: {fileID: 223111288480827138}
   - component: {fileID: 114772262490824470}
   - component: {fileID: 114387054398270100}
+  - component: {fileID: 114190183240513432}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -31351,6 +31352,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemToPlace: {fileID: 0}
   placeCoolDown: 0
+--- !u!114 &114190183240513432
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1045482591845156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2aebab3047f2113489ca3eb8423228b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Canvas: {fileID: 223111288480827138}
 --- !u!114 &114191964421018630
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -33564,6 +33577,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f6b39f6478791f4f9b37d7b1ec1c1ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemiesAlive: 0
   waves:
   - enemy:
     - {fileID: 1993603284027850, guid: dceeaac21adccfd41ba5ba3de8dd82ef, type: 2}
@@ -33579,6 +33593,7 @@ MonoBehaviour:
     spawnRate: 5
   spawnPoint: {fileID: 4770698886587842}
   timeBetweenWave: 2
+  waveIndex: 0
 --- !u!114 &114667076547225858
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -34719,6 +34734,7 @@ MonoBehaviour:
   timeBetweenWaves: 5
   timeBetweenEnemies: 0.5
   waveSize: 2
+  enemyCount: 0
   enemyChange: 1
   crashCount: {fileID: 114976437743279208}
   coinCount: {fileID: 114947575861940404}
