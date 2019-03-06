@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using HoloToolkit.Unity.InputModule;
 
-public class TowerTemplate : MonoBehaviour, IInputClickHandler
+public class TowerTemplate : MonoBehaviour//, IInputClickHandler
 {
 
 
@@ -177,6 +177,7 @@ public class TowerTemplate : MonoBehaviour, IInputClickHandler
         }
     }
 
+    /*
     public void OnInputClicked(InputClickedEventData eventData)
     {
         if (clicks == 0)
@@ -192,7 +193,7 @@ public class TowerTemplate : MonoBehaviour, IInputClickHandler
         }
     }
 
-    private void Upgrade1()
+    public void Upgrade1()
     {
         attackDamage = upgrade1Damage;
         radius = upgrade1Range;
@@ -201,12 +202,13 @@ public class TowerTemplate : MonoBehaviour, IInputClickHandler
     }
 
 
-    private void Upgrade2()
+    public void Upgrade2()
     {
         attackDamage = upgrade2Damage;
         radius = upgrade2Range;
         attackSpeed = upgrade2AttackSpeed;
 
     }
+    */
 }
 
