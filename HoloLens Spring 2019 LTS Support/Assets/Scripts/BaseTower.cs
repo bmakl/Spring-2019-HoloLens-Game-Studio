@@ -99,8 +99,6 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
     {
 
         UpdateTarget();
-        Debug.Log(fireRate);
-        Debug.Log(currentTarget);
         //RotateTower();
         if(currentTarget == null)
         {
@@ -316,9 +314,9 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
         GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation); //creates the bullet and casts to Game Object
         Bullet bullet = bulletGO.GetComponent<Bullet>(); //
 
-        if (bullet != null)
+        if (bullet != null && currentTarget.GetComponentInChildren<BaseEnemy>().eligibleTarget)
         {
-            bullet.Seek(currentTarget.transform, attackDamage); //passes the target to bullet script
+            bullet.Seek(currentTarget.GetComponentInChildren<MeshCollider>().transform, attackDamage); //passes the target to bullet script
         }
         else if (bullet == null)
         {
