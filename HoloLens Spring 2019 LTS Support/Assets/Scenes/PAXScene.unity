@@ -2125,6 +2125,20 @@ Prefab:
       propertyPath: waveIndex
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1088539713044186, guid: 7d82aa180f50cc64898698e438005be0, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 65517175849198522, guid: 7d82aa180f50cc64898698e438005be0,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 65108732291235494, guid: 7d82aa180f50cc64898698e438005be0,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114667076547225858, guid: 7d82aa180f50cc64898698e438005be0, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 7d82aa180f50cc64898698e438005be0, type: 2}
