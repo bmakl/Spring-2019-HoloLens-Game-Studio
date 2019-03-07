@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 5
-  attackSpeed: 1
+  attackSpeed: 0.5
   price: 100
   fireRate: 0
   attackDamage: 10
@@ -211,6 +211,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1029718208744738, guid: 2f6cd3803ec13db4ba57a8cb7d40fb0d,
     type: 2}
   firePoint: {fileID: 4839052770280712}
+  tempTarget: {fileID: 0}
+  currentTarget: {fileID: 0}
   TargetingLevel: 0
   clicks: 0
 --- !u!135 &135652316760387308

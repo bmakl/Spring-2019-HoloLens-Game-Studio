@@ -37,7 +37,7 @@ public class MeleeTower : BaseTower
             other.gameObject.GetComponent<BaseEnemy>().health -= attackDamage;
 
         }
-        attackCountdown = 1f * attackSpeed;
+        attackCountdown = 1f * fireRate;
     }
 
 
