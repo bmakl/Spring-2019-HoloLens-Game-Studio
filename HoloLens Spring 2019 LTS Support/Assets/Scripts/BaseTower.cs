@@ -97,14 +97,14 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
     {
 
         UpdateTarget();
-        Debug.DrawLine(firePoint.transform.position, currentTarget.transform.position, Color.red, 0.1f);
+        //Debug.DrawLine(firePoint.transform.position, currentTarget.transform.position, Color.red, 0.1f);
         //RotateTower();
         if (currentTarget == null)
         {
             Debug.LogWarning("No Enemy");
             return;
         }
-        Debug.Log(currentTarget.GetComponent<BaseEnemy>().health + " " + fireRate);
+        //Debug.Log(currentTarget.GetComponent<BaseEnemy>().health + " " + fireRate);
         if (currentTarget.GetComponent<BaseEnemy>().health > 0 && fireRate <= 0f) //checks if the attack is off cooldown 
         {
             Debug.Log("shooting at" + currentTarget.tag);
@@ -324,7 +324,14 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
         if (bullet != null && currentTarget.GetComponentInChildren<BaseEnemy>().eligibleTarget)
         {
             Debug.Log("Shoot");
-            bullet.Seek(currentTarget.GetComponentInChildren<MeshCollider>().transform, attackDamage); //passes the target to bullet script
+            if (currentTarget.CompareTag("Bat"))
+            { 
+                bullet.Seek(currentTarget.GetComponent<SphereCollider>().transform, attackDamage); //passes the target to bullet script
+            }
+            else
+            {
+                bullet.Seek(currentTarget.GetComponentInChildren<MeshCollider>().transform, attackDamage); //passes the target to bullet script
+            }
         }
         else if (bullet == null)
         {

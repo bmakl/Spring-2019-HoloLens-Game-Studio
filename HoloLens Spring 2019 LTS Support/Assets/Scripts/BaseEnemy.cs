@@ -94,8 +94,9 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
         if(health <= 0)
         {
             GameManager.instance.coins += coinDrop;
-            Destroy(this.gameObject);
             GameManager.instance.enemyCount--;
+            Debug.Log(health);
+            Destroy(this.gameObject);
         }
 
        
@@ -140,6 +141,7 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
             else
             {
                 GameManager.instance.coins += coinDrop;
+                GameManager.instance.enemyCount--;
                 Destroy(this.gameObject);
             }
         }
@@ -152,6 +154,7 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
                 if (health <= 0)
                 {
                     GameManager.instance.coins += coinDrop;
+                    GameManager.instance.enemyCount--;
                     Destroy(this.gameObject);
                 }
                 SkeletonHit = true;
@@ -167,6 +170,7 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
                 if (health <= 0)
                 {
                     GameManager.instance.coins += coinDrop;
+                    GameManager.instance.enemyCount--;
                     Destroy(this.gameObject);
                 }
             }
@@ -179,6 +183,7 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
             if (health <= 0)
             {
                 GameManager.instance.coins += coinDrop;
+                GameManager.instance.enemyCount--;
                 Destroy(this.gameObject);
             }
         }

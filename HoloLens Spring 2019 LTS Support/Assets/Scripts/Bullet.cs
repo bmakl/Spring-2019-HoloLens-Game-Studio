@@ -16,7 +16,15 @@ public class Bullet : MonoBehaviour
     {
         target = _target;
         bulletDamage = damage;
-        enemyCenter = target.GetComponent<MeshCollider>().bounds.center;
+        if (_target.CompareTag("Bat"))
+        {
+            Debug.Log("Bat collider");
+            enemyCenter = target.GetComponent<SphereCollider>().bounds.center;
+        }
+        else
+        {
+            enemyCenter = target.GetComponent<MeshCollider>().bounds.center;
+        }
         enemy = target.GetComponent<BaseEnemy>();
     }
 
