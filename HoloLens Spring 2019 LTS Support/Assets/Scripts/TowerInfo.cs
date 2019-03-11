@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class TowerInfo : MonoBehaviour, IInputClickHandler
 {
 
-    public TextMesh txt;
+    public Text txt;
     public BaseTower baseTower;
     public GameObject upgradeSection;
 
@@ -17,10 +17,10 @@ public class TowerInfo : MonoBehaviour, IInputClickHandler
         BaseTower stats = GazeManager.Instance.HitInfo.transform.GetComponent<BaseTower>();
         txt.text = "Damage: " + stats.attackDamage + " Attack Speed: " + stats.attackSpeed + " Range: " + stats.radius;
     }
-
+    /*
     public void updateInfo()
     {
         BaseTower stats = GazeManager.Instance.HitInfo.transform.GetComponent<BaseTower>();
-        txt.text = "Damage: " + stats.attackDamage + " Attack Speed: " + stats.attackSpeed + " Range: " + stats.radius;
-    }
+        txt.text = "Damage: " + stats.attackDamage2 + " Attack Speed: " + stats.attackSpeed + " Range: " + stats.radius;
+    }*/
 }
