@@ -184,6 +184,7 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
             {
                 GameManager.instance.coins += coinDrop;
                 GameManager.instance.enemyCount--;
+                ParticleManager.instance.DeathParticle(this.transform);
                 Destroy(this.gameObject);
             }
         }

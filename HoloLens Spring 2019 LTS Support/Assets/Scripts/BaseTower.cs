@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using HoloToolkit.Unity.InputModule;
-
+using System;
 public class BaseTower : MonoBehaviour//, IInputClickHandler
 {
 
@@ -12,6 +12,8 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
     public int price = 100;
     public float fireRate = 1f;
     public float attackDamage = 10f;
+    private float currentFireRate = 0;
+    bool canShoot = true;
 
 
     [Header("Turret Upgrade 1 Stats")]
@@ -56,14 +58,12 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
             radius = 5f;
             attackDamage = 10f;
             fireRate = 1f;
-            fireRate = 1f;
             price = 100;
         }
         else if(this.gameObject.CompareTag("Melee Tower"))
         {
             radius = 1f;
             attackDamage = 15f;
-            fireRate = 0f;
             fireRate = 0.5f;
             price = 150;
         }
@@ -72,7 +72,6 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
             radius = 3f;
             attackDamage = 5f;
             fireRate = 1.5f;
-            fireRate = 0f;
             price = 250;
         }
         else if(this.gameObject.CompareTag("Powerful Tower"))
@@ -95,35 +94,36 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
 
     private void Update()
     {
-
         UpdateTarget();
         //Debug.DrawLine(firePoint.transform.position, currentTarget.transform.position, Color.red, 0.1f);
         //RotateTower();
+       
+
         if (currentTarget == null)
         {
             Debug.LogWarning("No Enemy");
+            currentFireRate = 0;
             return;
         }
         //Debug.Log(currentTarget.GetComponent<BaseEnemy>().health + " " + fireRate);
-        if (currentTarget.GetComponent<BaseEnemy>().health > 0 && fireRate <= 0f) //checks if the attack is off cooldown 
+        if (currentTarget.GetComponent<BaseEnemy>().health > 0 && canShoot) //checks if the attack is off cooldown 
         {
             Debug.Log("shooting at" + currentTarget.tag);
+
             Shoot();
+            StartCoroutine(ShootCoolDown());
         }
 
         if(currentTarget.GetComponent<BaseEnemy>().health <= 0)
         {
-            GameManager.instance.coins += currentTarget.GetComponent<BaseEnemy>().coinDrop;
+            GameManager.instance.coins += currentTarget.GetComponent<BaseEnemy>().coinDrop;//is this right?
         }
 
-        if (fireRate < 0)
+        if (currentFireRate <= 0)
         {
-            fireRate = 0.5f;
+            currentFireRate = fireRate;
         }
-
-        fireRate -= Time.deltaTime;
-
-
+        currentFireRate -= Time.deltaTime;
 
     }
 
@@ -237,6 +237,7 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
         else if (other.CompareTag("Bat"))
         {
             Bat.Enqueue(other.gameObject);
+            Debug.Log("Bat in queue");
         }
         else if (other.CompareTag("Boss"))
         {
@@ -292,11 +293,17 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
         }
         else if (other.CompareTag("Ghost"))
         {
-            Ghost.Dequeue();
+            if (Ghost.Count > 0)
+            {
+                Ghost.Dequeue();
+            }
         }
         else if (other.CompareTag("Bat"))
         {
-            Bat.Dequeue();
+            if (Bat.Count > 0)
+            {
+                Bat.Dequeue();
+            }
         }
         else if (other.CompareTag("Boss"))
         {
@@ -337,6 +344,15 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
         {
             Debug.LogError("Bullet does not exist");
         }
+    }
+
+    IEnumerator ShootCoolDown()
+    {
+        canShoot = false;
+        Debug.Log(DateTime.Now);
+        yield return new WaitForSecondsRealtime(fireRate);
+        Debug.Log(DateTime.Now);
+        canShoot = true;
     }
     /*
     public void OnInputClicked(InputClickedEventData eventData)
