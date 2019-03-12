@@ -25,6 +25,15 @@ public class TowerSpawn : MonoBehaviour, IInputHandler, IInputClickHandler
 
     }
 
+   /* public void SpawnWave(int Pumpkins, int Skeletons, int Ghosts)
+    {
+        //Pumpkin Spawner
+        for(int i = 0; i<Pumpkins-1;i++)
+        {
+            ins
+        }
+    }*/
+
 
     public void OnInputClicked(InputClickedEventData eventData)
     {
@@ -38,8 +47,9 @@ public class TowerSpawn : MonoBehaviour, IInputHandler, IInputClickHandler
             PlaceTower();
             if (towerPrefab.gameObject.GetComponentInChildren<BaseTower>().price <= GameManager.instance.coins)
             {
-                Instantiate(towerPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
-                GameManager.instance.coins -= towerPrefab.gameObject.GetComponentInChildren<BaseTower>().price;
+
+                GameObject instantiateTower = Instantiate(towerPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
+                GameManager.instance.coins -= instantiateTower.gameObject.GetComponentInChildren<BaseTower>().price;
             }
            
         }

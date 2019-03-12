@@ -9,7 +9,7 @@ public class TowerTemplate : MonoBehaviour//, IInputClickHandler
 
     [Header("Turret Base Stats")]
     public float radius = 5f;
-    public float attackSpeed = 1f;
+    public float fireRate = 1f;
     [HideInInspector]
     public float attackCountdown = 0f;
     public float attackDamage = 1f;
@@ -18,12 +18,12 @@ public class TowerTemplate : MonoBehaviour//, IInputClickHandler
 
     [Header("Turret Upgrade 1 Stats")]
     public float upgrade1Damage;
-    public float upgrade1AttackSpeed;
+    public float upgrade1fireRate;
     public float upgrade1Range;
 
     [Header("Turret Upgrade 2 Stats")]
     public float upgrade2Damage;
-    public float upgrade2AttackSpeed;
+    public float upgrade2fireRate;
     public float upgrade2Range;
 
 
@@ -73,7 +73,7 @@ public class TowerTemplate : MonoBehaviour//, IInputClickHandler
 
             Shoot();
 
-            attackCountdown = 1f / attackSpeed;
+            attackCountdown = 1f / fireRate;
         }
 
         attackCountdown -= Time.deltaTime;
@@ -197,7 +197,7 @@ public class TowerTemplate : MonoBehaviour//, IInputClickHandler
     {
         attackDamage = upgrade1Damage;
         radius = upgrade1Range;
-        attackSpeed = upgrade1AttackSpeed;
+        fireRate = upgrade1fireRate;
 
     }
 
@@ -206,7 +206,12 @@ public class TowerTemplate : MonoBehaviour//, IInputClickHandler
     {
         attackDamage = upgrade2Damage;
         radius = upgrade2Range;
-        attackSpeed = upgrade2AttackSpeed;
+        fireRate = upgrade2
+        
+    
+    
+    
+    ;
 
     }
     */

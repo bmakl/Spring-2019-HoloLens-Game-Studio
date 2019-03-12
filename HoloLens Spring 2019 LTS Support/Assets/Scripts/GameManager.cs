@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
     public int waveSize = 10;
 
     private int waveIndex = 0;
-    private int enemyCount = 0; // how many enemies have spawned in the wave
+    public int enemyCount = 0; // how many enemies have spawned in the wave
     public int enemyChange = 1; // change to the type of enemy at this number of enemies spawned
     private int enemyDif = 1; // the enemy type that is being spawned
 
@@ -85,10 +85,10 @@ public class GameManager : MonoBehaviour
         {
             enemyType = 0;
         }
-
+        */
         crashCount.text = "Spawned " + enemyCount.ToString();
         coinCount.text = "Coins: " + coins.ToString();
-        */
+
 
 
     }

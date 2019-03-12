@@ -94,6 +94,8 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
         if(health <= 0)
         {
             GameManager.instance.coins += coinDrop;
+            GameManager.instance.enemyCount--;
+            Debug.Log(health);
             Destroy(this.gameObject);
         }
 
@@ -112,6 +114,7 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
             {
                 damageToPlayer = health * 0.1f;
             }
+            GameManager.instance.enemyCount--;
             Destroy(gameObject);
             GameManager.instance.health -= damageToPlayer;
             return;
@@ -123,6 +126,7 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other.gameObject.tag + "Entered Radiuys");
         if(other.CompareTag("Basic Tower") || other.CompareTag("Melee Tower") || other.CompareTag("Debuff Tower") || other.CompareTag("Powerful Tower"))
         {
             eligibleTarget = true;
@@ -137,6 +141,7 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
             else
             {
                 GameManager.instance.coins += coinDrop;
+                GameManager.instance.enemyCount--;
                 Destroy(this.gameObject);
             }
         }
@@ -149,6 +154,7 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
                 if (health <= 0)
                 {
                     GameManager.instance.coins += coinDrop;
+                    GameManager.instance.enemyCount--;
                     Destroy(this.gameObject);
                 }
                 SkeletonHit = true;
@@ -164,6 +170,7 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
                 if (health <= 0)
                 {
                     GameManager.instance.coins += coinDrop;
+                    GameManager.instance.enemyCount--;
                     Destroy(this.gameObject);
                 }
             }
@@ -171,10 +178,13 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
         else if(other.CompareTag("Bullet") && !this.CompareTag("Skeleton") && !this.CompareTag("Ghost"))
         {
             health -= other.GetComponent<Bullet>().bulletDamage;
+            Debug.Log("Bullet hit");
             Destroy(other.gameObject);
             if (health <= 0)
             {
                 GameManager.instance.coins += coinDrop;
+                GameManager.instance.enemyCount--;
+                ParticleManager.instance.DeathParticle(this.transform);
                 Destroy(this.gameObject);
             }
         }
