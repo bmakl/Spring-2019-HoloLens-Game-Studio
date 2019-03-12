@@ -15,7 +15,7 @@ public class StoreTowerInfo : MonoBehaviour, IInputClickHandler
         BaseTower baseT = GazeManager.Instance.HitInfo.transform.GetComponent<BaseTower>();
         dmg = baseT.attackDamage;
         range = baseT.radius;
-        atkspeed = baseT.attackSpeed;
+        atkspeed = baseT.fireRate;
         txt.text = "Damage: " + dmg + " Attack Speed: " + atkspeed + " Range: " + range;
     }
 }   
