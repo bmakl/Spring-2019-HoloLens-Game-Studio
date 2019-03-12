@@ -17,10 +17,10 @@ public class TowerInfo : MonoBehaviour, IInputClickHandler
         BaseTower stats = GazeManager.Instance.HitInfo.transform.GetComponent<BaseTower>();
         txt.text = "Damage: " + stats.attackDamage + " Attack Speed: " + stats.attackSpeed + " Range: " + stats.radius;
     }
-    /*
+    
     public void updateInfo()
     {
         BaseTower stats = GazeManager.Instance.HitInfo.transform.GetComponent<BaseTower>();
-        txt.text = "Damage: " + stats.attackDamage2 + " Attack Speed: " + stats.attackSpeed + " Range: " + stats.radius;
-    }*/
+        txt.text = "Damage: " + stats.attackDamage + " Attack Speed: " + stats.attackSpeed + " Range: " + stats.radius;
+    }
 }

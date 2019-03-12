@@ -325,7 +325,8 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
             Debug.LogError("Bullet does not exist");
         }
     }
-    /*
+
+   /*
     public void OnInputClicked(InputClickedEventData eventData)
     {
         if (clicks == 0)
@@ -340,11 +341,11 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
             clicks++;
         }
     }
-
+   
     private void Upgrade1()
     {
         attackDamage = upgrade1Damage;
-        radius = upgrade1Radius;
+        radius = upgrade1Range;
         attackSpeed = upgrade1AttackSpeed;
 
     }
@@ -358,5 +359,6 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
 
     }
     */
+    
 }
 
