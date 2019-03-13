@@ -369,23 +369,23 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
             clicks++;
         }
     }
-
-    private void Upgrade1()
+    */
+    public void Upgrade1()
     {
         attackDamage = upgrade1Damage;
-        radius = upgrade1Radius;
+        radius = upgrade1Range;
         fireRate = upgrade1fireRate;
 
     }
 
 
-    private void Upgrade2()
+    public void Upgrade2()
     {
         attackDamage = upgrade2Damage;
         radius = upgrade2Range;
         fireRate = upgrade2fireRate;
 
     }
-    */
+    
 }
 
