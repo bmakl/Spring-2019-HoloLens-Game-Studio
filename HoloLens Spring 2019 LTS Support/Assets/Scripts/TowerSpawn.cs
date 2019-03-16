@@ -10,6 +10,8 @@ public class TowerSpawn : MonoBehaviour, IInputHandler, IInputClickHandler
     public GameObject turretToBuild;
     public GameObject towerPrefab;
     public bool nodeEnabled = true;
+    [Header("Available Towers")]
+    public GameObject[] Towers;
 
     Renderer rend;
     public void Start()
@@ -23,6 +25,15 @@ public class TowerSpawn : MonoBehaviour, IInputHandler, IInputClickHandler
 
     }
 
+   /* public void SpawnWave(int Pumpkins, int Skeletons, int Ghosts)
+    {
+        //Pumpkin Spawner
+        for(int i = 0; i<Pumpkins-1;i++)
+        {
+            ins
+        }
+    }*/
+
 
     public void OnInputClicked(InputClickedEventData eventData)
     {
@@ -33,8 +44,14 @@ public class TowerSpawn : MonoBehaviour, IInputHandler, IInputClickHandler
                 Debug.Log("Already Turret On Node");
                 return;
             }
-            towerPrefab = turretToBuild;
-            Instantiate(towerPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
+            PlaceTower();
+            if (towerPrefab.gameObject.GetComponentInChildren<BaseTower>().price <= GameManager.instance.coins)
+            {
+
+                GameObject instantiateTower = Instantiate(towerPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
+                GameManager.instance.coins -= instantiateTower.gameObject.GetComponentInChildren<BaseTower>().price;
+            }
+           
         }
         else
         {
@@ -42,15 +59,30 @@ public class TowerSpawn : MonoBehaviour, IInputHandler, IInputClickHandler
         }
     }
 
-    /* this was to test if the turret actually spawns but my PC (Thomas Murphy) won't let me click with the Hololens Kit.
-    void Update()
+    private void PlaceTower()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        //Assigns Tower Prefab
+        switch (TowerManager.towerNumber)
         {
-            Instantiate(towerPrefab, transform.position, transform.rotation);
+            case 0:
+                //Base Tower
+                towerPrefab = Towers[0];
+                break;
+
+            case 1:
+                //Melee Tower
+                towerPrefab = Towers[1];
+                break;
+            case 2:
+                //Debuff Tower
+                towerPrefab = Towers[2];
+                break;
+            case 3:
+                //Powerful Tower
+                towerPrefab = Towers[3];
+                break;
         }
-    }
-    */
+    }   
 
     public void OnInputDown(InputEventData eventData)
     {

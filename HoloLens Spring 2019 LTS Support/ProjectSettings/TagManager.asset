@@ -11,6 +11,15 @@ TagManager:
   - Skeleton
   - Bat
   - Boss
+  - Tower
+  - Barricade
+  - Path
+  - Bullet
+  - Basic Tower
+  - Melee Tower
+  - Debuff Tower
+  - Powerful Tower
+  - End
   layers:
   - Default
   - TransparentFX
