@@ -14,5 +14,10 @@ public class FenceTrap : MonoBehaviour {
             other.GetComponent<BaseEnemy>().health -= damageToEnemy;
             Destroy(this.gameObject);
         }
+
+        if(other.CompareTag("Zombie"))
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

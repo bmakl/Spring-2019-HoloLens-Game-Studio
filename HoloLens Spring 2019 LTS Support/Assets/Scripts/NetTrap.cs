@@ -12,5 +12,9 @@ public class NetTrap : MonoBehaviour {
             Debug.Log("Net was hit by " + other.tag);
             other.GetComponent<BaseEnemy>().speed *= 0.5f;
         }
+        if(other.CompareTag("Zombie"))
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

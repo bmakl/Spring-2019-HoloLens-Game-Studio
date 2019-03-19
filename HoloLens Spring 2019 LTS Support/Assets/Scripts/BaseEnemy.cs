@@ -61,6 +61,14 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
             SkeletonHit = false;
             slowed = false;
         }
+        if(this.gameObject.CompareTag("Zombie"))
+        {
+            speed = 0.1f;
+            health = 60;
+            coinDrop = 20;
+            playerDamage = 1;
+            slowed = false;
+        }
         if (this.gameObject.CompareTag("Boss"))
         {
             speed = 0.06f;

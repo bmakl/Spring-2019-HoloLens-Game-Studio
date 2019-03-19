@@ -15,6 +15,8 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
     private float currentFireRate = 0;
     bool canShoot = true;
 
+    public float upgradeCost = 100;
+
 
     [Header("Turret Upgrade 1 Stats")]
     public float upgrade1Damage = 3f;
@@ -36,6 +38,7 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
     public Queue<GameObject> Bat;
     public Queue<GameObject> Ghost;
     public Queue<GameObject> Boss;
+    public Queue<GameObject> Zombie;
 
     [SerializeField] GameObject tempTarget;
     [SerializeField] GameObject currentTarget;
@@ -51,6 +54,7 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
         Bat = new Queue<GameObject>();
         Ghost = new Queue<GameObject>();
         Boss = new Queue<GameObject>();
+        Zombie = new Queue<GameObject>();
         TargetingLevel = 1;
         #region TowerAssign
         if(this.gameObject.CompareTag("Basic Tower"))
@@ -198,6 +202,19 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
                         currentTarget = tempTarget;
                     }
                 }
+                if(Zombie.Count != 0 && Ghost.Count == 0 && Pumpkin.Count == 0 && Bat.Count == 0 && Skeleton.Count == 0)
+                {
+                    tempTarget = Zombie.Dequeue();
+                    tempTargetScript = tempTarget.GetComponent<BaseEnemy>();
+                    if (tempTarget.GetComponent<BaseEnemy>() == null)
+                    {
+                        Debug.LogError("Attach Base Enemy Script to Ghost");
+                    }
+                    if (tempTargetScript.health > 0 && tempTargetScript.eligibleTarget)
+                    {
+                        currentTarget = tempTarget;
+                    }
+                }
                 if (Boss.Count != 0 && Ghost.Count == 0 && Pumpkin.Count == 0 && Bat.Count == 0 && Skeleton.Count == 0)
                 {
                     tempTarget = Boss.Dequeue();
@@ -214,6 +231,90 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
                
             }
             #endregion
+        }
+        if(TargetingLevel == 2)
+        {
+            if(currentTarget == null)
+            {
+                if (Boss.Count != 0 )
+                {
+                    tempTarget = Boss.Dequeue();
+                    tempTargetScript = tempTarget.GetComponent<BaseEnemy>();
+                    if (tempTarget.GetComponent<BaseEnemy>() == null)
+                    {
+                        Debug.LogError("Attach Base Enemy Script to Boss");
+                    }
+                    if (tempTargetScript.health > 0 && tempTargetScript.eligibleTarget)
+                    {
+                        currentTarget = tempTarget;
+                    }
+                }
+                if(Zombie.Count != 0 && Boss.Count == 0)
+                {
+                    tempTarget = Zombie.Dequeue();
+                    tempTargetScript = tempTarget.GetComponent<BaseEnemy>();
+                    if (tempTarget.GetComponent<BaseEnemy>() == null)
+                    {
+                        Debug.LogError("Attach Base Enemy Script to Zombie");
+                    }
+                    if (tempTargetScript.health > 0 && tempTargetScript.eligibleTarget)
+                    {
+                        currentTarget = tempTarget;
+                    }
+                }
+                if (Ghost.Count != 0 && Zombie.Count == 0 && Boss.Count == 0)
+                {
+                    tempTarget = Ghost.Dequeue();
+                    tempTargetScript = tempTarget.GetComponent<BaseEnemy>();
+                    if (tempTarget.GetComponent<BaseEnemy>() == null)
+                    {
+                        Debug.LogError("Attach Base Enemy Script to Ghost");
+                    }
+                    if (tempTargetScript.health > 0 && tempTargetScript.eligibleTarget)
+                    {
+                        currentTarget = tempTarget;
+                    }
+                }
+                if (Pumpkin.Count != 0 && Ghost.Count == 0 && Zombie.Count == 0 && Boss.Count == 0)
+                {
+                    tempTarget = Pumpkin.Dequeue();
+                    tempTargetScript = tempTarget.GetComponent<BaseEnemy>();
+                    if (tempTarget.GetComponent<BaseEnemy>() == null)
+                    {
+                        Debug.LogError("Attach Base Enemy Script to Pumpkin");
+                    }
+                    if (tempTargetScript.health > 0 && tempTargetScript.eligibleTarget)
+                    {
+                        currentTarget = tempTarget;
+                    }
+                }
+                if (Bat.Count != 0 && Pumpkin.Count == 0 && Ghost.Count == 0 && Zombie.Count == 0 && Boss.Count == 0)
+                {
+                    tempTarget = Bat.Dequeue();
+                    tempTargetScript = tempTarget.GetComponent<BaseEnemy>();
+                    if (tempTarget.GetComponent<BaseEnemy>() == null)
+                    {
+                        Debug.LogError("Attach Base Enemy Script to Bat");
+                    }
+                    if (tempTargetScript.health > 0 && tempTargetScript.eligibleTarget)
+                    {
+                        currentTarget = tempTarget;
+                    }
+                }
+                if (Skeleton.Count != 0 && Bat.Count == 0 && Pumpkin.Count == 0 && Ghost.Count == 0 && Zombie.Count == 0 && Boss.Count == 0)
+                {
+                    tempTarget = Skeleton.Dequeue();
+                    tempTargetScript = tempTarget.GetComponent<BaseEnemy>();
+                    if (tempTarget.GetComponent<BaseEnemy>() == null)
+                    {
+                        Debug.LogError("Attach Base Enemy Script to Skeleton");
+                    }
+                    if (tempTargetScript.health > 0 && tempTargetScript.eligibleTarget)
+                    {
+                        currentTarget = tempTarget;
+                    }
+                }
+            }
         }
     }
 
@@ -233,6 +334,10 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
         else if (other.CompareTag("Ghost"))
         {
             Ghost.Enqueue(other.gameObject);
+        }
+        else if (other.CompareTag("Zombie"))
+        {
+            Zombie.Enqueue(other.gameObject);
         }
         else if (other.CompareTag("Bat"))
         {
@@ -296,6 +401,13 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
             if (Ghost.Count > 0)
             {
                 Ghost.Dequeue();
+            }
+        }
+        else if (other.CompareTag("Zombie"))
+        {
+            if(Zombie.Count > 0)
+            {
+                Zombie.Dequeue();
             }
         }
         else if (other.CompareTag("Bat"))
@@ -385,6 +497,14 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
         radius = upgrade2Range;
         fireRate = upgrade2fireRate;
 
+    }
+
+    public void Upgrade()
+    {
+        attackDamage = attackDamage * 1.25f;
+        radius = radius * 1.25f;
+        fireRate = fireRate / 1.1f;
+        upgradeCost = upgradeCost * 2;
     }
     
 }
