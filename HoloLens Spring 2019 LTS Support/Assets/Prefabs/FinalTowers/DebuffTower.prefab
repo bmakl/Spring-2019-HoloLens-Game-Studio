@@ -56,7 +56,6 @@ GameObject:
   - component: {fileID: 4261540081173276}
   - component: {fileID: 135658782751505770}
   - component: {fileID: 114723124701253662}
-  - component: {fileID: 114836574532775732}
   m_Layer: 2
   m_Name: Internals
   m_TagString: Debuff Tower
@@ -170,8 +169,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10.371927, y: 22.05299, z: -30.16}
-  m_Center: {x: -0.08839494, y: 2.0982652, z: -3.4316099}
+  m_Size: {x: 7.2369266, y: 19.850052, z: 8.129876}
+  m_Center: {x: -0.13070492, y: 1.5051283, z: 0.12716387}
 --- !u!114 &114262599647714146
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -215,19 +214,6 @@ MonoBehaviour:
   currentTarget: {fileID: 0}
   TargetingLevel: 0
   clicks: 0
---- !u!114 &114836574532775732
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1982433621256296}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d55b39b0bd9c4642a36851a95f8d6ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentTower: {fileID: 0}
-  description: 
 --- !u!135 &135658782751505770
 SphereCollider:
   m_ObjectHideFlags: 1

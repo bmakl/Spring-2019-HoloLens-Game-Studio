@@ -31772,6 +31772,10 @@ MonoBehaviour:
   sell: {fileID: 114584705506063206}
   upgrade: {fileID: 114809404320593356}
   displayTile: {fileID: 0}
+  upgradeCanvas: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  towerToDelete: {fileID: 0}
+  desc: 
 --- !u!114 &114095653401881248
 MonoBehaviour:
   m_ObjectHideFlags: 1

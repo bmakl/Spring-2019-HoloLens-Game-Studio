@@ -53,7 +53,7 @@ public class UpgradeManager : MonoBehaviour{
     {
         Debug.Log("sell tower");
         GameManager.instance.coins += currentTower.price;
-        //currentTower.node.GetComponent<TowerSpawn>().towerPrefab = null;
+        currentTower.node.GetComponent<TowerSpawn>().towerPrefab = null;
         Destroy(towerToDelete);
         Debug.Log(currentTower.transform.position);
     }
