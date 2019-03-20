@@ -16,6 +16,8 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
     bool canShoot = true;
 
     public float upgradeCost = 100;
+    public float slower = 0.5f;
+    public GameObject node;
 
 
     [Header("Turret Upgrade 1 Stats")]
@@ -135,7 +137,7 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
     public virtual void UpdateTarget() //Updates the target to the first target that enters the radius
     {
         BaseEnemy tempTargetScript;
-        #region TargetingLevel1
+        #region TargetingLevels
         if(TargetingLevel == 1)
         {
             if(currentTarget == null)
@@ -230,7 +232,6 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
                 }
                
             }
-            #endregion
         }
         if(TargetingLevel == 2)
         {
@@ -316,6 +317,7 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
                 }
             }
         }
+        #endregion
     }
 
     private void OnTriggerEnter(Collider other)
@@ -362,7 +364,7 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
             if(!other.gameObject.GetComponent<BaseEnemy>().slowed)
             {
 
-                other.gameObject.GetComponent<BaseEnemy>().speed = other.gameObject.GetComponent<BaseEnemy>().speed * 0.5f; ;
+                other.gameObject.GetComponent<BaseEnemy>().speed = other.gameObject.GetComponent<BaseEnemy>().speed * slower;
                 other.gameObject.GetComponent<BaseEnemy>().slowed = true;
             }
             
@@ -501,10 +503,20 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
 
     public void Upgrade()
     {
-        attackDamage = attackDamage * 1.25f;
-        radius = radius * 1.25f;
-        fireRate = fireRate / 1.1f;
-        upgradeCost = upgradeCost * 2;
+        if(this.CompareTag("Basic Tower") || this.CompareTag("Melee Tower") || this.CompareTag("Powerful Tower"))
+        {
+            attackDamage = attackDamage * 1.25f;
+            radius = radius * 1.25f;
+            fireRate = fireRate / 1.1f;
+            upgradeCost = upgradeCost * 2;
+        }
+        if(this.CompareTag("Debuff Tower"))
+        {
+            radius = radius * 1.25f;
+            upgradeCost = upgradeCost * 2;
+            slower = slower * 0.9f;
+        }
+
     }
     
 }

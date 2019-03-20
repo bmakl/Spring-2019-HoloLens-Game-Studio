@@ -37,6 +37,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4837365636098152}
+  - component: {fileID: 114262599647714146}
+  - component: {fileID: 65477890456867856}
   m_Layer: 0
   m_Name: DebuffTower
   m_TagString: Debuff Tower
@@ -54,6 +56,7 @@ GameObject:
   - component: {fileID: 4261540081173276}
   - component: {fileID: 135658782751505770}
   - component: {fileID: 114723124701253662}
+  - component: {fileID: 114836574532775732}
   m_Layer: 2
   m_Name: Internals
   m_TagString: Debuff Tower
@@ -81,7 +84,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1658744591980972}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.299758, y: -2.919467, z: -7.2168384}
+  m_LocalPosition: {x: -13.116011, y: -8.538086, z: -3.7141185}
   m_LocalScale: {x: 0.0078, y: 0.0078, z: 0.0078}
   m_Children:
   - {fileID: 4855786697434964}
@@ -157,6 +160,31 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 87ada0d4d1c23cc43977801101166a36, type: 3}
+--- !u!65 &65477890456867856
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1658744591980972}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10.371927, y: 22.05299, z: -30.16}
+  m_Center: {x: -0.08839494, y: 2.0982652, z: -3.4316099}
+--- !u!114 &114262599647714146
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1658744591980972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d55b39b0bd9c4642a36851a95f8d6ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTower: {fileID: 1982433621256296}
+  description: 
 --- !u!114 &114723124701253662
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -169,20 +197,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 5
-  attackSpeed: 1
   price: 100
   fireRate: 0
   attackDamage: 10
+  upgradeCost: 100
+  slower: 0.5
+  node: {fileID: 0}
   upgrade1Damage: 3
-  upgrade1AttackSpeed: 3
+  upgrade1fireRate: 3
   upgrade1Range: 6
   upgrade2Damage: 5
-  upgrade2AttackSpeed: 5
+  upgrade2fireRate: 5
   upgrade2Range: 7
   bulletPrefab: {fileID: 0}
   firePoint: {fileID: 0}
+  tempTarget: {fileID: 0}
+  currentTarget: {fileID: 0}
   TargetingLevel: 0
   clicks: 0
+--- !u!114 &114836574532775732
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1982433621256296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d55b39b0bd9c4642a36851a95f8d6ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTower: {fileID: 0}
+  description: 
 --- !u!135 &135658782751505770
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -36,6 +36,7 @@ GameObject:
   - component: {fileID: 4503198330472790}
   - component: {fileID: 135542215952677436}
   - component: {fileID: 114743693587221510}
+  - component: {fileID: 114400005130863176}
   m_Layer: 2
   m_Name: Internals
   m_TagString: Melee Tower
@@ -157,6 +158,19 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: bbfab81535f06794d8d1c2861dc0b934, type: 3}
+--- !u!114 &114400005130863176
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1759810249445100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d55b39b0bd9c4642a36851a95f8d6ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTower: {fileID: 0}
+  description: 
 --- !u!114 &114743693587221510
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -169,18 +183,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 5
-  attackSpeed: 1
   price: 100
   fireRate: 0
   attackDamage: 10
+  upgradeCost: 100
+  slower: 0.5
+  node: {fileID: 0}
   upgrade1Damage: 3
-  upgrade1AttackSpeed: 3
-  upgrade1Radius: 6
+  upgrade1fireRate: 3
+  upgrade1Range: 6
   upgrade2Damage: 5
-  upgrade2AttackSpeed: 5
+  upgrade2fireRate: 5
   upgrade2Range: 7
   bulletPrefab: {fileID: 0}
   firePoint: {fileID: 0}
+  tempTarget: {fileID: 0}
+  currentTarget: {fileID: 0}
   TargetingLevel: 1
   clicks: 0
   attackCountdown: 0
