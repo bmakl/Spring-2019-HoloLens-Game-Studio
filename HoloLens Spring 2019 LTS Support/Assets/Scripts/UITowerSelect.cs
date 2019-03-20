@@ -16,14 +16,30 @@ public class UITowerSelect : MonoBehaviour, IInputClickHandler,IFocusable
     [SerializeField] float tweenAmmount;
     [SerializeField] float tweenDuration;
 
+    [Header("UI Selection")]
+    public GameObject SelectedHalo;
+    public GameObject[] HaloGroup;
+
     void Start()
     {
         originalScale = transform.localScale;
+        HaloGroup = GameObject.FindGameObjectsWithTag("SelectedHalo");
+        foreach (GameObject HaloGroup in HaloGroup)
+        {
+            HaloGroup.SetActive(false);
+        }
     }
 
     public void OnInputClicked(InputClickedEventData eventData)
     {
         Debug.Log("Tower Prefab Selected");
+        //Selection Switching
+        HaloGroup = GameObject.FindGameObjectsWithTag("SelectedHalo");
+        foreach (GameObject TowerGlow in HaloGroup)
+        {
+            TowerGlow.SetActive(false);
+        }
+        SelectedHalo.SetActive(true);
         TowerManager.towerNumber = towerID;
     }
 

@@ -20,6 +20,9 @@ TagManager:
   - Debuff Tower
   - Powerful Tower
   - End
+  - NetTrapUI
+  - FenceTrapUI
+  - SelectedHalo
   layers:
   - Default
   - TransparentFX
