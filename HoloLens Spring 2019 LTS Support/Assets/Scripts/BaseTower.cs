@@ -472,9 +472,7 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
     IEnumerator ShootCoolDown()
     {
         canShoot = false;
-        Debug.Log(DateTime.Now);
         yield return new WaitForSecondsRealtime(fireRate);
-        Debug.Log(DateTime.Now);
         canShoot = true;
     }
     /*

@@ -100,13 +100,14 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
             GetNextWaypoint();
         }
 
-        if(health <= 0)
+        /*if(health <= 0)
         {
             GameManager.instance.coins += coinDrop;
-            GameManager.instance.enemyCount--;
             Debug.Log(health);
+            GameManager.instance.enemyCount--;
+            Debug.Log("bye bye");
             Destroy(this.gameObject);
-        }
+        }*/
 
         if(GameManager.instance.waveCount %10 == 0)
         {
@@ -177,7 +178,6 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
                 if (health <= 0)
                 {
                     GameManager.instance.coins += coinDrop;
-                    GameManager.instance.enemyCount--;
                     Destroy(this.gameObject);
                 }
                 SkeletonHit = true;
@@ -206,8 +206,8 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
             if (health <= 0)
             {
                 GameManager.instance.coins += coinDrop;
-                GameManager.instance.enemyCount--;
                 ParticleManager.instance.DeathParticle(this.transform);
+                GameManager.instance.enemyCount--;
                 Destroy(this.gameObject);
             }
         }
