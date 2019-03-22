@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 64594189405227500}
   - component: {fileID: 54662148031203708}
   - component: {fileID: 114384764615584642}
+  - component: {fileID: 114386695430937210}
   m_Layer: 0
   m_Name: polySurface1
   m_TagString: Ghost
@@ -162,7 +163,20 @@ MonoBehaviour:
   SkeletonHit: 0
   slowed: 0
   rotationStrength: 15
+  upGrade: 0
   waypointPassed: 0
   playerDamage: 0
   SkeletonsKilled: 0
   successfulHits: {fileID: 0}
+--- !u!114 &114386695430937210
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1218566897044364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bc9f5da9859dab49b2d6e2e0806b29d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetable: 0

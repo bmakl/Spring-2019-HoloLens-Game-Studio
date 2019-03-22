@@ -28,7 +28,7 @@ public class ClickToUpgrade : MonoBehaviour, IInputClickHandler {
                 break;
 
             case "Debuff Tower":
-                description = "Slows the fuck out of shit, super fresh";
+                description = "Mysterious tower that slows enemies as they pass";
                 break;
             default:
                 return;

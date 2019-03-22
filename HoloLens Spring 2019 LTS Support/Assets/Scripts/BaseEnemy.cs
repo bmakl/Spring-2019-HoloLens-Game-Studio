@@ -9,11 +9,12 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
     public float damageToPlayer;
     public float speed;
     public float health;
-    public int coinDrop;
+    public float coinDrop;
     public bool eligibleTarget;
     public bool SkeletonHit;
     public bool slowed;
     public float rotationStrength = 15f;
+    public bool upGrade = false;
 
     private Transform target;
     private int WavePointIndex = 0;
@@ -107,6 +108,11 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
             Destroy(this.gameObject);
         }
 
+        if(GameManager.instance.waveCount %10 == 0)
+        {
+            upGrade = true;
+        }
+
        
     }
 
@@ -144,13 +150,22 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
             var ghostScrirpt = GetComponent<GhostEnemy>();
             if (!ghostScrirpt.targetable)
             {
+                Debug.Log("Ghost is invulnerable");
                 Destroy(other.gameObject);
             }
             else
             {
-                GameManager.instance.coins += coinDrop;
-                GameManager.instance.enemyCount--;
-                Destroy(this.gameObject);
+                Debug.Log("Ghost is targeted");
+                health -= other.GetComponent<Bullet>().bulletDamage;
+                if (this.gameObject.GetComponent<BaseEnemy>().health == 0)
+                {
+                    Debug.Log("Ghost is taking damage");
+                    GameManager.instance.coins += coinDrop;
+                    GameManager.instance.enemyCount--;
+                    Destroy(this.gameObject);
+                }
+
+                
             }
         }
         if(other.CompareTag("Bullet") && this.CompareTag("Skeleton"))
@@ -216,5 +231,16 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
             SkeletonsKilled++;
             successfulHits.text = "Successful Hits: " + SkeletonsKilled.ToString();
         }
+    }
+
+    public void upgradeEnemy()
+    {
+        if(upGrade== true)
+        {
+            health = health * 1.25f;
+            coinDrop = coinDrop * 1.25f;
+            upGrade = false;
+        }
+
     }
 }
