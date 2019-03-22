@@ -23,7 +23,7 @@ public class UITowerSelect : MonoBehaviour, IInputClickHandler,IFocusable
     void Start()
     {
         originalScale = transform.localScale;
-        HaloGroup = GameObject.FindGameObjectsWithTag("SelectedHalo");
+        //HaloGroup = GameObject.FindGameObjectsWithTag("SelectedHalo");
         foreach (GameObject HaloGroup in HaloGroup)
         {
             HaloGroup.SetActive(false);
@@ -34,7 +34,7 @@ public class UITowerSelect : MonoBehaviour, IInputClickHandler,IFocusable
     {
         Debug.Log("Tower Prefab Selected");
         //Selection Switching
-        HaloGroup = GameObject.FindGameObjectsWithTag("SelectedHalo");
+        //HaloGroup = GameObject.FindGameObjectsWithTag("SelectedHalo");
         foreach (GameObject TowerGlow in HaloGroup)
         {
             TowerGlow.SetActive(false);

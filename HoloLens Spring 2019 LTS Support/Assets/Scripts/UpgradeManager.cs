@@ -22,6 +22,8 @@ public class UpgradeManager : MonoBehaviour{
     public string desc;
     private GameObject towerUI;
 
+    
+public static bool sellTowerBool = true;
 
     void Awake()
     {
@@ -59,11 +61,15 @@ public class UpgradeManager : MonoBehaviour{
 
     public void SellTower()
     {
-        Debug.Log("sell tower");
-        GameManager.instance.coins += currentTower.price;
-        currentTower.node.GetComponent<TowerSpawn>().towerPrefab = null;
-        Destroy(towerToDelete);
-        Debug.Log(currentTower.transform.position);
+        if (sellTowerBool == true)
+        {
+            Debug.Log("sell tower");
+            GameManager.instance.coins += currentTower.price;
+            currentTower.node.GetComponent<TowerSpawn>().towerPrefab = null;
+            Destroy(towerToDelete);
+            Debug.Log(currentTower.transform.position);
+        }
+        
     }
 
     public void UpgradeTower()

@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     public bool Spawn;
 
     [Header("Coins")]
-    public int coins;
+    public float coins;
 
     [Header("Spawner")]
     public GameObject[] enemyPrefab;

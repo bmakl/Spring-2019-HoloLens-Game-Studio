@@ -9,11 +9,12 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
     public float damageToPlayer;
     public float speed;
     public float health;
-    public int coinDrop;
+    public float coinDrop;
     public bool eligibleTarget;
     public bool SkeletonHit;
     public bool slowed;
     public float rotationStrength = 15f;
+    public bool upGrade = false;
 
     private Transform target;
     private int WavePointIndex = 0;
@@ -102,8 +103,14 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
         if(health <= 0)
         {
             GameManager.instance.coins += coinDrop;
+            GameManager.instance.enemyCount--;
             Debug.Log(health);
             Destroy(this.gameObject);
+        }
+
+        if(GameManager.instance.waveCount %10 == 0)
+        {
+            upGrade = true;
         }
 
        
@@ -143,12 +150,22 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
             var ghostScrirpt = GetComponent<GhostEnemy>();
             if (!ghostScrirpt.targetable)
             {
+                Debug.Log("Ghost is invulnerable");
                 Destroy(other.gameObject);
             }
             else
             {
-                GameManager.instance.coins += coinDrop;
-                Destroy(this.gameObject);
+                Debug.Log("Ghost is targeted");
+                health -= other.GetComponent<Bullet>().bulletDamage;
+                if (this.gameObject.GetComponent<BaseEnemy>().health == 0)
+                {
+                    Debug.Log("Ghost is taking damage");
+                    GameManager.instance.coins += coinDrop;
+                    GameManager.instance.enemyCount--;
+                    Destroy(this.gameObject);
+                }
+
+                
             }
         }
         if(other.CompareTag("Bullet") && this.CompareTag("Skeleton"))
@@ -160,6 +177,7 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
                 if (health <= 0)
                 {
                     GameManager.instance.coins += coinDrop;
+                    GameManager.instance.enemyCount--;
                     Destroy(this.gameObject);
                 }
                 SkeletonHit = true;
@@ -175,6 +193,7 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
                 if (health <= 0)
                 {
                     GameManager.instance.coins += coinDrop;
+                    GameManager.instance.enemyCount--;
                     Destroy(this.gameObject);
                 }
             }
@@ -187,12 +206,10 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
             if (health <= 0)
             {
                 GameManager.instance.coins += coinDrop;
-                ParticleManager.instance.DeathParticle(this.transform);
-                Debug.Log("Bullet dead");
-                Destroy(this.gameObject);
                 GameManager.instance.enemyCount--;
+                ParticleManager.instance.DeathParticle(this.transform);
+                Destroy(this.gameObject);
             }
-           
         }
 
     }
@@ -207,13 +224,23 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
 
     public void OnInputClicked(InputClickedEventData eventData)
     {
-        if(GazeManager.Instance.HitInfo.transform.CompareTag("Skeleton") || GazeManager.Instance.HitInfo.transform.CompareTag("Pumpkin") 
-            || GazeManager.Instance.HitInfo.transform.CompareTag("Ghost") || GazeManager.Instance.HitInfo.transform.CompareTag("Bat"))
+        if(GazeManager.Instance.HitInfo.transform.CompareTag("Skeleton"))
         {
             Debug.Log("Player Hit A Skeleton");
             GazeManager.Instance.HitInfo.transform.gameObject.GetComponent<BaseEnemy>().health -= playerDamage;
             SkeletonsKilled++;
             successfulHits.text = "Successful Hits: " + SkeletonsKilled.ToString();
         }
+    }
+
+    public void upgradeEnemy()
+    {
+        if(upGrade== true)
+        {
+            health = health * 1.25f;
+            coinDrop = coinDrop * 1.25f;
+            upGrade = false;
+        }
+
     }
 }

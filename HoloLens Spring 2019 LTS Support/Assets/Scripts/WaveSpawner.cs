@@ -6,6 +6,7 @@ public class WaveSpawner : MonoBehaviour
     public int enemiesAlive;
     public static bool waveStart = false;
     [SerializeField] Wave[] waves;
+   
 
     [SerializeField] Transform spawnPoint;
 
@@ -26,7 +27,6 @@ public class WaveSpawner : MonoBehaviour
         }
         if (countdown <= 0)
         {
-            GameManager.instance.Spawn = false;
             StartCoroutine(SpawnWave());
             countdown = timeBetweenWave;
             return;
@@ -37,8 +37,10 @@ public class WaveSpawner : MonoBehaviour
 
     IEnumerator SpawnWave()
     {
+        UpgradeManager.sellTowerBool = false;
         Wave wave = waves[waveIndex];
         Debug.Log("Wave Spawning");
+        GameManager.instance.Spawn = false;
         foreach (GameObject e in wave.enemy)
         {
             SpawnEnemy(e);
@@ -46,7 +48,8 @@ public class WaveSpawner : MonoBehaviour
             yield return new WaitForSeconds(1f * wave.spawnRate);
         }
         waveIndex++;
-        GameManager.instance.waveCount = waveIndex;
+        UpgradeManager.sellTowerBool = true;
+        GameManager.instance.waveCount++;
        // }
 
         /*if(waveIndex >= waves.Length+1)
