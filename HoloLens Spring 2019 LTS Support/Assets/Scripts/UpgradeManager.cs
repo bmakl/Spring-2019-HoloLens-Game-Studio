@@ -20,6 +20,8 @@ public class UpgradeManager : MonoBehaviour{
     public Transform spawnPoint;
     public GameObject towerToDelete;
     public string desc;
+    private GameObject towerUI;
+
 
     void Awake()
     {
@@ -36,7 +38,13 @@ public class UpgradeManager : MonoBehaviour{
 
     public void spawnObject()
     {
+
+        if (towerUI != null)
+        {
+            Destroy(towerUI);
+        }
         GameObject towerToDisplay = Instantiate(towerToDelete, spawnPoint.position, spawnPoint.rotation);
+        towerUI = towerToDisplay;
     }
 
     public void displayInfo(GameObject myTower, string _description)
@@ -62,6 +70,20 @@ public class UpgradeManager : MonoBehaviour{
     {
         currentTower.Upgrade();
         displayInfo(currentTower.gameObject, desc);
+    }
+    /// <summary>
+    /// Disables Sell Button on upgrade cavnas
+    /// </summary>
+    public void DisableUpgradeButton()
+    {
+        upgrade.interactable = false;
+    }
+    /// <summary>
+    /// Enables Button on upgrade canvas
+    /// </summary>
+    public void EnableUpgradeButton()
+    {
+        upgrade.interactable = true;
     }
 
 

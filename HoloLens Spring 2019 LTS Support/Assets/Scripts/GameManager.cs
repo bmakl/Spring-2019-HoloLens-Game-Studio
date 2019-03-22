@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
 
     public Text crashCount;
     public Text coinCount;
+    [SerializeField] Text waveText;
 
     public float trapCost;
     public GameObject trapToSpawn;
@@ -59,6 +60,11 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        if (enemyCount < 0)
+        {
+            enemyCount = 0;
+        }
+
         /*countdown -= Time.deltaTime;
         Spawner();
         if(countdown <= 0)
@@ -88,6 +94,7 @@ public class GameManager : MonoBehaviour
         */
         crashCount.text = "Spawned " + enemyCount.ToString();
         coinCount.text = "Coins: " + coins.ToString();
+        waveText.text = "Wave: " + waveCount.ToString();
 
 
 

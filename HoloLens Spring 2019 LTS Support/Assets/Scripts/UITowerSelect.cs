@@ -39,7 +39,7 @@ public class UITowerSelect : MonoBehaviour, IInputClickHandler,IFocusable
         {
             TowerGlow.SetActive(false);
         }
-        SelectedHalo.SetActive(true);
+        //  SelectedHalo.SetActive(true);
         TowerManager.towerNumber = towerID;
     }
 

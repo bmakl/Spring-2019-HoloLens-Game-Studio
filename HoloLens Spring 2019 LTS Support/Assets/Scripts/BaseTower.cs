@@ -14,6 +14,8 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
     public float attackDamage = 10f;
     private float currentFireRate = 0;
     bool canShoot = true;
+    private int lastUpgradeWave = 0;
+    private bool enableUpgrade = true;
 
     public float upgradeCost = 100;
     public float slower = 0.5f;
@@ -100,6 +102,13 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
 
     private void Update()
     {
+        Debug.Log(lastUpgradeWave);
+        if (lastUpgradeWave < GameManager.instance.waveCount && enableUpgrade)
+        {
+            Debug.Log("a");
+            UpgradeManager.instance.EnableUpgradeButton();
+            enableUpgrade = false;
+        }
         UpdateTarget();
         //Debug.DrawLine(firePoint.transform.position, currentTarget.transform.position, Color.red, 0.1f);
         //RotateTower();
@@ -484,37 +493,30 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
         }
     }
     */
-    public void Upgrade1()
-    {
-        attackDamage = upgrade1Damage;
-        radius = upgrade1Range;
-        fireRate = upgrade1fireRate;
-
-    }
-
-
-    public void Upgrade2()
-    {
-        attackDamage = upgrade2Damage;
-        radius = upgrade2Range;
-        fireRate = upgrade2fireRate;
-
-    }
 
     public void Upgrade()
     {
-        if(this.CompareTag("Basic Tower") || this.CompareTag("Melee Tower") || this.CompareTag("Powerful Tower"))
+        lastUpgradeWave = GameManager.instance.waveCount;
+        Debug.Log(lastUpgradeWave);
+
+        Debug.Log("Upgraded Tower");
+
+        if (this.CompareTag("Basic Tower") || this.CompareTag("Melee Tower") || this.CompareTag("Powerful Tower"))
         {
             attackDamage = attackDamage * 1.25f;
             radius = radius * 1.25f;
             fireRate = fireRate / 1.1f;
             upgradeCost = upgradeCost * 2;
+            enableUpgrade = true;
+            UpgradeManager.instance.DisableUpgradeButton();
         }
-        if(this.CompareTag("Debuff Tower"))
+        if (this.CompareTag("Debuff Tower"))
         {
             radius = radius * 1.25f;
             upgradeCost = upgradeCost * 2;
             slower = slower * 0.9f;
+            enableUpgrade = true;
+            UpgradeManager.instance.DisableUpgradeButton();
         }
 
     }

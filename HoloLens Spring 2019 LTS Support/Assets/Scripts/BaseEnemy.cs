@@ -102,7 +102,6 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
         if(health <= 0)
         {
             GameManager.instance.coins += coinDrop;
-            GameManager.instance.enemyCount--;
             Debug.Log(health);
             Destroy(this.gameObject);
         }
@@ -149,7 +148,6 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
             else
             {
                 GameManager.instance.coins += coinDrop;
-                GameManager.instance.enemyCount--;
                 Destroy(this.gameObject);
             }
         }
@@ -162,7 +160,6 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
                 if (health <= 0)
                 {
                     GameManager.instance.coins += coinDrop;
-                    GameManager.instance.enemyCount--;
                     Destroy(this.gameObject);
                 }
                 SkeletonHit = true;
@@ -178,7 +175,6 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
                 if (health <= 0)
                 {
                     GameManager.instance.coins += coinDrop;
-                    GameManager.instance.enemyCount--;
                     Destroy(this.gameObject);
                 }
             }
@@ -191,10 +187,12 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
             if (health <= 0)
             {
                 GameManager.instance.coins += coinDrop;
-                GameManager.instance.enemyCount--;
                 ParticleManager.instance.DeathParticle(this.transform);
+                Debug.Log("Bullet dead");
                 Destroy(this.gameObject);
+                GameManager.instance.enemyCount--;
             }
+           
         }
 
     }
@@ -209,7 +207,8 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
 
     public void OnInputClicked(InputClickedEventData eventData)
     {
-        if(GazeManager.Instance.HitInfo.transform.CompareTag("Skeleton"))
+        if(GazeManager.Instance.HitInfo.transform.CompareTag("Skeleton") || GazeManager.Instance.HitInfo.transform.CompareTag("Pumpkin") 
+            || GazeManager.Instance.HitInfo.transform.CompareTag("Ghost") || GazeManager.Instance.HitInfo.transform.CompareTag("Bat"))
         {
             Debug.Log("Player Hit A Skeleton");
             GazeManager.Instance.HitInfo.transform.gameObject.GetComponent<BaseEnemy>().health -= playerDamage;

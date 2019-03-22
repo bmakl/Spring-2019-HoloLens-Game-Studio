@@ -26,6 +26,7 @@ public class WaveSpawner : MonoBehaviour
         }
         if (countdown <= 0)
         {
+            GameManager.instance.Spawn = false;
             StartCoroutine(SpawnWave());
             countdown = timeBetweenWave;
             return;
@@ -38,7 +39,6 @@ public class WaveSpawner : MonoBehaviour
     {
         Wave wave = waves[waveIndex];
         Debug.Log("Wave Spawning");
-        GameManager.instance.Spawn = false;
         foreach (GameObject e in wave.enemy)
         {
             SpawnEnemy(e);
@@ -46,6 +46,7 @@ public class WaveSpawner : MonoBehaviour
             yield return new WaitForSeconds(1f * wave.spawnRate);
         }
         waveIndex++;
+        GameManager.instance.waveCount = waveIndex;
        // }
 
         /*if(waveIndex >= waves.Length+1)

@@ -35,6 +35,11 @@ public class MeleeTower : BaseTower
         {
 
             other.gameObject.GetComponent<BaseEnemy>().health -= attackDamage;
+            if (other.gameObject.GetComponent<BaseEnemy>().health <= 0)
+            {
+                GameManager.instance.enemyCount--;
+                Debug.Log("ded");
+            }
 
         }
         attackCountdown = 1f * fireRate;
@@ -53,8 +58,7 @@ public class MeleeTower : BaseTower
                 StartCoroutine(meleeAttackCoolDown(other));
                 Debug.Log("Attack Countdown is fine");
 
-                Debug.Log(other.gameObject.GetComponent<BaseEnemy>().health);
-                //shooting
+            //shooting
 
             }
 
