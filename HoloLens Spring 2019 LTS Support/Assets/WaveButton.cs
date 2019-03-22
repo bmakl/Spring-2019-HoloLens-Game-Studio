@@ -3,15 +3,11 @@ using HoloToolkit.Unity.InputModule;
 
 public class WaveButton : MonoBehaviour, IInputClickHandler  {
 
-    
+    public WaveSpawner waveSpawner;
     public void OnInputClicked(InputClickedEventData eventData)
     {
-        
-        if(!GameManager.instance.Spawn && GameManager.instance.enemyCount <= 0)
-        {
-            GameManager.instance.Spawn = true;
-        }
-        Debug.Log("Calling Spawner");
+        waveSpawner.SetQueue();
+        //waveSpawner.SpawnEnemy();
     }
 
 }

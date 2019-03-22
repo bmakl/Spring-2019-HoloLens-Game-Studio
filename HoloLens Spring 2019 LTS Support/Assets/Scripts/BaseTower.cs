@@ -79,6 +79,7 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
             attackDamage = 5f;
             fireRate = 1.5f;
             price = 250;
+            slower = 0.5f;
         }
         else if(this.gameObject.CompareTag("Powerful Tower"))
         {
