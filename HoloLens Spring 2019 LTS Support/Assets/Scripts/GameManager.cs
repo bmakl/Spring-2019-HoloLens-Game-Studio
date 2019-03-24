@@ -94,7 +94,7 @@ public class GameManager : MonoBehaviour
         */
         crashCount.text = "Spawned " + enemyCount.ToString();
         coinCount.text = "Coins: " + coins.ToString();
-        waveText.text = "Wave: " + waveCount.ToString();
+        waveText.text = "Waves completed:  " + waveCount;
 
 
 
