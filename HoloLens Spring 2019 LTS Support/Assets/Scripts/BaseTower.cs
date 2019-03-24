@@ -121,7 +121,7 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
             return;
         }
         //Debug.Log(currentTarget.GetComponent<BaseEnemy>().health + " " + fireRate);
-        if (currentTarget.GetComponent<BaseEnemy>().health > 0 && canShoot) //checks if the attack is off cooldown 
+        if (currentTarget.GetComponent<BaseEnemy>().health > 0 && canShoot && !this.gameObject.CompareTag("Debuff Tower")) //checks if the attack is off cooldown 
         {
             Debug.Log("shooting at" + currentTarget.tag);
 
@@ -368,8 +368,9 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
             Debug.LogError("Nothing found. Check enemy tags");
         }
 
-        if(this.gameObject.CompareTag("Debuff Tower"))
+        if(this.gameObject.CompareTag("Debuff Tower") && !this.gameObject.CompareTag("Basic Tower") && !other.gameObject.CompareTag("Bullet") )
         {
+            Debug.Log(other.gameObject);
             if(!other.gameObject.GetComponent<BaseEnemy>().slowed)
             {
 

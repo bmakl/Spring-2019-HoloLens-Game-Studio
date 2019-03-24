@@ -1,17 +1,24 @@
 ﻿using UnityEngine;
 using HoloToolkit.Unity.InputModule;
 
-public class WaveButton : MonoBehaviour, IInputClickHandler  {
+public class WaveButton : MonoBehaviour  {
 
-    
-    public void OnInputClicked(InputClickedEventData eventData)
+
+    private void Update()
     {
-        
-        if(!GameManager.instance.Spawn && GameManager.instance.enemyCount <= 0)
+        if (!GameManager.instance.Spawn && GameManager.instance.enemyCount <= 0)
         {
-            GameManager.instance.Spawn = true;
+            ButtonManager.instance.EnableButton();
+
         }
         Debug.Log("Calling Spawner");
     }
+
+    public void StartWave()
+    {
+        GameManager.instance.Spawn = true;
+        ButtonManager.instance.DisableButton();
+    }
+        
 
 }
