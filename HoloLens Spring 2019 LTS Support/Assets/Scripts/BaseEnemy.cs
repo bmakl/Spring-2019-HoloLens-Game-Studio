@@ -158,7 +158,7 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
             {
                 Debug.Log("Ghost is targeted");
                 health -= other.GetComponent<Bullet>().bulletDamage;
-                if (this.gameObject.GetComponent<BaseEnemy>().health == 0)
+                if (this.gameObject.GetComponent<BaseEnemy>().health <= 0)
                 {
                     Debug.Log("Ghost is taking damage");
                     GameManager.instance.coins += coinDrop;

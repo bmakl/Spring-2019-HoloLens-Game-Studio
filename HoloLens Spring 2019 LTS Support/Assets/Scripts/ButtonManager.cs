@@ -30,7 +30,7 @@ public class ButtonManager : MonoBehaviour {
 
     void Update () {
 
-        transform.rotation = (cam.transform.rotation);
+        transform.LookAt(2 * transform.position - cam.transform.position);
 
 	}
 
