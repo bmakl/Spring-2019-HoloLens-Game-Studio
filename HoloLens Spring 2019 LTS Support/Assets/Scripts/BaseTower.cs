@@ -16,6 +16,7 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
     bool canShoot = true;
     private int lastUpgradeWave = 0;
     private bool enableUpgrade = true;
+    private SphereCollider sphereCollider;
 
     public float upgradeCost = 100;
     public float slower = 0.5f;
@@ -60,27 +61,33 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
         Boss = new Queue<GameObject>();
         Zombie = new Queue<GameObject>();
         TargetingLevel = 1;
+
+        sphereCollider = this.GetComponent<SphereCollider>();
         #region TowerAssign
         if(this.gameObject.CompareTag("Basic Tower"))
         {
-            radius = 5f;
+            radius = 19.93f;
             attackDamage = 10f;
             fireRate = 1f;
             price = 100;
+            sphereCollider.radius = radius;
         }
         else if(this.gameObject.CompareTag("Melee Tower"))
         {
-            radius = 1f;
+            radius = 17.03462f;
             attackDamage = 15f;
             fireRate = 0.5f;
             price = 150;
+            sphereCollider.radius = radius;
+
         }
         else if(this.gameObject.CompareTag("Debuff Tower"))
         {
-            radius = 3f;
+            radius = 17.03462f;
             attackDamage = 5f;
             fireRate = 1.5f;
             price = 250;
+            sphereCollider.radius = radius;
         }
         else if(this.gameObject.CompareTag("Powerful Tower"))
         {
@@ -89,6 +96,7 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
             fireRate = 0.5f;
             fireRate = 0f;
             price = 700;
+            sphereCollider.radius = radius;
         }
         #endregion
     }
@@ -504,6 +512,7 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
         {
             attackDamage = attackDamage * 1.25f;
             radius = radius * 1.25f;
+            sphereCollider.radius = radius; //Sets radius of actual collider
             fireRate = fireRate / 1.1f;
             upgradeCost = upgradeCost * 2;
             enableUpgrade = true;

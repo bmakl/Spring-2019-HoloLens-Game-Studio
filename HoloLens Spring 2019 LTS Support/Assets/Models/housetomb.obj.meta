@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: bbfab81535f06794d8d1c2861dc0b934
+guid: d3a6c986e67b6c3449e24183ca0c17f8
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
-    100002: pCube1
+    100002: housetomb:pCube1
     400000: //RootNode
-    400002: pCube1
-    2100000: pCube1Mat
-    2300000: pCube1
-    3300000: pCube1
-    4300000: pCube1
+    400002: housetomb:pCube1
+    2100000: housetomb_pCube1Mat
+    2300000: housetomb:pCube1
+    3300000: housetomb:pCube1
+    4300000: housetomb:pCube1
   externalObjects: {}
   materials:
     importMaterials: 1
