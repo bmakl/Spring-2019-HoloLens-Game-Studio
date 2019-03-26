@@ -66,6 +66,7 @@ public static bool sellTowerBool = true;
             Debug.Log("sell tower");
             GameManager.instance.coins += currentTower.price;
             currentTower.node.GetComponent<TowerSpawn>().towerPrefab = null;
+            currentTower = null;
             Destroy(towerToDelete);
             Debug.Log(currentTower.transform.position);
         }
