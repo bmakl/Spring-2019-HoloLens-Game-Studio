@@ -35,12 +35,12 @@ public class MeleeTower : BaseTower
         {
 
             other.gameObject.GetComponent<BaseEnemy>().health -= attackDamage;
-            Debug.Log("Attacking with melee");
-            if (other.gameObject.GetComponent<BaseEnemy>().health <= 0)
+            if (other.gameObject.GetComponent<BaseEnemy>().health <= 0 && !other.gameObject.GetComponent<BaseEnemy>().killed)
             {
                 GameManager.instance.enemyCount--;
+                ParticleManager.instance.DeathParticle(other.transform);
+                other.gameObject.GetComponent<BaseEnemy>().killed = true;
                 Destroy(other.gameObject);
-                Debug.Log("ded");
             }
 
         }

@@ -113,7 +113,6 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
         Debug.Log(lastUpgradeWave);
         if (lastUpgradeWave < GameManager.instance.waveCount && enableUpgrade)
         {
-            Debug.Log("a");
             UpgradeManager.instance.EnableUpgradeButton();
             enableUpgrade = false;
         }
@@ -157,7 +156,7 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
         #region TargetingLevels
         if(TargetingLevel == 1)
         {
-            if(currentTarget == null)
+            if(currentTarget == null && GameManager.instance.enemyCount > 0)
             {
                 if (Skeleton.Count != 0)
                 {
@@ -448,8 +447,11 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
 
         if(this.gameObject.CompareTag("Debuff Tower"))
         {
-            other.gameObject.GetComponent<BaseEnemy>().speed = other.gameObject.GetComponent<BaseEnemy>().speed * 2f;
-            other.gameObject.GetComponent<BaseEnemy>().slowed = false;
+            if (other.GetComponent<BaseEnemy>())
+            {
+                other.gameObject.GetComponent<BaseEnemy>().speed = other.gameObject.GetComponent<BaseEnemy>().speed * 2f;
+                other.gameObject.GetComponent<BaseEnemy>().slowed = false;
+            }
         }
     }
 

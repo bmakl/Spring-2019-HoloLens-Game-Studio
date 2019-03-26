@@ -28,12 +28,6 @@ public class ButtonManager : MonoBehaviour {
         startButton = GetComponentInChildren<Button>();
     }
 
-    void Update () {
-
-        transform.LookAt(2 * transform.position - cam.transform.position);
-
-	}
-
     public void EnableButton()
     {
         startButton.interactable = true;

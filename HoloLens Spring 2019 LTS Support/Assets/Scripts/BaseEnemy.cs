@@ -15,6 +15,7 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
     public bool slowed;
     public float rotationStrength = 15f;
     public bool upGrade = false;
+    [HideInInspector] public bool killed = false;
 
     private Transform target;
     private int WavePointIndex = 0;
@@ -106,7 +107,7 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
             Debug.Log(health);
             GameManager.instance.enemyCount--;
             Debug.Log("bye bye");
-            Destroy(this.gameObject);
+            Destroy(transform.parent.gameObject);
         }*/
 
         if(GameManager.instance.waveCount %10 == 0)
@@ -130,7 +131,7 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
                 damageToPlayer = health * 0.1f;
             }
             GameManager.instance.enemyCount--;
-            Destroy(gameObject);
+            Destroy(transform.parent.gameObject);
             GameManager.instance.health -= damageToPlayer;
             return;
         }
@@ -158,12 +159,13 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
             {
                 Debug.Log("Ghost is targeted");
                 health -= other.GetComponent<Bullet>().bulletDamage;
-                if (this.gameObject.GetComponent<BaseEnemy>().health <= 0)
+                if (this.gameObject.GetComponent<BaseEnemy>().health <= 0 && !killed)
                 {
                     Debug.Log("Ghost is taking damage");
                     GameManager.instance.coins += coinDrop;
                     GameManager.instance.enemyCount--;
-                    Destroy(this.gameObject);
+                    killed = true;
+                    Destroy(transform.parent.gameObject);
                 }
 
                 
@@ -178,7 +180,7 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
                 if (health <= 0)
                 {
                     GameManager.instance.coins += coinDrop;
-                    Destroy(this.gameObject);
+                    Destroy(transform.parent.gameObject);
                 }
                 SkeletonHit = true;
                 if (SkeletonHit)
@@ -190,11 +192,12 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
             {
                 health -= other.GetComponent<Bullet>().bulletDamage;
                 Destroy(other.gameObject);
-                if (health <= 0)
+                if (health <= 0 && !killed)
                 {
                     GameManager.instance.coins += coinDrop;
                     GameManager.instance.enemyCount--;
-                    Destroy(this.gameObject);
+                    killed = true;
+                    Destroy(transform.parent.gameObject);
                 }
             }
         }
@@ -203,12 +206,12 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
             health -= other.GetComponent<Bullet>().bulletDamage;
             Debug.Log("Bullet hit");
             Destroy(other.gameObject);
-            if (health <= 0)
+            if (health <= 0 && !killed)
             {
                 GameManager.instance.coins += coinDrop;
                 ParticleManager.instance.DeathParticle(this.transform);
                 GameManager.instance.enemyCount--;
-                Destroy(this.gameObject);
+                Destroy(transform.parent.gameObject);
             }
         }
 

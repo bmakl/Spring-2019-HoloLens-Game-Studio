@@ -60,6 +60,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        
         if (enemyCount < 0)
         {
             enemyCount = 0;

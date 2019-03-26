@@ -11,6 +11,7 @@ public class Bullet : MonoBehaviour
     public float bulletDamage;
     Vector3 enemyCenter;
     private BaseEnemy enemy;
+    private float timeAlive;
 
     public void Seek(Transform _target, float damage)//Grabs target from TowerTemplate
     {
@@ -32,6 +33,12 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        timeAlive += Time.deltaTime;
+        Debug.Log(timeAlive);
+        if (timeAlive >= 0.05f)
+        {
+            this.GetComponent<MeshRenderer>().enabled = false;
+        }
         if (target == null || !enemy.eligibleTarget)//Checks if there is a target, if not destorys bullet
         {
             Destroy(gameObject);
@@ -43,6 +50,15 @@ public class Bullet : MonoBehaviour
         dir = enemyCenter - transform.position;
         distanceThisFrame = bulletSpeed * Time.deltaTime;
         transform.Translate(dir.normalized * distanceThisFrame, Space.World); //Moves Bullet
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Pumpkin") ||other.CompareTag("Skeleton") || other.CompareTag("Bat") || other.CompareTag("Ghost"))
+        {
+            this.GetComponent<MeshRenderer>().enabled = false;
+            Debug.Log("Bullet disable");
+        }
     }
 
 }
