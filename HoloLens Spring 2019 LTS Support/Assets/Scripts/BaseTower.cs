@@ -504,6 +504,8 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
     }
     */
 
+
+    
     public virtual void Upgrade()
     {
         lastUpgradeWave = GameManager.instance.waveCount;
