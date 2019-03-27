@@ -35,6 +35,12 @@ public class GameManager : MonoBehaviour
     //public GameObject enemyFastPrefab;
     public Transform spawnPoint;
 
+    [Header("Enemy Drops")]
+    public float pumpkinCoin = 25f;
+    public float skeletonCoin = 75f;
+    public float ghostCoin = 100f;
+    public float batCoin = 50f;
+
     public int enemyType = 0;
     public float timeBetweenWaves = 5f;
     private float countdown = 2f;
@@ -49,6 +55,8 @@ public class GameManager : MonoBehaviour
     public Text crashCount;
     public Text coinCount;
     [SerializeField] Text waveText;
+
+    public string lastUpgrade;
 
     public float trapCost;
     public GameObject trapToSpawn;

@@ -89,8 +89,17 @@ public static bool sellTowerBool = true;
 
     public void UpgradeTower()
     {
-        currentTower.Upgrade();
-        displayInfo(currentTower.gameObject, desc);
+        if (GameManager.instance.lastUpgrade == "Melee Tower")
+        {
+            currentMelee.Upgrade();
+            displayInfo(currentMelee.gameObject, desc);
+
+        }
+        else
+        {
+            currentTower.Upgrade();
+            displayInfo(currentTower.gameObject, desc);
+        }
     }
 
     public void UpgradeMelee()

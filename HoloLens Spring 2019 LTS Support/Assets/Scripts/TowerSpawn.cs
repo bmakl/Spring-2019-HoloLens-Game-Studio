@@ -45,12 +45,23 @@ public class TowerSpawn : MonoBehaviour, IInputHandler, IInputClickHandler
                 return;
             }
             PlaceTower();
-            if (towerPrefab.gameObject.GetComponentInChildren<BaseTower>().price <= GameManager.instance.coins)
+            Debug.Log(towerPrefab.tag);
+            if (towerPrefab.CompareTag("Melee Tower") && towerPrefab.gameObject.GetComponentInChildren<MeleeTower>().price <= GameManager.instance.coins)
             {
-
+                Debug.Log(towerPrefab.gameObject.GetComponentInChildren<MeleeTower>().price);
                 GameObject instantiateTower = Instantiate(towerPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
                 instantiateTower.GetComponentInChildren<BaseTower>().node = this.transform.gameObject;
                 GameManager.instance.coins -= instantiateTower.gameObject.GetComponentInChildren<BaseTower>().price;
+            }
+            else if (!towerPrefab.CompareTag("Melee Tower"))
+            {
+                Debug.Log("aaaaaaaaaaaaaa");
+                if (towerPrefab.gameObject.GetComponentInChildren<BaseTower>().price <= GameManager.instance.coins)
+                {
+                    GameObject instantiateTower = Instantiate(towerPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
+                    instantiateTower.GetComponentInChildren<BaseTower>().node = this.transform.gameObject;
+                    GameManager.instance.coins -= instantiateTower.gameObject.GetComponentInChildren<BaseTower>().price;
+                }
             }
            
         }
