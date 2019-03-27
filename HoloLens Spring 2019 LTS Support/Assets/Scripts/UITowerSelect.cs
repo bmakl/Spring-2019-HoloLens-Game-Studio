@@ -19,6 +19,7 @@ public class UITowerSelect : MonoBehaviour, IInputClickHandler,IFocusable
     [Header("UI Selection")]
     public GameObject SelectedHalo;
     public GameObject[] HaloGroup;
+    public static Outline highlight;
 
     void Start()
     {
@@ -32,6 +33,18 @@ public class UITowerSelect : MonoBehaviour, IInputClickHandler,IFocusable
 
     public void OnInputClicked(InputClickedEventData eventData)
     {
+        if (highlight != null)
+        {
+            highlight.enabled = false;
+            highlight = null;
+            highlight = this.GetComponent<Outline>();
+            highlight.enabled = true;
+        }
+        else
+        {
+            highlight = GetComponent<Outline>();
+            highlight.enabled = true;
+        }
         Debug.Log("Tower Prefab Selected");
         //Selection Switching
         //HaloGroup = GameObject.FindGameObjectsWithTag("SelectedHalo");

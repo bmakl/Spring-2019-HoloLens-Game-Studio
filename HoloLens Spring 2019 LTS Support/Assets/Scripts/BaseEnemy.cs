@@ -33,7 +33,7 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
         {
             speed = 0.3f;
             health = 20;
-            coinDrop = 10;
+            coinDrop = 25;
             playerDamage = 1;
             slowed = false;
             
@@ -42,24 +42,24 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
         {
             speed = 0.1f;
             health = 35;
-            coinDrop = 20;
-            playerDamage = 1;
+            coinDrop = 100;
+            playerDamage = 10;
             slowed = false;
         }
         if (this.gameObject.CompareTag("Bat"))
         {
             speed = 0.6f;
             health = 15;
-            coinDrop = 15;
-            playerDamage = 1;
+            coinDrop = 50;
+            playerDamage = 5;
             slowed = false;
         }
         if (this.gameObject.CompareTag("Skeleton"))
         {
             speed = 0.7f;
             health = 10;
-            coinDrop = 5;
-            playerDamage = 1;
+            coinDrop = 75;
+            playerDamage = 10;
             SkeletonHit = false;
             slowed = false;
         }
