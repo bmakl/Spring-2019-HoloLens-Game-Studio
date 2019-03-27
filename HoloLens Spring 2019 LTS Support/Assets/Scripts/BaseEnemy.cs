@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using HoloToolkit.Unity.InputModule;
+using GameAnalyticsSDK;
 
 public class BaseEnemy : MonoBehaviour, IInputClickHandler
 {
@@ -199,10 +200,11 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
                     GameManager.instance.enemyCount--;
                     killed = true;
                     Destroy(transform.parent.gameObject);
+                    GameAnalytics.NewDesignEvent("EnemyKilled:Skeleton");
                 }
             }
         }
-        else if(other.CompareTag("Bullet") && !this.CompareTag("Skeleton") && !this.CompareTag("Ghost"))
+        else if(other.CompareTag("Bullet") && this.CompareTag("Pumpkin"))
         {
             health -= other.GetComponent<Bullet>().bulletDamage;
             Debug.Log("Bullet hit");
@@ -213,8 +215,24 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
                 ParticleManager.instance.DeathParticle(this.transform);
                 GameManager.instance.enemyCount--;
                 Destroy(transform.parent.gameObject);
+                GameAnalytics.NewDesignEvent("EnemyKilled:Pumpkin");
             }
         }
+        else if (other.CompareTag("Bullet") && this.CompareTag("Bat"))
+        {
+            health -= other.GetComponent<Bullet>().bulletDamage;
+            Debug.Log("Bullet hit");
+            Destroy(other.gameObject);
+            if (health <= 0 && !killed)
+            {
+                GameManager.instance.coins += coinDrop;
+                ParticleManager.instance.DeathParticle(this.transform);
+                GameManager.instance.enemyCount--;
+                Destroy(transform.parent.gameObject);
+                GameAnalytics.NewDesignEvent("EnemyKilled:Bat");
+            }
+        }
+
 
     }
 

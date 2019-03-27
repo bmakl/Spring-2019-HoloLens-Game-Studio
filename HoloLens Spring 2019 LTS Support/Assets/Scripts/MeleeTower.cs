@@ -68,6 +68,34 @@ public class MeleeTower : BaseTower
         }
     }
 
+    public override void Upgrade()
+    {
+        lastUpgradeWave = GameManager.instance.waveCount;
+        Debug.Log(lastUpgradeWave);
+
+        Debug.Log("Upgraded Tower");
+
+        if (this.CompareTag("Basic Tower") || this.CompareTag("Melee Tower") || this.CompareTag("Powerful Tower"))
+        {
+            attackDamage = attackDamage * 1.25f;
+            radius = radius * 1.25f;
+            sphereCollider.radius = radius; //Sets radius of actual collider
+            fireRate = fireRate / 1.1f;
+            upgradeCost = upgradeCost * 2;
+            enableUpgrade = true;
+            UpgradeManager.instance.DisableUpgradeButton();
+        }
+        if (this.CompareTag("Debuff Tower"))
+        {
+            radius = radius * 1.25f;
+            upgradeCost = upgradeCost * 2;
+            slower = slower * 0.9f;
+            enableUpgrade = true;
+            UpgradeManager.instance.DisableUpgradeButton();
+        }
+
+    }
+
 
 
 }

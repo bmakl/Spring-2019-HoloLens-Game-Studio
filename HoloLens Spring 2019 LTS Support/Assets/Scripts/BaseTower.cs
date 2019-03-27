@@ -12,11 +12,11 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
     public int price = 100;
     public float fireRate = 1f;
     public float attackDamage = 10f;
-    private float currentFireRate = 0;
+    protected float currentFireRate = 0;
     bool canShoot = true;
-    private int lastUpgradeWave = 0;
-    private bool enableUpgrade = true;
-    private SphereCollider sphereCollider;
+    protected int lastUpgradeWave = 0;
+    protected bool enableUpgrade = true;
+    protected SphereCollider sphereCollider;
 
     public float upgradeCost = 100;
     public float slower = 0.5f;
@@ -503,7 +503,7 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
     }
     */
 
-    public void Upgrade()
+    public virtual void Upgrade()
     {
         lastUpgradeWave = GameManager.instance.waveCount;
         Debug.Log(lastUpgradeWave);

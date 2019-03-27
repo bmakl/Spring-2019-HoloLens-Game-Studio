@@ -1,16 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GameAnalyticsSDK;
 
-public class AnalyticsManager : MonoBehaviour {
+public class AnalyticsManager : MonoBehaviour
+{
+    public void Awake()
+    {
+        GameAnalytics.Initialize();
+    }
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
