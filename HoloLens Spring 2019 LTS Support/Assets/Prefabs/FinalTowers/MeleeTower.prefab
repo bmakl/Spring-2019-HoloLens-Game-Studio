@@ -19,6 +19,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4058830401342016}
+  - component: {fileID: 65359488502386370}
+  - component: {fileID: 114212228829992270}
   m_Layer: 0
   m_Name: MeleeTower
   m_TagString: Melee Tower
@@ -36,7 +38,6 @@ GameObject:
   - component: {fileID: 4503198330472790}
   - component: {fileID: 135542215952677436}
   - component: {fileID: 114743693587221510}
-  - component: {fileID: 114400005130863176}
   m_Layer: 2
   m_Name: Internals
   m_TagString: Melee Tower
@@ -69,7 +70,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1172672307591042}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.8789971, y: -6.058329, z: 8.777891}
+  m_LocalPosition: {x: 2.5800583, y: -7.219239, z: 6.725686}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children:
   - {fileID: 4522509857558902}
@@ -158,12 +159,24 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: d3a6c986e67b6c3449e24183ca0c17f8, type: 3}
---- !u!114 &114400005130863176
+--- !u!65 &65359488502386370
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1172672307591042}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.68, y: 8.01, z: 7.74}
+  m_Center: {x: 0, y: -2.68, z: 0}
+--- !u!114 &114212228829992270
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1759810249445100}
+  m_GameObject: {fileID: 1172672307591042}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d55b39b0bd9c4642a36851a95f8d6ab, type: 3}

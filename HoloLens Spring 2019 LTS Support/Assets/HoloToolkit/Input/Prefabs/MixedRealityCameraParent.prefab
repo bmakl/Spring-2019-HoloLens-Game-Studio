@@ -34114,6 +34114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTower: {fileID: 0}
+  currentMelee: {fileID: 0}
   damage: {fileID: 114021970609178796}
   fireRate: {fileID: 114607650499869258}
   radius: {fileID: 114821244962299184}
@@ -34341,6 +34342,7 @@ MonoBehaviour:
   crashCount: {fileID: 114915664762002132}
   coinCount: {fileID: 114884022986300254}
   waveText: {fileID: 114236882077059912}
+  lastUpgrade: 
   trapCost: 0
   trapToSpawn: {fileID: 0}
 --- !u!114 &114321579349929714

@@ -50,6 +50,8 @@ public class GameManager : MonoBehaviour
     public Text coinCount;
     [SerializeField] Text waveText;
 
+    public string lastUpgrade;
+
     public float trapCost;
     public GameObject trapToSpawn;
 

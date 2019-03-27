@@ -42,6 +42,9 @@ public class ClickToUpgrade : MonoBehaviour, IInputClickHandler {
 
     public void OnInputClicked(InputClickedEventData eventData)
     {
+        GameManager.instance.lastUpgrade = this.tag;
+        Debug.Log(GameManager.instance.lastUpgrade);
+
         if (!currentTower.CompareTag("Melee Tower"))
         {
             UpgradeManager.instance.currentTower = currentTower.GetComponent<BaseTower>();
