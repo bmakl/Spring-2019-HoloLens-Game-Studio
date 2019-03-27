@@ -67,7 +67,7 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
         if(this.gameObject.CompareTag("Basic Tower"))
         {
             radius = 19.93f;
-            attackDamage = 10f;
+            attackDamage = 5f;
             fireRate = 1f;
             price = 100;
             sphereCollider.radius = radius;
