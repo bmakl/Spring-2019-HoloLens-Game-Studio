@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GameAnalyticsSDK;
 
 public class MeleeTower : BaseTower
 {
@@ -75,7 +76,7 @@ public class MeleeTower : BaseTower
 
         Debug.Log("Upgraded Tower");
 
-        if (this.CompareTag("Basic Tower") || this.CompareTag("Melee Tower") || this.CompareTag("Powerful Tower"))
+        if (this.CompareTag("Melee Tower"))
         {
             attackDamage = attackDamage * 1.25f;
             radius = radius * 1.25f;
@@ -84,14 +85,7 @@ public class MeleeTower : BaseTower
             upgradeCost = upgradeCost * 2;
             enableUpgrade = true;
             UpgradeManager.instance.DisableUpgradeButton();
-        }
-        if (this.CompareTag("Debuff Tower"))
-        {
-            radius = radius * 1.25f;
-            upgradeCost = upgradeCost * 2;
-            slower = slower * 0.9f;
-            enableUpgrade = true;
-            UpgradeManager.instance.DisableUpgradeButton();
+            GameAnalytics.NewDesignEvent("UpgradeTower:ScytheTower");
         }
 
     }

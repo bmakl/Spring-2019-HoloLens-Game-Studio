@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using HoloToolkit.Unity.InputModule;
 using System;
+using GameAnalyticsSDK;
 public class BaseTower : MonoBehaviour//, IInputClickHandler
 {
 
@@ -510,7 +511,7 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
 
         Debug.Log("Upgraded Tower");
 
-        if (this.CompareTag("Basic Tower") || this.CompareTag("Melee Tower") || this.CompareTag("Powerful Tower"))
+        if (this.CompareTag("Basic Tower"))
         {
             attackDamage = attackDamage * 1.25f;
             radius = radius * 1.25f;
@@ -519,6 +520,18 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
             upgradeCost = upgradeCost * 2;
             enableUpgrade = true;
             UpgradeManager.instance.DisableUpgradeButton();
+            GameAnalytics.NewDesignEvent("UpgradeTower:Tombstone");
+        }
+        if(this.CompareTag("Powerful Tower"))
+        {
+            attackDamage = attackDamage * 1.25f;
+            radius = radius * 1.25f;
+            sphereCollider.radius = radius; //Sets radius of actual collider
+            fireRate = fireRate / 1.1f;
+            upgradeCost = upgradeCost * 2;
+            enableUpgrade = true;
+            UpgradeManager.instance.DisableUpgradeButton();
+            GameAnalytics.NewDesignEvent("UpgradeTower:TheHolyWrath");
         }
         if (this.CompareTag("Debuff Tower"))
         {
@@ -527,6 +540,7 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
             slower = slower * 0.9f;
             enableUpgrade = true;
             UpgradeManager.instance.DisableUpgradeButton();
+            GameAnalytics.NewDesignEvent("UpgradeTower:CursedTower");
         }
 
     }
