@@ -101,12 +101,13 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
             GetNextWaypoint();
         }
 
-        /*if(health <= 0)
+        /*if(this.gameObject.GetComponent<BaseEnemy>().health <= 0 && !killed)
         {
             GameManager.instance.coins += coinDrop;
             Debug.Log(health);
             GameManager.instance.enemyCount--;
             Debug.Log("bye bye");
+            killed = true;
             Destroy(transform.parent.gameObject);
         }*/
 

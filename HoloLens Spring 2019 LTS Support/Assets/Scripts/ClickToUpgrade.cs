@@ -42,10 +42,23 @@ public class ClickToUpgrade : MonoBehaviour, IInputClickHandler {
 
     public void OnInputClicked(InputClickedEventData eventData)
     {
-        UpgradeManager.instance.currentTower = currentTower.GetComponent<BaseTower>();
-        UpgradeManager.instance.towerToDelete = this.gameObject.GetComponentInParent<Transform>().gameObject;
-        UpgradeManager.instance.displayInfo(currentTower, description);
-        UpgradeManager.instance.spawnObject();
-        Debug.Log("UI");
+        if (!currentTower.CompareTag("Melee Tower"))
+        {
+            UpgradeManager.instance.currentTower = currentTower.GetComponent<BaseTower>();
+            UpgradeManager.instance.towerToDelete = this.gameObject.GetComponentInParent<Transform>().gameObject;
+            UpgradeManager.instance.displayInfo(currentTower, description);
+            UpgradeManager.instance.spawnObject();
+            Debug.Log("UI");
+        }
+        else if (currentTower.CompareTag("Melee Tower"))
+        {
+            UpgradeManager.instance.currentMelee = currentTower.GetComponent<MeleeTower>();
+            UpgradeManager.instance.towerToDelete = this.gameObject.GetComponentInParent<Transform>().gameObject;
+            UpgradeManager.instance.displayInfo(currentTower, description);
+            UpgradeManager.instance.spawnObject();
+            Debug.Log("UI");
+        }
+        
+
     }
 }

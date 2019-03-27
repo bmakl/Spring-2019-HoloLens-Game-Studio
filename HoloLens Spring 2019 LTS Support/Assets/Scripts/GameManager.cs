@@ -97,6 +97,10 @@ public class GameManager : MonoBehaviour
         coinCount.text = "Coins: " + coins.ToString();
         waveText.text = "Waves completed:  " + waveCount;
 
+        if(health <= 0)
+        {
+            Debug.Log("You Lose!");
+        }
 
 
     }

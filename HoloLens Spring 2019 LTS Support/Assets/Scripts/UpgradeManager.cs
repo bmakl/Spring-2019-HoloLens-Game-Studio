@@ -9,6 +9,7 @@ public class UpgradeManager : MonoBehaviour{
 
     public static UpgradeManager instance;
     public BaseTower currentTower;
+    public MeleeTower currentMelee;
     public Text damage;
     public Text fireRate;
     public Text radius;
@@ -73,10 +74,29 @@ public static bool sellTowerBool = true;
         
     }
 
+    public void SellMelee()
+    {
+        if (sellTowerBool == true)
+        {
+            Debug.Log("sell tower");
+            GameManager.instance.coins += currentMelee.price;
+            currentMelee.node.GetComponent<TowerSpawn>().towerPrefab = null;
+            currentMelee = null;
+            Destroy(towerToDelete);
+            Debug.Log(currentMelee.transform.position);
+        }
+    }
+
     public void UpgradeTower()
     {
         currentTower.Upgrade();
         displayInfo(currentTower.gameObject, desc);
+    }
+
+    public void UpgradeMelee()
+    {
+        currentMelee.Upgrade();
+        displayInfo(currentMelee.gameObject, desc);
     }
     /// <summary>
     /// Disables Sell Button on upgrade cavnas

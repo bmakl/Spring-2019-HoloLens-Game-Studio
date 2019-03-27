@@ -38,6 +38,7 @@ public class MeleeTower : BaseTower
             if (other.gameObject.GetComponent<BaseEnemy>().health <= 0 && !other.gameObject.GetComponent<BaseEnemy>().killed)
             {
                 GameManager.instance.enemyCount--;
+                GameManager.instance.coins += other.gameObject.GetComponent<BaseEnemy>().coinDrop;
                 ParticleManager.instance.DeathParticle(other.transform);
                 other.gameObject.GetComponent<BaseEnemy>().killed = true;
                 Destroy(other.gameObject);
