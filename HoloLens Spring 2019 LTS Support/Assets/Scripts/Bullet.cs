@@ -34,7 +34,6 @@ public class Bullet : MonoBehaviour
     void Update()
     {
         timeAlive += Time.deltaTime;
-        Debug.Log(timeAlive);
         if (timeAlive >= 0.05f)
         {
             this.GetComponent<MeshRenderer>().enabled = false;
