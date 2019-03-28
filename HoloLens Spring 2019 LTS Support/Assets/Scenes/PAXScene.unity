@@ -155,7 +155,7 @@ Prefab:
     - target: {fileID: 114742747811649402, guid: 3eddd1c29199313478dd3f912bfab2ab,
         type: 2}
       propertyPath: Cursor
-      value:
+      value: 
       objectReference: {fileID: 1584029913}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3eddd1c29199313478dd3f912bfab2ab, type: 2}
@@ -249,12 +249,12 @@ Prefab:
     - target: {fileID: 223542597964821002, guid: ff5f46dc3d79797419a4cb40d8af85db,
         type: 2}
       propertyPath: m_Camera
-      value:
+      value: 
       objectReference: {fileID: 1540868805}
     - target: {fileID: 114082321738403484, guid: ff5f46dc3d79797419a4cb40d8af85db,
         type: 2}
       propertyPath: cam
-      value:
+      value: 
       objectReference: {fileID: 226036658}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ff5f46dc3d79797419a4cb40d8af85db, type: 2}
@@ -339,8 +339,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 687eb8cd62f58d04bb69ef3e0d784edd, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!20 &1540868805 stripped
 Camera:
   m_PrefabParentObject: {fileID: 20049547090947856, guid: 3eddd1c29199313478dd3f912bfab2ab,
@@ -394,46 +394,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a611e772ef8ddf64d8106a9cbb70f31c, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1761408368 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1656414787034956, guid: d29bc40b7f3df26479d6a0aac211c355,
-    type: 2}
-  m_PrefabInternal: {fileID: 1904280480}
---- !u!114 &1761408373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1761408368}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
-  outlineMode: 0
-  outlineColor: {r: 0.2509191, g: 0.61675966, b: 0.875, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
---- !u!114 &1761408374
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1761408368}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5619430d69a9614e940ad0e48ccc065, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
-  tower: {fileID: 1172672307591042, guid: 20846fb0011835c4c9ffba699c553ac4, type: 2}
-  nodes: []
-  towerID: 1
-  tweenAmmount: 1.1
-  tweenDuration: 0.5
-  SelectedHalo: {fileID: 0}
-  HaloGroup: []
 --- !u!1 &1892611209
 GameObject:
   m_ObjectHideFlags: 0
