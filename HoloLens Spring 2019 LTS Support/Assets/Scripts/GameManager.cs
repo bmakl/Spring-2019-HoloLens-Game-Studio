@@ -107,7 +107,7 @@ public class GameManager : MonoBehaviour
             enemyType = 0;
         }
         */
-        crashCount.text = "Spawned " + enemyCount.ToString();
+        crashCount.text = "Health: " + health.ToString();
         coinCount.text = "Coins: " + coins.ToString();
         waveText.text = "Waves completed:  " + waveCount;
 
