@@ -92,7 +92,7 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
         }
         else if(this.gameObject.CompareTag("Powerful Tower"))
         {
-            radius = 5f;
+            radius = 15.46f;
             attackDamage = 15f;
             fireRate = 0.5f;
             fireRate = 0f;

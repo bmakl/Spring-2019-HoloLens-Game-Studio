@@ -35,14 +35,14 @@ MonoBehaviour:
   SelectedPlatformGame:
   - HoloLens Tower Defense
   SelectedPlatformGameID: 19140100
-  SelectedStudio: 02000000
+  SelectedStudio: 01000000
   SelectedGame: 01000000
   NewVersion: 
   Changes: 
   SignUpOpen: 0
   StudioName: 
   GameName: HoloLens Spring 2019(Full Demo)
-  EmailGA: bmakloski@hotmail.com
+  EmailGA: ben@rube.pw
   IntroScreen: 0
   InfoLogEditor: 1
   InfoLogBuild: 1
