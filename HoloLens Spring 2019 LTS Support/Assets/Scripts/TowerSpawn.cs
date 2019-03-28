@@ -61,7 +61,7 @@ public class TowerSpawn : MonoBehaviour, IInputHandler, IInputClickHandler
             }
             else if (towerPrefab.CompareTag("Powerful Tower") && GameManager.instance.powerfulCost <= GameManager.instance.coins)
             {
-                GameObject instantiateTower = Instantiate(towerPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
+                GameObject instantiateTower = Instantiate(towerPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation * Quaternion.Euler(0, 90, 0)); ;
                 instantiateTower.GetComponentInChildren<BaseTower>().node = this.transform.gameObject;
                 GameManager.instance.coins -= GameManager.instance.powerfulCost;
             }
@@ -71,11 +71,11 @@ public class TowerSpawn : MonoBehaviour, IInputHandler, IInputClickHandler
                 instantiateTower.GetComponentInChildren<BaseTower>().node = this.transform.gameObject;
                 GameManager.instance.coins -= GameManager.instance.debuffCost;
             }
+            else
+            {
+                towerPrefab = null;
+            }
            
-        }
-        else
-        {
-
         }
     }
 
