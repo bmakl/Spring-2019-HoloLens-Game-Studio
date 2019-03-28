@@ -182,7 +182,10 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
                 if (health <= 0)
                 {
                     GameManager.instance.coins += coinDrop;
+                    GameManager.instance.enemyCount--;
+                    killed = true;
                     Destroy(transform.parent.gameObject);
+                    GameAnalytics.NewDesignEvent("EnemyKilled:Skeleton");
                 }
                 SkeletonHit = true;
                 if (SkeletonHit)
