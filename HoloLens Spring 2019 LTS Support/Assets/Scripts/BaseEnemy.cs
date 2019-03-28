@@ -34,16 +34,16 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
         {
             speed = 0.3f;
             health = 20;
-            coinDrop = 25;
+            coinDrop = GameManager.instance.pumpkinCoin;
             playerDamage = 1;
             slowed = false;
             
         }
         if(this.gameObject.CompareTag("Ghost"))
         {
-            speed = 0.1f;
+            speed = 0.25f;
             health = 35;
-            coinDrop = 100;
+            coinDrop = GameManager.instance.ghostCoin;
             playerDamage = 10;
             slowed = false;
         }
@@ -51,7 +51,7 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
         {
             speed = 0.6f;
             health = 15;
-            coinDrop = 50;
+            coinDrop = GameManager.instance.batCoin;
             playerDamage = 5;
             slowed = false;
         }
@@ -59,7 +59,7 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
         {
             speed = 0.7f;
             health = 10;
-            coinDrop = 75;
+            coinDrop = GameManager.instance.skeletonCoin;
             playerDamage = 10;
             SkeletonHit = false;
             slowed = false;

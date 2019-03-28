@@ -46,22 +46,30 @@ public class TowerSpawn : MonoBehaviour, IInputHandler, IInputClickHandler
             }
             PlaceTower();
             Debug.Log(towerPrefab.tag);
-            if (towerPrefab.CompareTag("Melee Tower") && towerPrefab.gameObject.GetComponentInChildren<MeleeTower>().price <= GameManager.instance.coins)
+            if (towerPrefab.CompareTag("Melee Tower") && GameManager.instance.meleeCost <= GameManager.instance.coins)
             {
                 Debug.Log(towerPrefab.gameObject.GetComponentInChildren<MeleeTower>().price);
                 GameObject instantiateTower = Instantiate(towerPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
-                instantiateTower.GetComponentInChildren<BaseTower>().node = this.transform.gameObject;
-                GameManager.instance.coins -= instantiateTower.gameObject.GetComponentInChildren<BaseTower>().price;
+                instantiateTower.GetComponentInChildren<MeleeTower>().node = this.transform.gameObject;
+                GameManager.instance.coins -= GameManager.instance.meleeCost;
             }
-            else if (!towerPrefab.CompareTag("Melee Tower"))
+            else if (towerPrefab.CompareTag("Basic Tower") && GameManager.instance.baseCost <= GameManager.instance.coins)
             {
-                Debug.Log("aaaaaaaaaaaaaa");
-                if (towerPrefab.gameObject.GetComponentInChildren<BaseTower>().price <= GameManager.instance.coins)
-                {
-                    GameObject instantiateTower = Instantiate(towerPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
-                    instantiateTower.GetComponentInChildren<BaseTower>().node = this.transform.gameObject;
-                    GameManager.instance.coins -= instantiateTower.gameObject.GetComponentInChildren<BaseTower>().price;
-                }
+                GameObject instantiateTower = Instantiate(towerPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
+                instantiateTower.GetComponentInChildren<BaseTower>().node = this.transform.gameObject;
+                GameManager.instance.coins -= GameManager.instance.baseCost;
+            }
+            else if (towerPrefab.CompareTag("Powerful Tower") && GameManager.instance.powerfulCost <= GameManager.instance.coins)
+            {
+                GameObject instantiateTower = Instantiate(towerPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
+                instantiateTower.GetComponentInChildren<BaseTower>().node = this.transform.gameObject;
+                GameManager.instance.coins -= GameManager.instance.powerfulCost;
+            }
+            else if (towerPrefab.CompareTag("Debuff Tower") && GameManager.instance.debuffCost <= GameManager.instance.coins)
+            {
+                GameObject instantiateTower = Instantiate(towerPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
+                instantiateTower.GetComponentInChildren<BaseTower>().node = this.transform.gameObject;
+                GameManager.instance.coins -= GameManager.instance.debuffCost;
             }
            
         }
