@@ -23,6 +23,10 @@ TagManager:
   - NetTrapUI
   - FenceTrapUI
   - Zombie
+  - HolyWrathPlate
+  - TombstonePlate
+  - ScythePlate
+  - CursedPlate
   layers:
   - Default
   - TransparentFX
