@@ -68,17 +68,17 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
         if(this.gameObject.CompareTag("Basic Tower"))
         {
             radius = 19.93f;
-            attackDamage = 5f;
-            fireRate = 1f;
-            price = 100;
+            attackDamage = 10f;
+            fireRate = 0.75f;
+            price = (int)GameManager.instance.baseCost;
             sphereCollider.radius = radius;
         }
         else if(this.gameObject.CompareTag("Melee Tower"))
         {
             radius = 17.03462f;
             attackDamage = 1f;
-            fireRate = 0.5f;
-            price = 150;
+            fireRate = 0.75f;
+            price = (int)GameManager.instance.meleeCost;
             sphereCollider.radius = radius;
 
         }
@@ -87,7 +87,7 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
             radius = 17.03462f;
             attackDamage = 5f;
             fireRate = 1.5f;
-            price = 250;
+            price = (int)GameManager.instance.debuffCost;
             sphereCollider.radius = radius;
         }
         else if(this.gameObject.CompareTag("Powerful Tower"))
@@ -96,7 +96,7 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
             attackDamage = 15f;
             fireRate = 0.5f;
             fireRate = 0f;
-            price = 700;
+            price = (int)GameManager.instance.powerfulCost;
             sphereCollider.radius = radius;
         }
         #endregion

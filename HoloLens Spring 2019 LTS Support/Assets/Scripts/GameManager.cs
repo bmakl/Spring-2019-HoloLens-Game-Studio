@@ -41,6 +41,12 @@ public class GameManager : MonoBehaviour
     public float ghostCoin = 100f;
     public float batCoin = 50f;
 
+    [Header("Tower Costs")]
+    public float meleeCost = 150f;
+    public float baseCost = 100f;
+    public float debuffCost = 200f;
+    public float powerfulCost = 700f;
+
     public int enemyType = 0;
     public float timeBetweenWaves = 5f;
     private float countdown = 2f;
