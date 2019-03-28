@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using HoloToolkit.Unity.InputModule;
 using UnityEngine;
+using GameAnalyticsSDK;
 
 public class TowerSpawn : MonoBehaviour, IInputHandler, IInputClickHandler
 {
@@ -52,24 +53,28 @@ public class TowerSpawn : MonoBehaviour, IInputHandler, IInputClickHandler
                 GameObject instantiateTower = Instantiate(towerPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
                 instantiateTower.GetComponentInChildren<MeleeTower>().node = this.transform.gameObject;
                 GameManager.instance.coins -= GameManager.instance.meleeCost;
+                GameAnalytics.NewResourceEvent(GAResourceFlowType.Sink, "Coins", GameManager.instance.meleeCost, "MeleeTower", "MeleeTower");
             }
             else if (towerPrefab.CompareTag("Basic Tower") && GameManager.instance.baseCost <= GameManager.instance.coins)
             {
                 GameObject instantiateTower = Instantiate(towerPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
                 instantiateTower.GetComponentInChildren<BaseTower>().node = this.transform.gameObject;
                 GameManager.instance.coins -= GameManager.instance.baseCost;
+                GameAnalytics.NewResourceEvent(GAResourceFlowType.Sink, "Coins", GameManager.instance.baseCost, "BasicTower", "BasicTower");
             }
             else if (towerPrefab.CompareTag("Powerful Tower") && GameManager.instance.powerfulCost <= GameManager.instance.coins)
             {
                 GameObject instantiateTower = Instantiate(towerPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation * Quaternion.Euler(0, 90, 0)); ;
                 instantiateTower.GetComponentInChildren<BaseTower>().node = this.transform.gameObject;
                 GameManager.instance.coins -= GameManager.instance.powerfulCost;
+                GameAnalytics.NewResourceEvent(GAResourceFlowType.Sink, "Coins", GameManager.instance.powerfulCost, "PowerfulTower", "Powerful");
             }
             else if (towerPrefab.CompareTag("Debuff Tower") && GameManager.instance.debuffCost <= GameManager.instance.coins)
             {
                 GameObject instantiateTower = Instantiate(towerPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
                 instantiateTower.GetComponentInChildren<BaseTower>().node = this.transform.gameObject;
                 GameManager.instance.coins -= GameManager.instance.debuffCost;
+                GameAnalytics.NewResourceEvent(GAResourceFlowType.Sink, "Coins", GameManager.instance.debuffCost, "DebuffTower", "Debuff");
             }
             else
             {

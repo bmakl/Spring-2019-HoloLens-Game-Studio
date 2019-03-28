@@ -53,7 +53,7 @@ public class WaveSpawner : MonoBehaviour
         GameManager.instance.Spawn = false;
         waveIndex++;
         UpgradeManager.sellTowerBool = true;
-        GameManager.instance.waveCount++;
+        //GameManager.instance.waveCount++;
        // }
 
         /*if(waveIndex >= waves.Length+1)

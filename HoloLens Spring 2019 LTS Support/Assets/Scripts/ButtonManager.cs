@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using GameAnalyticsSDK;
 public class ButtonManager : MonoBehaviour {
 
     // Update is called once per frame
@@ -31,6 +32,8 @@ public class ButtonManager : MonoBehaviour {
     public void EnableButton()
     {
         startButton.interactable = true;
+        //GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, GameManager.instance.waveCount.ToString());
+
     }
 
     public void DisableButton()

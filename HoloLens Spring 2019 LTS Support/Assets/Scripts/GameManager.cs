@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using GameAnalyticsSDK;
 
 public class GameManager : MonoBehaviour
 {
@@ -114,9 +116,25 @@ public class GameManager : MonoBehaviour
         if(health <= 0)
         {
             Debug.Log("You Lose!");
+            GameAnalytics.NewDesignEvent("Gameplay:Death", (float)GameManager.instance.waveCount);
+            Restart();
+        }
+
+        if(waveCount > 10 && enemyCount<=0)
+        {
+            Debug.Log("You won");
+            GameAnalytics.NewDesignEvent("Gameplay:Win", (float)GameManager.instance.waveCount);
+            Restart();
         }
 
 
+    }
+
+    public IEnumerator Restart()
+    {
+        Debug.Log("Restarting");
+        yield return new WaitForSeconds(5f);
+        SceneManager.LoadScene(0);
     }
     /*
     public IEnumerator SpawnWave()
