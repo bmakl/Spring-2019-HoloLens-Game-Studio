@@ -26,6 +26,7 @@ public class AnalyticsManager : MonoBehaviour
         if(instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(this.gameObject);
         }
         else if(instance != null)
         {
