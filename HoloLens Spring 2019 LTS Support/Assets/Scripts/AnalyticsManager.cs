@@ -6,32 +6,22 @@ using GameAnalyticsSDK;
 public class AnalyticsManager : MonoBehaviour
 {
 
-    public static AnalyticsManager instance;
-    public float coinStart;
-    public float coinEnd;
-    public float coinAggregate;
-    public float coinEarnedByWave;
-    public float healthStart;
-    public float healthEnd;
-    public float enemiesKilledInWave;
-    public float enemiesKilled;
-    public float towersPlaced;
-    public float towersPlacedInWave;
-    public int waveNum;
-    public int lastWaveCompleted;
+    [HideInInspector] public float coinStart;
 
-    public void Awake()
+    // Start is called before the first frame update
+    void Start()
     {
         GameAnalytics.Initialize();
-        if(instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
-        else if(instance != null)
-        {
-            Destroy(this);
-        }
+
+        GameAnalytics.NewDesignEvent("Started Game");
+        DontDestroyOnLoad(this.gameObject);
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
     }
 
     public void CoinsGained()
@@ -39,5 +29,5 @@ public class AnalyticsManager : MonoBehaviour
         float difference = GameManager.instance.coins - coinStart;
         GameAnalytics.NewResourceEvent(GAResourceFlowType.Source, "Coins", difference, "Coins", "Coin");
     }
-
 }
+

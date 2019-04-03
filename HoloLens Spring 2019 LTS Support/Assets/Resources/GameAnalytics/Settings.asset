@@ -25,18 +25,18 @@ MonoBehaviour:
   UserMessagesFailed: 0
   CustomArea: 
   gameKey:
-  - 398895bd08c392615a8d07e6b1c7cd83
+  - 6bb0cc77d261b5ebd935f77877a1106b
   secretKey:
-  - 946d28dbeac1c3c7d9d24d4bfe8656d3e2b37678
+  - 677952eb4e9c3d7020b9d2be522108c096b9526c
   Build:
   - 0.1
   SelectedPlatformStudio:
   - Accipiter
   SelectedPlatformGame:
-  - HoloLens Tower Defense
-  SelectedPlatformGameID: 19140100
+  - HoloWeen Defense
+  SelectedPlatformGameID: 88150100
   SelectedStudio: 01000000
-  SelectedGame: 01000000
+  SelectedGame: 02000000
   NewVersion: 
   Changes: 
   SignUpOpen: 0
