@@ -13,7 +13,7 @@ public class AnalyticsManager : MonoBehaviour
     {
         GameAnalytics.Initialize();
 
-        GameAnalytics.NewDesignEvent("Started Game");
+        GameAnalytics.NewDesignEvent("test:Started Game");
         DontDestroyOnLoad(this.gameObject);
 
     }

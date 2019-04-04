@@ -218,6 +218,7 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
                 ParticleManager.instance.DeathParticle(this.transform);
                 GameManager.instance.enemyCount--;
                 Destroy(transform.parent.gameObject);
+                Debug.Log("a");
                 GameAnalytics.NewDesignEvent("EnemyKilled:Pumpkin");
             }
         }
