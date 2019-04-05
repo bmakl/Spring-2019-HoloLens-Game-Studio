@@ -10,6 +10,8 @@ public class WaveButton : MonoBehaviour  {
     {
         if (!GameManager.instance.Spawn && GameManager.instance.enemyCount <= 0)//Checks if the wave is finished spawning and if all enemies are dead
         {
+            GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "Started Wave:" + GameManager.instance.waveCount.ToString());
+
             ButtonManager.instance.EnableButton(); //Enables button if passes the if check
         }
     }
@@ -24,6 +26,7 @@ public class WaveButton : MonoBehaviour  {
         GameManager.instance.waveCount++;
         //GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, GameManager.instance.waveCount.ToString());
         ButtonManager.instance.DisableButton();
+        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "Started Wave:" + GameManager.instance.waveCount.ToString());
     }
         
 
