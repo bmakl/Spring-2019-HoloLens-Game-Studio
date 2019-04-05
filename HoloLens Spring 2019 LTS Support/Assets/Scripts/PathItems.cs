@@ -21,7 +21,6 @@ public class PathItems : MonoBehaviour, IInputClickHandler
 
         if (itemToPlace == null)
         {
-            Debug.LogError("Barrier is not assigned");
             return;
         }
         if (GazeManager.Instance.HitInfo.collider != null && canPlace)

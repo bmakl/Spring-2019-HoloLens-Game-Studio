@@ -4,7 +4,7 @@ using HoloToolkit.Unity.InputModule;
 using UnityEngine;
 using GameAnalyticsSDK;
 
-public class TowerSpawn : MonoBehaviour, IInputHandler, IInputClickHandler
+public class TowerSpawn : MonoBehaviour, IInputClickHandler
 {
     public GameObject spawnPoint;
     //[HideInInspector]
@@ -26,34 +26,23 @@ public class TowerSpawn : MonoBehaviour, IInputHandler, IInputClickHandler
 
     }
 
-   /* public void SpawnWave(int Pumpkins, int Skeletons, int Ghosts)
-    {
-        //Pumpkin Spawner
-        for(int i = 0; i<Pumpkins-1;i++)
-        {
-            ins
-        }
-    }*/
-
-
     public void OnInputClicked(InputClickedEventData eventData)
     {
         if (nodeEnabled)
         {
-            if (towerPrefab != null)
+            if (towerPrefab != null) //If towerprfab is set to something an object was spawned on this node
             {
                 Debug.Log("Already Turret On Node");
                 return;
             }
             PlaceTower();
             Debug.Log(towerPrefab.tag);
-            if (towerPrefab.CompareTag("Melee Tower") && GameManager.instance.meleeCost <= GameManager.instance.coins)
+            if (towerPrefab.CompareTag("Melee Tower") && GameManager.instance.meleeCost <= GameManager.instance.coins) //Checks if enough money for tower
             {
-                Debug.Log(towerPrefab.gameObject.GetComponentInChildren<MeleeTower>().price);
-                GameObject instantiateTower = Instantiate(towerPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
-                instantiateTower.GetComponentInChildren<MeleeTower>().node = this.transform.gameObject;
-                GameManager.instance.coins -= GameManager.instance.meleeCost;
-                GameAnalytics.NewResourceEvent(GAResourceFlowType.Sink, "Coins", GameManager.instance.meleeCost, "MeleeTower", "MeleeTower");
+                GameObject instantiateTower = Instantiate(towerPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);//Spawns object
+                instantiateTower.GetComponentInChildren<MeleeTower>().node = this.transform.gameObject;//sets the node hte towerr is on to this node
+                GameManager.instance.coins -= GameManager.instance.meleeCost;//takes away the coins from the cost of this tower
+                GameAnalytics.NewResourceEvent(GAResourceFlowType.Sink, "Coins", GameManager.instance.meleeCost, "MeleeTower", "MeleeTower");//Analytics event
             }
             else if (towerPrefab.CompareTag("Basic Tower") && GameManager.instance.baseCost <= GameManager.instance.coins)
             {
@@ -84,6 +73,9 @@ public class TowerSpawn : MonoBehaviour, IInputHandler, IInputClickHandler
         }
     }
 
+    /// <summary>
+    /// This switch handles the placement of towers by indexing the array and setting the tower based on what was set in the ui towers
+    /// </summary>
     private void PlaceTower()
     {
         //Assigns Tower Prefab
@@ -109,13 +101,4 @@ public class TowerSpawn : MonoBehaviour, IInputHandler, IInputClickHandler
         }
     }   
 
-    public void OnInputDown(InputEventData eventData)
-    {
-        Debug.Log("down click");
-    }
-
-    public void OnInputUp(InputEventData eventData)
-    {
-        Debug.Log("up click");
-    }
 }

@@ -17,52 +17,37 @@ public class UITowerSelect : MonoBehaviour, IInputClickHandler,IFocusable
     [SerializeField] float tweenDuration;
 
     [Header("UI Selection")]
-    public GameObject SelectedHalo;
-    public GameObject[] HaloGroup;
     public static Outline highlight;
 
     void Start()
     {
         originalScale = transform.localScale;
-        //HaloGroup = GameObject.FindGameObjectsWithTag("SelectedHalo");
-        foreach (GameObject HaloGroup in HaloGroup)
-        {
-            HaloGroup.SetActive(false);
-        }
     }
 
     public void OnInputClicked(InputClickedEventData eventData)
     {
-        if (highlight != null)
+        if (highlight != null)//Checks if the object is highlighted
         {
             highlight.enabled = false;
-            highlight = null;
             highlight = this.GetComponent<Outline>();
             highlight.enabled = true;
         }
-        else
+        else //if it is not 
         {
             highlight = GetComponent<Outline>();
             highlight.enabled = true;
         }
-        Debug.Log("Tower Prefab Selected");
-        //Selection Switching
-        //HaloGroup = GameObject.FindGameObjectsWithTag("SelectedHalo");
-        foreach (GameObject TowerGlow in HaloGroup)
-        {
-            TowerGlow.SetActive(false);
-        }
-        //  SelectedHalo.SetActive(true);
+
         TowerManager.towerNumber = towerID;
     }
 
     public void OnFocusEnter()
     {
-        TweenManager.instance.TweenScale(this.transform,tweenAmmount,tweenDuration);
+        TweenManager.instance.TweenScale(this.transform,tweenAmmount,tweenDuration);//When you look at the object it tweens bigger
     }
 
     public void OnFocusExit()
     {
-        TweenManager.instance.Descale(this.transform, originalScale, tweenDuration);
+        TweenManager.instance.Descale(this.transform, originalScale, tweenDuration);//Sets object back to it's original size after you look away
     }
 }

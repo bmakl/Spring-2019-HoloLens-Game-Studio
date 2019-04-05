@@ -100,6 +100,9 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
             sphereCollider.radius = radius;
         }
         #endregion
+
+        PlaySound(AudioManager.instance.towerSpawnClip);
+
     }
 
     private void Start()
@@ -107,39 +110,34 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
         currentTarget = null;
         tempTarget = null;
         clicks = 0;
+
     }
 
     private void Update()
     {
-        Debug.Log(lastUpgradeWave);
-        if (lastUpgradeWave < GameManager.instance.waveCount && enableUpgrade)
+        if (lastUpgradeWave < GameManager.instance.waveCount && enableUpgrade)//Checks if this tower was upgraded this turn
         {
-            UpgradeManager.instance.EnableUpgradeButton();
+            UpgradeManager.instance.EnableUpgradeButton();//If that tower wasn't then we enable upgrade button this turn
             enableUpgrade = false;
         }
-        UpdateTarget();
+        UpdateTarget();//Updates the target from the queue
         //Debug.DrawLine(firePoint.transform.position, currentTarget.transform.position, Color.red, 0.1f);
         //RotateTower();
        
 
-        if (currentTarget == null)
+        if (currentTarget == null)//If nothing was set in upgade target return null so we don't waste processing time
         {
             Debug.LogWarning("No Enemy");
             currentFireRate = 0;
             return;
         }
-        //Debug.Log(currentTarget.GetComponent<BaseEnemy>().health + " " + fireRate);
+
         if (currentTarget.GetComponent<BaseEnemy>().health > 0 && canShoot && !this.gameObject.CompareTag("Debuff Tower")) //checks if the attack is off cooldown 
         {
             Debug.Log("shooting at" + currentTarget.tag);
 
             Shoot();
             StartCoroutine(ShootCoolDown());
-        }
-
-        if(currentTarget.GetComponent<BaseEnemy>().health <= 0)
-        {
-            GameManager.instance.coins += currentTarget.GetComponent<BaseEnemy>().coinDrop;//is this right?
         }
 
         if (currentFireRate <= 0)
@@ -150,16 +148,18 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
 
     }
 
-
+    /// <summary>
+    /// Updates target with current enemies in the queues based on targeting level
+    /// </summary>
     public virtual void UpdateTarget() //Updates the target to the first target that enters the radius
     {
         BaseEnemy tempTargetScript;
         #region TargetingLevels
-        if(TargetingLevel == 1)
+        if(TargetingLevel == 1)//This level targets the fastest enemy
         {
-            if(currentTarget == null && GameManager.instance.enemyCount > 0)
+            if(currentTarget == null && GameManager.instance.enemyCount > 0)//Checks if there is no enemy set and we have enemies on the field
             {
-                if (Skeleton.Count != 0)
+                if (Skeleton.Count != 0)//If the skeleton queue has enemies we target those
                 {
                     if (Skeleton.Peek() == null)
                     {
@@ -177,7 +177,7 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
                         currentTarget = tempTarget;
                     }
                 }
-                if (Bat.Count != 0 && Skeleton.Count == 0)
+                if (Bat.Count != 0 && Skeleton.Count == 0)//If the bat queue has bats and we have no skeletons target bats
                 {
                     tempTarget = Bat.Dequeue();
                     tempTargetScript = tempTarget.GetComponent<BaseEnemy>();
@@ -190,7 +190,7 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
                         currentTarget = tempTarget;
                     }
                 }
-                if (Pumpkin.Count != 0 && Bat.Count == 0 && Skeleton.Count == 0)
+                if (Pumpkin.Count != 0 && Bat.Count == 0 && Skeleton.Count == 0)//Targets pumpkins like the other two if statements
                 {
                     if (Pumpkin.Peek() == null)
                     {
@@ -208,7 +208,7 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
                         currentTarget = tempTarget;
                     }
                 }
-                if (Ghost.Count != 0 && Pumpkin.Count == 0 && Bat.Count == 0 && Skeleton.Count == 0)
+                if (Ghost.Count != 0 && Pumpkin.Count == 0 && Bat.Count == 0 && Skeleton.Count == 0)//Same as pumpkin lol
                 {
                     tempTarget = Ghost.Dequeue();
                     tempTargetScript = tempTarget.GetComponent<BaseEnemy>();
@@ -221,7 +221,7 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
                         currentTarget = tempTarget;
                     }
                 }
-                if(Zombie.Count != 0 && Ghost.Count == 0 && Pumpkin.Count == 0 && Bat.Count == 0 && Skeleton.Count == 0)
+                if(Zombie.Count != 0 && Ghost.Count == 0 && Pumpkin.Count == 0 && Bat.Count == 0 && Skeleton.Count == 0)//Same as ghost lol
                 {
                     tempTarget = Zombie.Dequeue();
                     tempTargetScript = tempTarget.GetComponent<BaseEnemy>();
@@ -234,7 +234,7 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
                         currentTarget = tempTarget;
                     }
                 }
-                if (Boss.Count != 0 && Ghost.Count == 0 && Pumpkin.Count == 0 && Bat.Count == 0 && Skeleton.Count == 0)
+                if (Boss.Count != 0 && Ghost.Count == 0 && Pumpkin.Count == 0 && Bat.Count == 0 && Skeleton.Count == 0)//Same as zombie lol
                 {
                     tempTarget = Boss.Dequeue();
                     tempTargetScript = tempTarget.GetComponent<BaseEnemy>();
@@ -250,7 +250,7 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
                
             }
         }
-        if(TargetingLevel == 2)
+        if(TargetingLevel == 2)//Targeting level 2 targets the most healthy enemy
         {
             if(currentTarget == null)
             {
@@ -457,7 +457,9 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
     }
 
 
-
+    /// <summary>
+    /// Fires bullet at current enemy(call this after update target)
+    /// </summary>
     public virtual void Shoot()
     {
         GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation); //creates the bullet and casts to Game Object
@@ -481,6 +483,10 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
         }
     }
 
+    /// <summary>
+    /// Cooldown between shots
+    /// </summary>
+    /// <returns>Continues once firerate is done</returns>
     IEnumerator ShootCoolDown()
     {
         canShoot = false;
@@ -505,7 +511,9 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
     */
 
 
-    
+    /// <summary>
+    /// Upgrade function that is called on the upgrade button
+    /// </summary>
     public virtual void Upgrade()
     {
         lastUpgradeWave = GameManager.instance.waveCount;
@@ -545,6 +553,17 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
             GameAnalytics.NewDesignEvent("UpgradeTower:CursedTower");
         }
 
+    }
+
+    /// <summary>
+    /// Plays whatever sound is set from this object
+    /// </summary>
+    /// <param name="_clip"></param>
+    private void PlaySound(AudioClip _clip)
+    {
+        AudioSource source = GetComponent<AudioSource>();
+        source.clip = _clip;
+        source.Play();
     }
     
 }

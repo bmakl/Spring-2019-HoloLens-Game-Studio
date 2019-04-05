@@ -22,8 +22,9 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
     private int WavePointIndex = 0;
     public int waypointPassed;
 
-    public int playerDamage;
-    public int SkeletonsKilled;
+    [SerializeField] int playerDamage;
+    [SerializeField] int SkeletonsKilled;
+    [SerializeField] int tapDamage = 5;
 
     public Text successfulHits;
 
@@ -90,36 +91,26 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
 
     void Update()
     {
-        Quaternion targetRotation = Quaternion.LookRotation(target.position - transform.position);
+        Quaternion targetRotation = Quaternion.LookRotation(target.position - transform.position);//Rotates object along the path
         float str = Mathf.Min(rotationStrength * Time.deltaTime, 1);
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, str);
         Vector3 dir = target.position - transform.position;
         transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
         
 
-        if (Vector3.Distance(transform.position, target.position) <= 0.01f)
+        if (Vector3.Distance(transform.position, target.position) <= 0.01f)//Checks if object is at the next waypoint
         {
             GetNextWaypoint();
         }
-
-        /*if(this.gameObject.GetComponent<BaseEnemy>().health <= 0 && !killed)
-        {
-            GameManager.instance.coins += coinDrop;
-            Debug.Log(health);
-            GameManager.instance.enemyCount--;
-            Debug.Log("bye bye");
-            killed = true;
-            Destroy(transform.parent.gameObject);
-        }*/
-
         if(GameManager.instance.waveCount %10 == 0)
         {
             upGrade = true;
         }
-
-       
     }
 
+    /// <summary>
+    /// Handles moving to the next waypoint
+    /// </summary>
     void GetNextWaypoint()
     {
         if (WavePointIndex >= Waypoints.points.Length - 1)
@@ -248,17 +239,23 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
         }
     }
 
+    /// <summary>
+    /// When you tap and enemy it deals damage to them
+    /// </summary>
+    /// <param name="eventData"></param>
     public void OnInputClicked(InputClickedEventData eventData)
     {
-        if(GazeManager.Instance.HitInfo.transform.CompareTag("Skeleton"))
+        health -= tapDamage;
+        Debug.Log("tap to kill");
+        if (health <= 0)
         {
-            Debug.Log("Player Hit A Skeleton");
-            GazeManager.Instance.HitInfo.transform.gameObject.GetComponent<BaseEnemy>().health -= playerDamage;
-            SkeletonsKilled++;
-            successfulHits.text = "Successful Hits: " + SkeletonsKilled.ToString();
+            Destroy(transform.parent.gameObject);
         }
     }
 
+    /// <summary>
+    /// Upgrades enemy to make the game harder at later stages
+    /// </summary>
     public void upgradeEnemy()
     {
         if(upGrade== true)
