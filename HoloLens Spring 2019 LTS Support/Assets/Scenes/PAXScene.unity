@@ -123,7 +123,7 @@ GameObject:
   m_Component:
   - component: {fileID: 205355127}
   m_Layer: 0
-  m_Name: UI Tower
+  m_Name: PowerfulTowerUI
   m_TagString: Powerful Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -137,13 +137,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 205355126}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.419, y: -0.436, z: 2.056}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.148, y: 0.41600013, z: 2.468}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children:
   - {fileID: 2038686693}
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_Father: {fileID: 1245350226}
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &256561207
 PrefabInstance:
@@ -206,6 +206,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1120299869137688, guid: 60d4c32266cf6a34b950b8c1981fb365,
         type: 2}
+    - target: {fileID: 1698168282620340, guid: ff5f46dc3d79797419a4cb40d8af85db, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff5f46dc3d79797419a4cb40d8af85db, type: 3}
 --- !u!1001 &337774038
@@ -306,7 +310,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4634917184635888, guid: 1ba6a7c82362f574894d43fe5ca8992e, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4634917184635888, guid: 1ba6a7c82362f574894d43fe5ca8992e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -322,6 +326,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ba6a7c82362f574894d43fe5ca8992e, type: 3}
+--- !u!4 &1245350226 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4993722648327464, guid: ff5f46dc3d79797419a4cb40d8af85db,
+    type: 3}
+  m_PrefabInstance: {fileID: 256561207}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1304855457
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -672,7 +682,7 @@ PrefabInstance:
     - target: {fileID: 5023376714120898127, guid: 54d0ee10c4caaf44dac49e2ca20df7c2,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5023376714120898127, guid: 54d0ee10c4caaf44dac49e2ca20df7c2,
         type: 3}
