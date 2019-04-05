@@ -22,7 +22,7 @@ public class WaveSpawner : MonoBehaviour
     {
         if (!GameManager.instance.Spawn )
         {
-            Debug.Log("Wave status is " + waveStart);
+            //Debug.Log("Wave status is " + waveStart);
             countdown = 0;
             return;
         }
