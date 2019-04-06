@@ -105,6 +105,8 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
 
     }
 
+
+
     private void Start()
     {
         currentTarget = null;
