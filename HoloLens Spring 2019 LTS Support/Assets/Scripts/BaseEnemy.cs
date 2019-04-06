@@ -50,7 +50,7 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
         }
         if (this.gameObject.CompareTag("Bat"))
         {
-            speed = 0.6f;
+            speed = 0.45f;
             health = 15;
             coinDrop = GameManager.instance.batCoin;
             playerDamage = 5;
@@ -58,7 +58,7 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
         }
         if (this.gameObject.CompareTag("Skeleton"))
         {
-            speed = 0.7f;
+            speed = 0.45f;
             health = 10;
             coinDrop = GameManager.instance.skeletonCoin;
             playerDamage = 10;

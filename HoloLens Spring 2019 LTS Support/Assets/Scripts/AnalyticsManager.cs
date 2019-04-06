@@ -6,7 +6,7 @@ using GameAnalyticsSDK;
 public class AnalyticsManager : MonoBehaviour
 {
 
-    [HideInInspector] public float coinStart;
+    [HideInInspector] public static float coinStart;
 
     // Start is called before the first frame update
     void Start()
@@ -18,16 +18,13 @@ public class AnalyticsManager : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    public void CoinsGained()
+    public static void CoinsGained()
     {
         float difference = GameManager.instance.coins - coinStart;
-        GameAnalytics.NewResourceEvent(GAResourceFlowType.Source, "Coins", difference, "Coins", "Coin");
+        if (difference > 0)
+        {
+            GameAnalytics.NewResourceEvent(GAResourceFlowType.Source, "Coins", difference, "Coins", "Coin");
+        }
     }
 }
 

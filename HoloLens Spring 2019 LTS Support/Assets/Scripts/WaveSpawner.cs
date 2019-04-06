@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using GameAnalyticsSDK;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -50,18 +51,14 @@ public class WaveSpawner : MonoBehaviour
             yield return new WaitForSeconds(1f * wave.spawnRate);
         }
         inWave = false;
+        AnalyticsManager.CoinsGained();
         GameManager.instance.Spawn = false;
+        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "Wave " + GameManager.instance.waveCount.ToString());
         waveIndex++;
         UpgradeManager.sellTowerBool = true;
-        //GameManager.instance.waveCount++;
-       // }
+        GameManager.instance.sendCoinsData = true;
 
-        /*if(waveIndex >= waves.Length+1)
-        {
-            yield return new WaitForSeconds(5f);
-            SceneController.instance.LoadMenu();
-        }*/
-        
+
     }
 
     void SpawnEnemy(GameObject enemy)

@@ -69,6 +69,8 @@ public class GameManager : MonoBehaviour
     public float trapCost;
     public GameObject trapToSpawn;
 
+    public bool sendCoinsData = false;
+
     private void Start()
     {
         Spawn = false;

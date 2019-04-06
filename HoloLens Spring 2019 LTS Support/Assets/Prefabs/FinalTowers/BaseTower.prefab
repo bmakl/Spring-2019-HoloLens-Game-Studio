@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33427347854375006}
   - component: {fileID: 23727025083252146}
   - component: {fileID: 64323097665693124}
+  - component: {fileID: 9171741034235166525}
   m_Layer: 0
   m_Name: pCube1
   m_TagString: Untagged
@@ -92,6 +93,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: 00660ab7274e3ff42b7e844e4f3c6688, type: 3}
+--- !u!114 &9171741034235166525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1104051924117998}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.9245283, g: 0.2660199, b: 0.2660199, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &1471307023466894
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,9 +151,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4729998755495204}
   - component: {fileID: 135652316760387308}
-  - component: {fileID: 1569260830443943562}
   - component: {fileID: 114117707153783796}
   - component: {fileID: 2051108306975383543}
+  - component: {fileID: 6968828253109779398}
   m_Layer: 2
   m_Name: Internals
   m_TagString: Basic Tower
@@ -169,19 +188,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 19.93
   m_Center: {x: 0, y: -5.87, z: 0}
---- !u!114 &1569260830443943562
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1736718594447644}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f667b8d6163e73546bf8e69c56a45650, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  instance: {fileID: 114117707153783796}
 --- !u!114 &114117707153783796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,7 +195,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1736718594447644}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f318664f57cad6d48bbd52a5aa3b3d88, type: 3}
   m_Name: 
@@ -214,7 +220,6 @@ MonoBehaviour:
   currentTarget: {fileID: 0}
   TargetingLevel: 0
   clicks: 0
-  instance: {fileID: 0}
 --- !u!82 &2051108306975383543
 AudioSource:
   m_ObjectHideFlags: 0
@@ -311,6 +316,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6968828253109779398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1736718594447644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f667b8d6163e73546bf8e69c56a45650, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  instance: {fileID: 114117707153783796}
 --- !u!1 &1834792820612132
 GameObject:
   m_ObjectHideFlags: 0

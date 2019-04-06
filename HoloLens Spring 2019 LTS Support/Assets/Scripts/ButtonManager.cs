@@ -32,8 +32,6 @@ public class ButtonManager : MonoBehaviour {
     public void EnableButton()
     {
         startButton.interactable = true;
-        //GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, GameManager.instance.waveCount.ToString());
-
     }
 
     public void DisableButton()
