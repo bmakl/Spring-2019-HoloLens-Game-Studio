@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class ClickToUpgrade : MonoBehaviour, IInputClickHandler {
 
+    private static Outline outlineUpgrade;
     public GameObject currentTower;
     public string description;
 
@@ -13,6 +14,7 @@ public class ClickToUpgrade : MonoBehaviour, IInputClickHandler {
     // Use this for initialization
     void Start ()
     {
+
         switch (currentTower.tag)
         {
             case "Basic Tower":
@@ -34,23 +36,33 @@ public class ClickToUpgrade : MonoBehaviour, IInputClickHandler {
                 return;
         }
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     public void OnInputClicked(InputClickedEventData eventData)
     {
+
+
+
         GameManager.instance.lastUpgrade = this.tag;
-        Debug.Log(GameManager.instance.lastUpgrade);
+
+        if (outlineUpgrade)
+        {
+            outlineUpgrade.enabled = false;
+            outlineUpgrade = this.GetComponentInChildren<Outline>();
+            outlineUpgrade.enabled = true;
+        }
+        else
+        {
+            outlineUpgrade = this.GetComponentInChildren<Outline>();
+            outlineUpgrade.enabled = true;
+        }
+
 
         if (!currentTower.CompareTag("Melee Tower"))
         {
             UpgradeManager.instance.currentTower = currentTower.GetComponent<BaseTower>();
             UpgradeManager.instance.towerToDelete = this.gameObject.GetComponentInParent<Transform>().gameObject;
             UpgradeManager.instance.displayInfo(currentTower, description);
-            UpgradeManager.instance.spawnObject();
+            //UpgradeManager.instance.spawnObject();
             Debug.Log("UI");
         }
         else if (currentTower.CompareTag("Melee Tower"))
@@ -58,7 +70,7 @@ public class ClickToUpgrade : MonoBehaviour, IInputClickHandler {
             UpgradeManager.instance.currentMelee = currentTower.GetComponent<MeleeTower>();
             UpgradeManager.instance.towerToDelete = this.gameObject.GetComponentInParent<Transform>().gameObject;
             UpgradeManager.instance.displayInfo(currentTower, description);
-            UpgradeManager.instance.spawnObject();
+            //UpgradeManager.instance.spawnObject();
             Debug.Log("UI");
         }
         

@@ -339,6 +339,7 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
         #endregion
     }
 
+    #region TriggerEvents
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Enemy Entered");
@@ -457,6 +458,7 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
             }
         }
     }
+    #endregion
 
 
     /// <summary>
@@ -495,22 +497,7 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
         yield return new WaitForSecondsRealtime(fireRate);
         canShoot = true;
     }
-    /*
-    public void OnInputClicked(InputClickedEventData eventData)
-    {
-        if (clicks == 0)
-        {
-            Upgrade1();
-            clicks++;
-        }
 
-        else if (clicks == 1)
-        {
-            Upgrade2();
-            clicks++;
-        }
-    }
-    */
 
 
     /// <summary>

@@ -245,6 +245,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Powerful Tower Nameplate
       objectReference: {fileID: 0}
+    - target: {fileID: 1307430987540826, guid: ff5f46dc3d79797419a4cb40d8af85db, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff5f46dc3d79797419a4cb40d8af85db, type: 3}
 --- !u!1001 &337774038
