@@ -39,9 +39,6 @@ public class ClickToUpgrade : MonoBehaviour, IInputClickHandler {
 
     public void OnInputClicked(InputClickedEventData eventData)
     {
-
-
-
         GameManager.instance.lastUpgrade = this.tag;
 
         if (outlineUpgrade)

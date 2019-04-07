@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 23727025083252146}
   - component: {fileID: 64323097665693124}
   - component: {fileID: 9171741034235166525}
+  - component: {fileID: 1739370464131136178}
   m_Layer: 0
   m_Name: pCube1
   m_TagString: Untagged
@@ -106,11 +107,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outlineMode: 0
-  outlineColor: {r: 0.9245283, g: 0.2660199, b: 0.2660199, a: 1}
+  outlineColor: {r: 0.10234957, g: 0.8679245, b: 0.42501658, a: 1}
   outlineWidth: 2
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &1739370464131136178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1104051924117998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55ce937370f23f04f8f59c0a1e356251, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radiusUI: {fileID: 3610965137521460987}
 --- !u!1 &1471307023466894
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,7 +222,6 @@ MonoBehaviour:
   upgradeCost: 100
   slower: 0.5
   node: {fileID: 0}
-  radiusUI: {fileID: 4980081259014308586}
   upgrade1Damage: 3
   upgrade1fireRate: 3
   upgrade1Range: 6
@@ -220,6 +233,7 @@ MonoBehaviour:
   firePoint: {fileID: 4839052770280712}
   tempTarget: {fileID: 0}
   currentTarget: {fileID: 0}
+  radiusUI: {fileID: 3610965137521460987}
   TargetingLevel: 0
   clicks: 0
 --- !u!82 &2051108306975383543
@@ -342,6 +356,7 @@ GameObject:
   - component: {fileID: 4840770591072466}
   - component: {fileID: 114048112888841932}
   - component: {fileID: 65328949321193546}
+  - component: {fileID: 4803455083208739947}
   m_Layer: 0
   m_Name: BaseTower
   m_TagString: Basic Tower
@@ -393,6 +408,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 9.021376, y: 16.780212, z: 1.8572431}
   m_Center: {x: 0.15308365, y: -0.6007767, z: -0.061228674}
+--- !u!114 &4803455083208739947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1834792820612132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55ce937370f23f04f8f59c0a1e356251, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radiusUI: {fileID: 3610965137521460987}
 --- !u!1 &3610965137521460987
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,7 +480,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []

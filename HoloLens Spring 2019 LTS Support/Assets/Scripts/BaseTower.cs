@@ -1,13 +1,9 @@
-﻿using System.Collections;
+﻿using GameAnalyticsSDK;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using HoloToolkit.Unity.InputModule;
-using System;
-using GameAnalyticsSDK;
-public class BaseTower : MonoBehaviour, IFocusable
+public class BaseTower : MonoBehaviour
 {
-
-
     [Header("Turret Base Stats")]
     public float radius = 5f;
     public int price = 100;
@@ -22,7 +18,6 @@ public class BaseTower : MonoBehaviour, IFocusable
     public float upgradeCost = 100;
     public float slower = 0.5f;
     [HideInInspector] public GameObject node;
-    [SerializeField] private Transform radiusUI;
 
 
 
@@ -50,6 +45,9 @@ public class BaseTower : MonoBehaviour, IFocusable
 
     [SerializeField] GameObject tempTarget;
     [SerializeField] GameObject currentTarget;
+    [SerializeField] private GameObject radiusUI;
+
+
 
     public int TargetingLevel;
 
@@ -67,7 +65,7 @@ public class BaseTower : MonoBehaviour, IFocusable
 
         sphereCollider = this.GetComponent<SphereCollider>();
         #region TowerAssign
-        if(this.gameObject.CompareTag("Basic Tower"))
+        if (this.gameObject.CompareTag("Basic Tower"))
         {
             radius = 19.93f;
             attackDamage = 10f;
@@ -75,7 +73,7 @@ public class BaseTower : MonoBehaviour, IFocusable
             price = (int)GameManager.instance.baseCost;
             sphereCollider.radius = radius;
         }
-        else if(this.gameObject.CompareTag("Melee Tower"))
+        else if (this.gameObject.CompareTag("Melee Tower"))
         {
             radius = 17.03462f;
             attackDamage = 1f;
@@ -84,7 +82,7 @@ public class BaseTower : MonoBehaviour, IFocusable
             sphereCollider.radius = radius;
 
         }
-        else if(this.gameObject.CompareTag("Debuff Tower"))
+        else if (this.gameObject.CompareTag("Debuff Tower"))
         {
             radius = 17.03462f;
             attackDamage = 5f;
@@ -92,7 +90,7 @@ public class BaseTower : MonoBehaviour, IFocusable
             price = (int)GameManager.instance.debuffCost;
             sphereCollider.radius = radius;
         }
-        else if(this.gameObject.CompareTag("Powerful Tower"))
+        else if (this.gameObject.CompareTag("Powerful Tower"))
         {
             radius = 15.46f;
             attackDamage = 15f;
@@ -125,9 +123,9 @@ public class BaseTower : MonoBehaviour, IFocusable
             enableUpgrade = false;
         }
         UpdateTarget();//Updates the target from the queue
-        //Debug.DrawLine(firePoint.transform.position, currentTarget.transform.position, Color.red, 0.1f);
-        //RotateTower();
-       
+                       //Debug.DrawLine(firePoint.transform.position, currentTarget.transform.position, Color.red, 0.1f);
+                       //RotateTower();
+
 
         if (currentTarget == null)//If nothing was set in upgade target return null so we don't waste processing time
         {
@@ -159,9 +157,9 @@ public class BaseTower : MonoBehaviour, IFocusable
     {
         BaseEnemy tempTargetScript;
         #region TargetingLevels
-        if(TargetingLevel == 1)//This level targets the fastest enemy
+        if (TargetingLevel == 1)//This level targets the fastest enemy
         {
-            if(currentTarget == null && GameManager.instance.enemyCount > 0)//Checks if there is no enemy set and we have enemies on the field
+            if (currentTarget == null && GameManager.instance.enemyCount > 0)//Checks if there is no enemy set and we have enemies on the field
             {
                 if (Skeleton.Count != 0)//If the skeleton queue has enemies we target those
                 {
@@ -225,7 +223,7 @@ public class BaseTower : MonoBehaviour, IFocusable
                         currentTarget = tempTarget;
                     }
                 }
-                if(Zombie.Count != 0 && Ghost.Count == 0 && Pumpkin.Count == 0 && Bat.Count == 0 && Skeleton.Count == 0)//Same as ghost lol
+                if (Zombie.Count != 0 && Ghost.Count == 0 && Pumpkin.Count == 0 && Bat.Count == 0 && Skeleton.Count == 0)//Same as ghost lol
                 {
                     tempTarget = Zombie.Dequeue();
                     tempTargetScript = tempTarget.GetComponent<BaseEnemy>();
@@ -251,14 +249,14 @@ public class BaseTower : MonoBehaviour, IFocusable
                         currentTarget = tempTarget;
                     }
                 }
-               
+
             }
         }
-        if(TargetingLevel == 2)//Targeting level 2 targets the most healthy enemy
+        if (TargetingLevel == 2)//Targeting level 2 targets the most healthy enemy
         {
-            if(currentTarget == null)
+            if (currentTarget == null)
             {
-                if (Boss.Count != 0 )
+                if (Boss.Count != 0)
                 {
                     tempTarget = Boss.Dequeue();
                     tempTargetScript = tempTarget.GetComponent<BaseEnemy>();
@@ -271,7 +269,7 @@ public class BaseTower : MonoBehaviour, IFocusable
                         currentTarget = tempTarget;
                     }
                 }
-                if(Zombie.Count != 0 && Boss.Count == 0)
+                if (Zombie.Count != 0 && Boss.Count == 0)
                 {
                     tempTarget = Zombie.Dequeue();
                     tempTargetScript = tempTarget.GetComponent<BaseEnemy>();
@@ -381,16 +379,16 @@ public class BaseTower : MonoBehaviour, IFocusable
             Debug.LogError("Nothing found. Check enemy tags");
         }
 
-        if(this.gameObject.CompareTag("Debuff Tower") && !this.gameObject.CompareTag("Basic Tower") && !other.gameObject.CompareTag("Bullet") )
+        if (this.gameObject.CompareTag("Debuff Tower") && !this.gameObject.CompareTag("Basic Tower") && !other.gameObject.CompareTag("Bullet"))
         {
             Debug.Log(other.gameObject);
-            if(!other.gameObject.GetComponent<BaseEnemy>().slowed)
+            if (!other.gameObject.GetComponent<BaseEnemy>().slowed)
             {
 
                 other.gameObject.GetComponent<BaseEnemy>().speed = other.gameObject.GetComponent<BaseEnemy>().speed * slower;
                 other.gameObject.GetComponent<BaseEnemy>().slowed = true;
             }
-            
+
         }
 
     }
@@ -410,16 +408,16 @@ public class BaseTower : MonoBehaviour, IFocusable
                 Pumpkin.Dequeue();
                 Debug.Log("Pumpkin detected");
             }
-            
+
         }
         else if (other.CompareTag("Skeleton"))
         {
-            if(Skeleton.Count > 0)
+            if (Skeleton.Count > 0)
             {
                 Skeleton.Dequeue();
                 Debug.Log("Skeleton detected");
             }
-           
+
         }
         else if (other.CompareTag("Ghost"))
         {
@@ -430,7 +428,7 @@ public class BaseTower : MonoBehaviour, IFocusable
         }
         else if (other.CompareTag("Zombie"))
         {
-            if(Zombie.Count > 0)
+            if (Zombie.Count > 0)
             {
                 Zombie.Dequeue();
             }
@@ -451,7 +449,7 @@ public class BaseTower : MonoBehaviour, IFocusable
             Debug.LogWarning("Nothing found. Check enemy tags");
         }
 
-        if(this.gameObject.CompareTag("Debuff Tower"))
+        if (this.gameObject.CompareTag("Debuff Tower"))
         {
             if (other.GetComponent<BaseEnemy>())
             {
@@ -475,7 +473,7 @@ public class BaseTower : MonoBehaviour, IFocusable
         {
             Debug.Log("Shoot");
             if (currentTarget.CompareTag("Bat"))
-            { 
+            {
                 bullet.Seek(currentTarget.GetComponent<SphereCollider>().transform, attackDamage); //passes the target to bullet script
             }
             else
@@ -516,6 +514,7 @@ public class BaseTower : MonoBehaviour, IFocusable
         {
             attackDamage = attackDamage * 1.25f;
             radius = radius * 1.25f;
+            radiusUI.transform.localScale *= 1.25f;
             sphereCollider.radius = radius; //Sets radius of actual collider
             fireRate = fireRate / 1.1f;
             upgradeCost = upgradeCost * 2;
@@ -523,7 +522,7 @@ public class BaseTower : MonoBehaviour, IFocusable
             UpgradeManager.instance.DisableUpgradeButton();
             GameAnalytics.NewDesignEvent("UpgradeTower:Tombstone");
         }
-        if(this.CompareTag("Powerful Tower"))
+        if (this.CompareTag("Powerful Tower"))
         {
             attackDamage = attackDamage * 1.25f;
             radius = radius * 1.25f;
@@ -556,15 +555,4 @@ public class BaseTower : MonoBehaviour, IFocusable
         source.clip = _clip;
         source.Play();
     }
-
-    public void OnFocusEnter()
-    {
-        //
-    }
-
-    public void OnFocusExit()
-    {
-        //
-    }
 }
-

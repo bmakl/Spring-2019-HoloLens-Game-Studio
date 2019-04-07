@@ -3354,7 +3354,7 @@ GameObject:
   - component: {fileID: 114082646876617554}
   m_Layer: 0
   m_Name: pCube1
-  m_TagString: Untagged
+  m_TagString: Basic Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3560,7 +3560,7 @@ GameObject:
   - component: {fileID: 114475622804667356}
   m_Layer: 0
   m_Name: pCylinder2
-  m_TagString: Untagged
+  m_TagString: Debuff Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15199,6 +15199,7 @@ MonoBehaviour:
   firePoint: {fileID: 0}
   tempTarget: {fileID: 0}
   currentTarget: {fileID: 0}
+  radiusUI: {fileID: 0}
   TargetingLevel: 1
   clicks: 0
   attackCountdown: 0
@@ -20347,7 +20348,7 @@ GameObject:
   - component: {fileID: 114571733601794696}
   m_Layer: 0
   m_Name: pCube1
-  m_TagString: Untagged
+  m_TagString: Melee Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
