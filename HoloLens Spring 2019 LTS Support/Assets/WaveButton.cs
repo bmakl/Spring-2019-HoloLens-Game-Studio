@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using HoloToolkit.Unity.InputModule;
 using GameAnalyticsSDK;
 
@@ -24,6 +25,14 @@ public class WaveButton : MonoBehaviour  {
     /// </summary>
     public void StartWave()
     {
+        if (SceneManager.GetActiveScene().name == "Tutorial Scene")
+        {
+            if (TutorialManager.instance.startWave != true)
+            {
+                TutorialManager.instance.startWave = true;
+                TutorialManager.instance.MoveToUpgradeTower();
+            }
+        }
         ButtonManager.instance.DisableButton();
         startSource.Play();
         GameManager.instance.Spawn = true;

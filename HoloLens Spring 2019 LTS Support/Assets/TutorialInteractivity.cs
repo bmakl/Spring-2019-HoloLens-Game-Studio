@@ -6,8 +6,8 @@ public class TutorialInteractivity : MonoBehaviour
 {
 
     public float TutorialTimer = 1.0f;
-    public Material upHand;
-    public Material downHand;
+    public GameObject upHand;
+    public GameObject downHand;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,16 +21,18 @@ public class TutorialInteractivity : MonoBehaviour
 
         if(TutorialTimer <= 0)
         {
-            Debug.Log("We are here at least");
-            if(this.gameObject.GetComponent<Renderer>().material.shader == upHand.shader)
+            Debug.Log("Timer is 0");
+            if(upHand.activeSelf)
             {
-                Debug.Log("Going to Downhand");
-                this.gameObject.GetComponent<Renderer>().material.shader = downHand.shader;
+                Debug.Log("Downhand On");
+                upHand.SetActive(false);
+                downHand.SetActive(true);
             }
-            else if(this.gameObject.GetComponent<Renderer>().material.shader== downHand.shader)
+            else if (downHand.activeSelf)
             {
-                Debug.Log("Going to UpHand");
-                this.gameObject.GetComponent<Renderer>().material.shader = upHand.shader;
+                Debug.Log("Uphand on");
+                downHand.SetActive(false);
+                upHand.SetActive(true);
             }
             TutorialTimer = 1.0f;
         }

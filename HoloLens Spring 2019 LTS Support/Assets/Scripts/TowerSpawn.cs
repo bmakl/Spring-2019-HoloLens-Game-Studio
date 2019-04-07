@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using HoloToolkit.Unity.InputModule;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using GameAnalyticsSDK;
 
 public class TowerSpawn : MonoBehaviour, IInputClickHandler
@@ -46,6 +47,14 @@ public class TowerSpawn : MonoBehaviour, IInputClickHandler
             }
             else if (towerPrefab.CompareTag("Basic Tower") && GameManager.instance.baseCost <= GameManager.instance.coins)
             {
+                if(SceneManager.GetActiveScene().name == "Tutorial Scene")
+                {
+                    if (TutorialManager.instance.basicTowerPlaced != true)
+                    {
+                        TutorialManager.instance.basicTowerPlaced = true;
+                        TutorialManager.instance.MoveToStartWave();
+                    }
+                } 
                 GameObject instantiateTower = Instantiate(towerPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
                 instantiateTower.GetComponentInChildren<BaseTower>().node = this.transform.gameObject;
                 GameManager.instance.coins -= GameManager.instance.baseCost;

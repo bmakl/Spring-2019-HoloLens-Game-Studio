@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using HoloToolkit.Unity.InputModule;
 using DG.Tweening;
 
@@ -26,6 +27,7 @@ public class UITowerSelect : MonoBehaviour, IInputClickHandler,IFocusable
 
     public void OnInputClicked(InputClickedEventData eventData)
     {
+ 
         if (highlight != null)//Checks if the object is highlighted
         {
             highlight.enabled = false;
@@ -36,8 +38,16 @@ public class UITowerSelect : MonoBehaviour, IInputClickHandler,IFocusable
         {
             highlight = GetComponent<Outline>();
             highlight.enabled = true;
+            if(SceneManager.GetActiveScene().name == "Tutorial Scene")
+            {
+                if (TutorialManager.instance.basicTowerSelected != true)
+                {
+                    TutorialManager.instance.basicTowerSelected = true;
+                    TutorialManager.instance.MoveToPlaceTower();
+                }
+            }
+            
         }
-
         TowerManager.towerNumber = towerID;
     }
 
