@@ -20,7 +20,7 @@ public class StartMenuBehaviors : MonoBehaviour {
     public void Credits()
     {
         Debug.Log("Loading Credits");
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
     }
 
     public void Settings()
