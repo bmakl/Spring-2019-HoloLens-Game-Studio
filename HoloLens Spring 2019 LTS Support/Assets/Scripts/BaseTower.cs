@@ -4,7 +4,7 @@ using UnityEngine;
 using HoloToolkit.Unity.InputModule;
 using System;
 using GameAnalyticsSDK;
-public class BaseTower : MonoBehaviour//, IInputClickHandler
+public class BaseTower : MonoBehaviour, IFocusable
 {
 
 
@@ -21,7 +21,9 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
 
     public float upgradeCost = 100;
     public float slower = 0.5f;
-    public GameObject node;
+    [HideInInspector] public GameObject node;
+    [SerializeField] private Transform radiusUI;
+
 
 
     [Header("Turret Upgrade 1 Stats")]
@@ -554,6 +556,15 @@ public class BaseTower : MonoBehaviour//, IInputClickHandler
         source.clip = _clip;
         source.Play();
     }
-    
+
+    public void OnFocusEnter()
+    {
+        //
+    }
+
+    public void OnFocusExit()
+    {
+        //
+    }
 }
 

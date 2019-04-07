@@ -1,16 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using HoloToolkit.Unity.InputModule;
 using UnityEngine;
-using HoloToolkit.Unity.InputModule;
-using DG.Tweening;
 
-public class UITowerSelect : MonoBehaviour, IInputClickHandler,IFocusable
+public class UITowerSelect : MonoBehaviour, IInputClickHandler, IFocusable
 {
     [Header("Tower Info")]
     public GameObject tower;
     public GameObject[] nodes;
     public int towerID;
     private Vector3 originalScale;
+    private bool canAfford = false;
 
     [Header("Tween Info")]
     [SerializeField] float tweenAmmount;
@@ -24,26 +22,81 @@ public class UITowerSelect : MonoBehaviour, IInputClickHandler,IFocusable
         originalScale = transform.localScale;
     }
 
+    void Update()
+    {
+        if (this.CompareTag("Basic Tower") && GameManager.instance.baseCost > GameManager.instance.coins)
+        {
+
+            Outline thisHighlight = GetComponent<Outline>();
+            thisHighlight.enabled = true;
+            thisHighlight.OutlineColor = Color.red;
+        }
+        else if (this.CompareTag("Melee Tower") && GameManager.instance.meleeCost > GameManager.instance.coins)
+        {
+            Outline thisHighlight = GetComponent<Outline>();
+            thisHighlight.enabled = true;
+            thisHighlight.OutlineColor = Color.red;
+        }
+        else if (this.CompareTag("Powerful Tower") && GameManager.instance.powerfulCost > GameManager.instance.coins)
+        {
+            Outline thisHighlight = GetComponent<Outline>();
+            thisHighlight.enabled = true;
+            thisHighlight.OutlineColor = Color.red;
+        }
+        else if (this.CompareTag("Debuff Tower") && GameManager.instance.debuffCost > GameManager.instance.coins)
+        {
+            Outline thisHighlight = GetComponent<Outline>();
+            thisHighlight.enabled = true;
+            thisHighlight.OutlineColor = Color.red;
+        }
+
+        if (this.CompareTag("Basic Tower") && GameManager.instance.baseCost < GameManager.instance.coins)
+        {
+
+            Outline thisHighlight = GetComponent<Outline>();
+            thisHighlight.enabled = false;
+        }
+        else if (this.CompareTag("Melee Tower") && GameManager.instance.meleeCost < GameManager.instance.coins)
+        {
+            Outline thisHighlight = GetComponent<Outline>();
+            thisHighlight.enabled = false;
+        }
+        else if (this.CompareTag("Powerful Tower") && GameManager.instance.powerfulCost < GameManager.instance.coins)
+        {
+            Outline thisHighlight = GetComponent<Outline>();
+            thisHighlight.enabled = false;
+        }
+        else if (this.CompareTag("Debuff Tower") && GameManager.instance.debuffCost < GameManager.instance.coins)
+        {
+            Outline thisHighlight = GetComponent<Outline>();
+            thisHighlight.enabled = false;
+        }
+
+    }
+
     public void OnInputClicked(InputClickedEventData eventData)
     {
         if (highlight != null)//Checks if the object is highlighted
         {
             highlight.enabled = false;
             highlight = this.GetComponent<Outline>();
+            highlight.OutlineColor = Color.cyan;
             highlight.enabled = true;
         }
         else //if it is not 
         {
             highlight = GetComponent<Outline>();
+            highlight.OutlineColor = Color.cyan;
             highlight.enabled = true;
         }
 
         TowerManager.towerNumber = towerID;
     }
 
+
     public void OnFocusEnter()
     {
-        TweenManager.instance.TweenScale(this.transform,tweenAmmount,tweenDuration);//When you look at the object it tweens bigger
+        TweenManager.instance.TweenScale(this.transform, tweenAmmount, tweenDuration);//When you look at the object it tweens bigger
     }
 
     public void OnFocusExit()
