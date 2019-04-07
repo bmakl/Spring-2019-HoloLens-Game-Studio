@@ -89,5 +89,12 @@ public class TutorialManager : MonoBehaviour
         sellTowerPrompt.SetActive(false);
         sellTowerHand.SetActive(false);
         tutorialCompletePrompt.SetActive(true);
+        StartCoroutine(TurnOff());
+    }
+
+    private IEnumerator TurnOff()
+    {
+        yield return new WaitForSeconds(5.0f);
+        tutorialCompletePrompt.SetActive(false);
     }
 }

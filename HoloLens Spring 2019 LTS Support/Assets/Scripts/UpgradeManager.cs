@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using HoloToolkit.Unity.InputModule;
 
@@ -64,12 +65,19 @@ public static bool sellTowerBool = true;
     {
         if (sellTowerBool == true)
         {
+            if (SceneManager.GetActiveScene().name == "TutorialScene")
+            {
+                if (TutorialManager.instance.sellTower != true)
+                {
+                    TutorialManager.instance.sellTower = true;
+                    TutorialManager.instance.MoveToFreePlay();
+                }
+            }
             Debug.Log("sell tower");
             GameManager.instance.coins += currentTower.price;
             currentTower.node.GetComponent<TowerSpawn>().towerPrefab = null;
             currentTower = null;
             Destroy(towerToDelete);
-            Debug.Log(currentTower.transform.position);
         }
         
     }
@@ -78,6 +86,7 @@ public static bool sellTowerBool = true;
     {
         if (sellTowerBool == true)
         {
+
             Debug.Log("sell tower");
             GameManager.instance.coins += currentMelee.price;
             currentMelee.node.GetComponent<TowerSpawn>().towerPrefab = null;
@@ -99,6 +108,14 @@ public static bool sellTowerBool = true;
         {
             currentTower.Upgrade();
             displayInfo(currentTower.gameObject, desc);
+        }
+        if (SceneManager.GetActiveScene().name == "TutorialScene")
+        {
+            if (TutorialManager.instance.upgradeTower != true)
+            {
+                TutorialManager.instance.upgradeTower = true;
+                TutorialManager.instance.MoveToStartWave2();
+            }
         }
     }
 

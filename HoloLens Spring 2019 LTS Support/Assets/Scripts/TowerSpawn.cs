@@ -47,7 +47,7 @@ public class TowerSpawn : MonoBehaviour, IInputClickHandler
             }
             else if (towerPrefab.CompareTag("Basic Tower") && GameManager.instance.baseCost <= GameManager.instance.coins)
             {
-                if(SceneManager.GetActiveScene().name == "Tutorial Scene")
+                if(SceneManager.GetActiveScene().name == "TutorialScene")
                 {
                     if (TutorialManager.instance.basicTowerPlaced != true)
                     {

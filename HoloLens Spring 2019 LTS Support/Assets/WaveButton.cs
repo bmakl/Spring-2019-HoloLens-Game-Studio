@@ -25,12 +25,17 @@ public class WaveButton : MonoBehaviour  {
     /// </summary>
     public void StartWave()
     {
-        if (SceneManager.GetActiveScene().name == "Tutorial Scene")
+        if (SceneManager.GetActiveScene().name == "TutorialScene")
         {
             if (TutorialManager.instance.startWave != true)
             {
                 TutorialManager.instance.startWave = true;
                 TutorialManager.instance.MoveToUpgradeTower();
+            }
+            if(TutorialManager.instance.startWave2 != true && TutorialManager.instance.upgradeTower == true)
+            {
+                TutorialManager.instance.startWave2 = true;
+                TutorialManager.instance.MoveToSellTower();
             }
         }
         ButtonManager.instance.DisableButton();
