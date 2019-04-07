@@ -34,7 +34,7 @@ public class MeleeTower : BaseTower
         yield return new WaitForSeconds(0.5f);
         if (other != null)
         {
-
+            ParticleManager.instance.MeleeParticle(this.transform);
             other.gameObject.GetComponent<BaseEnemy>().health -= attackDamage;
             if (other.gameObject.GetComponent<BaseEnemy>().health <= 0 && !other.gameObject.GetComponent<BaseEnemy>().killed)
             {
