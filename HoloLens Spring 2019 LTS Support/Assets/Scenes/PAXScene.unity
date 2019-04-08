@@ -169,22 +169,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3494591954828647335, guid: ff5f46dc3d79797419a4cb40d8af85db,
         type: 3}
-      propertyPath: m_IsActive
+      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114590291434845054, guid: d29bc40b7f3df26479d6a0aac211c355,
+    - target: {fileID: 4802754096857835527, guid: ff5f46dc3d79797419a4cb40d8af85db,
         type: 3}
-      propertyPath: meleeFireParticle
-      value: 
-      objectReference: {fileID: 1821392037375934, guid: 55c798c967f412740bbb53ad6c7af16a,
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4447345513703435472, guid: ff5f46dc3d79797419a4cb40d8af85db,
         type: 3}
-    - target: {fileID: 114590291434845054, guid: d29bc40b7f3df26479d6a0aac211c355,
-        type: 3}
-      propertyPath: debuffParticle
-      value: 
-      objectReference: {fileID: 1821392037375934, guid: 9d2dfc37535f46242ba954c760b36395,
-        type: 3}
-    m_RemovedComponents: []
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3968539573808347691, guid: ff5f46dc3d79797419a4cb40d8af85db, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ff5f46dc3d79797419a4cb40d8af85db, type: 3}
 --- !u!1 &1892611209
 GameObject:
