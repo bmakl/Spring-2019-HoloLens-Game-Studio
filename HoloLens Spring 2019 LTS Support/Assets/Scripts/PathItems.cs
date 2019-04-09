@@ -32,7 +32,8 @@ public class PathItems : MonoBehaviour, IInputClickHandler
                 {
                     //(PlaceItem()); For testing cooldown if needed
                     GameManager.instance.coins -= (int)GameManager.instance.trapCost;
-                    Instantiate(itemToPlace, GazeManager.Instance.HitInfo.point, GazeManager.Instance.HitInfo.transform.rotation);
+                    Instantiate(itemToPlace, GazeManager.Instance.HitInfo.collider.bounds.center, GazeManager.Instance.HitInfo.transform.rotation);
+                    
                 }
             }
         }
