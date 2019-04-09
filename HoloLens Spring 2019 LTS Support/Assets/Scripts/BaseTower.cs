@@ -10,9 +10,11 @@ public class BaseTower : MonoBehaviour, IInputClickHandler
     [Header("Turret Base Stats")]
     public float radius = 5f;
     public float attackSpeed = 1f;
+    public int price = 100;
     [HideInInspector]
     public float fireRate = 0f;
     public float attackDamage = 10f;
+
 
     [Header("Turret Upgrade 1 Stats")]
     public float upgrade1Damage = 3f;
@@ -42,7 +44,7 @@ public class BaseTower : MonoBehaviour, IInputClickHandler
 
     public float clicks = 0;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         Pumpkin = new Queue<GameObject>();
         Skeleton = new Queue<GameObject>();
@@ -50,6 +52,40 @@ public class BaseTower : MonoBehaviour, IInputClickHandler
         Ghost = new Queue<GameObject>();
         Boss = new Queue<GameObject>();
         TargetingLevel = 1;
+        #region TowerAssign
+        if(this.gameObject.CompareTag("Basic Tower"))
+        {
+            radius = 5f;
+            attackDamage = 10f;
+            attackSpeed = 1f;
+            fireRate = 0f;
+            price = 100;
+        }
+        else if(this.gameObject.CompareTag("Melee Tower"))
+        {
+            radius = 1f;
+            attackDamage = 15f;
+            fireRate = 0f;
+            attackSpeed = 0.5f;
+            price = 150;
+        }
+        else if(this.gameObject.CompareTag("Debuff Tower"))
+        {
+            radius = 3f;
+            attackDamage = 5f;
+            attackSpeed = 1.5f;
+            fireRate = 0f;
+            price = 250;
+        }
+        else if(this.gameObject.CompareTag("Powerful Tower"))
+        {
+            radius = 5f;
+            attackDamage = 30f;
+            attackSpeed = 0.5f;
+            fireRate = 0f;
+            price = 700;
+        }
+        #endregion
     }
 
     private void Start()
@@ -63,12 +99,17 @@ public class BaseTower : MonoBehaviour, IInputClickHandler
     {
 
         UpdateTarget();
-
+        Debug.Log(fireRate);
+        Debug.Log(currentTarget);
         //RotateTower();
-
+        if(currentTarget == null)
+        {
+            Debug.LogWarning("No Enemy");
+            return;
+        }
         if (currentTarget.GetComponent<BaseEnemy>().health > 0 && fireRate <= 0f) //checks if the attack is off cooldown 
         {
-
+            Debug.Log("shooting at" + currentTarget.tag);
             Shoot();
 
             fireRate = 1f / attackSpeed;
@@ -89,10 +130,16 @@ public class BaseTower : MonoBehaviour, IInputClickHandler
     public virtual void UpdateTarget() //Updates the target to the first target that enters the radius
     {
         BaseEnemy tempTargetScript;
+        #region TargetingLevel1
         if(TargetingLevel == 1)
         {
             if (Skeleton.Count != 0)
             {
+                if(Skeleton.Peek() == null)
+                {
+                    Skeleton.Dequeue();
+                    return;
+                }
                 tempTarget = Skeleton.Dequeue();
                 tempTargetScript = tempTarget.GetComponent<BaseEnemy>();
                 if (tempTarget.GetComponent<BaseEnemy>() == null)
@@ -119,6 +166,11 @@ public class BaseTower : MonoBehaviour, IInputClickHandler
             }
             if (Pumpkin.Count != 0 && Bat.Count == 0 && Skeleton.Count == 0)
             {
+                if (Pumpkin.Peek() == null)
+                {
+                    Pumpkin.Dequeue();
+                    return;
+                }
                 tempTarget = Pumpkin.Dequeue();
                 tempTargetScript = tempTarget.GetComponent<BaseEnemy>();
                 if (tempTarget.GetComponent<BaseEnemy>() == null)
@@ -158,6 +210,7 @@ public class BaseTower : MonoBehaviour, IInputClickHandler
             }
 
         }
+        #endregion
 
 
 
@@ -166,12 +219,12 @@ public class BaseTower : MonoBehaviour, IInputClickHandler
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Enemy Entered");
-        if(other.CompareTag("Pumpkin"))
+        if (other.CompareTag("Pumpkin"))
         {
             Pumpkin.Enqueue(other.gameObject);
             Debug.Log("Pumpkin detected");
         }
-        else if(other.CompareTag("Skeleton"))
+        else if (other.CompareTag("Skeleton"))
         {
             Skeleton.Enqueue(other.gameObject);
             Debug.Log("Skeleton detected");
@@ -188,10 +241,26 @@ public class BaseTower : MonoBehaviour, IInputClickHandler
         {
             Boss.Enqueue(other.gameObject);
         }
+        else if (other.CompareTag("Bullet"))
+        {
+            Debug.Log("Bullet Fired");
+        }
         else
         {
             Debug.LogError("Nothing found. Check enemy tags");
         }
+
+        if(this.gameObject.CompareTag("Debuff Tower"))
+        {
+            if(!other.gameObject.GetComponent<BaseEnemy>().slowed)
+            {
+
+                other.gameObject.GetComponent<BaseEnemy>().speed = other.gameObject.GetComponent<BaseEnemy>().speed * 0.5f; ;
+                other.gameObject.GetComponent<BaseEnemy>().slowed = true;
+            }
+            
+        }
+
     }
 
     void OnTriggerExit(Collider other)
@@ -200,13 +269,21 @@ public class BaseTower : MonoBehaviour, IInputClickHandler
         Debug.Log("Enemy Entered");
         if (other.CompareTag("Pumpkin"))
         {
-            Pumpkin.Dequeue();
-            Debug.Log("Pumpkin detected");
+            if(Pumpkin.Count > 0)
+            {
+                Pumpkin.Dequeue();
+                Debug.Log("Pumpkin detected");
+            }
+            
         }
         else if (other.CompareTag("Skeleton"))
         {
-            Skeleton.Dequeue();
-            Debug.Log("Skeleton detected");
+            if(Skeleton.Count > 0)
+            {
+                Skeleton.Dequeue();
+                Debug.Log("Skeleton detected");
+            }
+           
         }
         else if (other.CompareTag("Ghost"))
         {
@@ -222,7 +299,13 @@ public class BaseTower : MonoBehaviour, IInputClickHandler
         }
         else
         {
-            Debug.LogError("Nothing found. Check enemy tags");
+            Debug.LogWarning("Nothing found. Check enemy tags");
+        }
+
+        if(this.gameObject.CompareTag("Debuff Tower"))
+        {
+            other.gameObject.GetComponent<BaseEnemy>().speed = other.gameObject.GetComponent<BaseEnemy>().speed * 2f;
+            other.gameObject.GetComponent<BaseEnemy>().slowed = false;
         }
     }
 

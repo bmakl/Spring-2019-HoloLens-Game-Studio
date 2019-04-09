@@ -3,53 +3,65 @@ using System.Collections;
 
 public class WaveSpawner : MonoBehaviour
 {
+    public int enemiesAlive;
+    public static bool waveStart = false;
+    [SerializeField] Wave[] waves;
 
-    public GameObject enemyPrefab;
-    public GameObject enemyFastPrefab;
-    public Transform spawnPoint;
+    [SerializeField] Transform spawnPoint;
 
-    public float timeBetweenWaves = 9f;
+    [SerializeField] float timeBetweenWave = 5f;
     private float countdown = 2f;
-    public float timeBetweenEnemies = 1f;
 
-    private int waveIndex = 0;
+    [SerializeField] int waveIndex = 0;
 
-    void Update()
+    private void Update()
     {
-        if (countdown <= 0f)
+        if (!   GameManager.instance.Spawn)
+        {
+            Debug.Log("Wave status is " + waveStart);
+            countdown = 0;
+            return;
+        }
+        if (countdown <= 0)
         {
             StartCoroutine(SpawnWave());
-            countdown = timeBetweenWaves;
+            countdown = timeBetweenWave;
+            return;
         }
 
         countdown -= Time.deltaTime;
     }
+
     IEnumerator SpawnWave()
     {
-        if (waveIndex <= 9)
-        {
+        Wave wave = waves[waveIndex];
+       // for(int i = 0; i< waves.Length ; i++)
+        //{
+            Debug.Log("Wave Spawning");
+            GameManager.instance.Spawn = false;
+            foreach (GameObject e in wave.enemy)
+            {
+                SpawnEnemy(e);
+                yield return new WaitForSeconds(1f * wave.spawnRate);
+            }
+
+
+
             waveIndex++;
-            for (int i = 0; i < waveIndex; i++)
-            {
-                SpawnEnemy();
-                yield return new WaitForSeconds(timeBetweenEnemies);
-            }
-        }
-        if(waveIndex >= 10)
+       // }
+
+        /*if(waveIndex >= waves.Length+1)
         {
-            for(int i = 0; i >= 1; i++)
-            {
-                SpawnEnemy();
-                yield return new WaitForSeconds(timeBetweenEnemies);
-            }
-        }
-
+            yield return new WaitForSeconds(5f);
+            SceneController.instance.LoadMenu();
+        }*/
+        
     }
 
-    void SpawnEnemy()
+    void SpawnEnemy(GameObject enemy)
     {
-        Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
-        Instantiate(enemyFastPrefab, spawnPoint.position, spawnPoint.rotation);
-
+        Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
+        enemiesAlive++;
     }
+
 }
