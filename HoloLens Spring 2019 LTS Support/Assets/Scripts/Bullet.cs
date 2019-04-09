@@ -41,14 +41,12 @@ public class Bullet : MonoBehaviour
         if (target == null || !enemy.eligibleTarget)//Checks if there is a target, if not destorys bullet
         {
             Destroy(gameObject);
-            return;
         }
+    }
 
-        Vector3 dir;
-        float distanceThisFrame;
-        dir = enemyCenter - transform.position;
-        distanceThisFrame = bulletSpeed * Time.deltaTime;
-        transform.Translate(dir.normalized * distanceThisFrame, Space.World); //Moves Bullet
+    private void FixedUpdate()
+    {
+        MoveBullet();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -58,6 +56,18 @@ public class Bullet : MonoBehaviour
             this.GetComponent<MeshRenderer>().enabled = false;
             Debug.Log("Bullet disable");
         }
+    }
+
+    /// <summary>
+    /// Moves the bullet in world space
+    /// </summary>
+    void MoveBullet()
+    {
+        Vector3 dir;
+        float distanceThisFrame;
+        dir = enemyCenter - transform.position;
+        distanceThisFrame = bulletSpeed * Time.deltaTime;
+        transform.Translate(dir.normalized * distanceThisFrame, Space.World); //Moves Bullet
     }
 
 }
