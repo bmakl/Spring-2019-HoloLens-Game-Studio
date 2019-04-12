@@ -27,6 +27,7 @@ TagManager:
   - TombstonePlate
   - ScythePlate
   - CursedPlate
+  - TrapNode
   layers:
   - Default
   - TransparentFX
