@@ -381,7 +381,7 @@ public class BaseTower : MonoBehaviour
 
         if (this.gameObject.CompareTag("Debuff Tower") && !this.gameObject.CompareTag("Basic Tower") && !other.gameObject.CompareTag("Bullet"))
         {
-            Debug.Log(other.gameObject);
+            ParticleManager.instance.DebuffParticle(this.transform);
             if (!other.gameObject.GetComponent<BaseEnemy>().slowed)
             {
 
