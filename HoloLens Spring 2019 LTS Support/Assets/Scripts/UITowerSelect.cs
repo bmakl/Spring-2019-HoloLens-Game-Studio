@@ -96,7 +96,7 @@ public class UITowerSelect : MonoBehaviour, IInputClickHandler, IFocusable
             highlight = GetComponent<Outline>();
             highlight.OutlineColor = Color.cyan;
             highlight.enabled = true;
-            if(SceneManager.GetActiveScene().name == "TutorialScene")
+            if (SceneManager.GetActiveScene().name == "TutorialScene")
             {
                 if (TutorialManager.instance.basicTowerSelected != true)
                 {
