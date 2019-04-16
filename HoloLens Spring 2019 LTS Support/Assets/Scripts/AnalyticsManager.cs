@@ -8,6 +8,20 @@ public class AnalyticsManager : MonoBehaviour
 
     [HideInInspector] public static float coinStart;
 
+    private static AnalyticsManager instance;
+
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else if(instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {

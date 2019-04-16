@@ -9,24 +9,14 @@ public class CameraSingleton : MonoBehaviour
 
     private void Awake()
     {
-        if(instance != null)
+        if(instance == null)
         {
             instance = this;
         }
-        else
+        else if (instance != this)
         {
-            Destroy(GameObject);
+            Destroy(this.gameObject);
         }
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
