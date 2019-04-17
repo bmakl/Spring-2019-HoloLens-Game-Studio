@@ -37,6 +37,13 @@ public class GameManager : MonoBehaviour
     //public GameObject enemyFastPrefab;
     public Transform spawnPoint;
 
+    [Header("EndlessMode")]
+    public bool EndlessMode = true; //Toggle to enable endless mode - True = On
+    public int EndlessIncrement = 2; //What level you want the enemies to increment
+    public int EndlessCounter; //How many levels until the enemies get harder
+    public float EndlessModifier = 1.10f; //The modifier that is multiplied against the enemy stats. 
+    public bool EndlessWaveCheck = false;//Makes sure the enemies dont all increase the counter
+
     [Header("Enemy Drops")]
     public float pumpkinCoin = 25f;
     public float skeletonCoin = 75f;
@@ -121,7 +128,6 @@ public class GameManager : MonoBehaviour
             GameAnalytics.NewDesignEvent("Gameplay:Death", (float)GameManager.instance.waveCount);
             StartCoroutine(Restart());
         }
-
         if (waveCount > 10 && enemyCount<=0)
         {
             Debug.Log("You won");
