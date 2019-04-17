@@ -28,6 +28,7 @@ TagManager:
   - ScythePlate
   - CursedPlate
   - TrapNode
+  - CornerPath
   layers:
   - Default
   - TransparentFX

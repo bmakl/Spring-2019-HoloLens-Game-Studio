@@ -11,10 +11,17 @@ public class StartMenuBehaviors : MonoBehaviour {
         SceneManager.LoadScene(0);
     }
 
-	public void StartButton()
+	public void StartButton(int sceneIndex)
     {
         Debug.Log("Loading PAX Scene");
-        SceneManager.LoadScene(1);
+        //SceneManager.LoadScene(1);
+        StartCoroutine(LoadGamescene(sceneIndex)); //set sceneIndex in the inspector OnClick()
+    }
+
+    IEnumerator LoadGamescene(int sceneIndex)
+    {
+        AsyncOperation op = SceneManager.LoadSceneAsync(sceneIndex);
+        while (!op.isDone) { yield return null; } //loading scene, if u want to see the progress Debug.Log(op.progress);
     }
 
     public void Instructions()
