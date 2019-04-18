@@ -16,7 +16,6 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
     public float rotationStrength = 15f;
     public bool upGrade = false;
     [HideInInspector] public bool killed = false;
-    [HideInInspector] private bool EndlessIncrementCheck; //Ensures the enemy is incremented on the proper levels
 
     private Transform target;
     private int WavePointIndex = 0;
@@ -25,7 +24,7 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
     [SerializeField] int playerDamage;
     [SerializeField] int SkeletonsKilled;
     [SerializeField] int tapDamage = 5;
-    [SerializeField] GameManager x;
+    
 
     public Text successfulHits;
 
@@ -97,22 +96,6 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, str);
         Vector3 dir = target.position - transform.position;
         transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
-
-        
-        if (GameManager.instance.EndlessWaveCheck == false && EndlessIncrementCheck == false && GameManager.instance.EndlessMode == true)
-        {
-            GameManager.instance.EndlessWaveCheck = true;
-            GameManager.instance.EndlessCounter++;
-            Debug.Log("Endless Counter increased");
-        }
-        if (GameManager.instance.EndlessMode == true && GameManager.instance.EndlessCounter == GameManager.instance.EndlessIncrement && GameManager.instance.EndlessWaveCheck == true)
-        {
-            health = health * GameManager.instance.EndlessModifier;
-            speed = speed * GameManager.instance.EndlessModifier;
-            GameManager.instance.EndlessCounter = 0;
-            Debug.Log("Endless Enemy Incremented");
-            EndlessIncrementCheck = true;
-        }
 
         if (Vector3.Distance(transform.position, target.position) <= 0.01f)//Checks if object is at the next waypoint
         {
@@ -281,5 +264,10 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
             upGrade = false;
         }
 
+    }
+    public void MutateEnemies()
+    {
+        health = health * 1.10f;
+        speed = speed * 1.10f;
     }
 }
