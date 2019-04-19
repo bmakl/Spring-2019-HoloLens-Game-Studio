@@ -512,7 +512,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1986937842}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -40579,6 +40579,80 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 212f38995406146458920845b0240cdf, type: 3}
+--- !u!1 &6888173440950244559 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6409803785217915388, guid: 212f38995406146458920845b0240cdf,
+    type: 3}
+  m_PrefabInstance: {fileID: 6888173440950244558}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6888173440950244560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6888173440950244559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80e445377f099c04e98064d428efaafe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initiallyActive: 0
+  toggleKeyworlds:
+  - Profiler
+  - Toggle Profiler
+  - Show Profiler
+  - Hide Profiler
+  frameRange: 30
+  frameSampleRate: 0.1
+  windowFollowSpeed: 5
+  windowYawRotation: 20
+  displayedDecimalDigits: 1
+  usedMemoryString: 'Used: {0}MB'
+  peakMemoryString: 'Peak: {0}MB'
+  limitMemoryString: 'Limit: {0}MB'
+  baseColor: {r: 0.3125, g: 0.3125, b: 0.3125, a: 1}
+  targetFrameRateColor: {r: 0.49609375, g: 0.7265625, b: 0, a: 1}
+  missedFrameRateColor: {r: 0.9453125, g: 0.3125, b: 0.1328125, a: 1}
+  memoryUsedColor: {r: 0, g: 0.640625, b: 0.93359375, a: 1}
+  memoryPeakColor: {r: 0.99609375, g: 0.72265625, b: 0, a: 1}
+  memoryLimitColor: {r: 0.5859375, g: 0.5859375, b: 0.5859375, a: 1}
+  defaultMaterial: {fileID: 0}
+--- !u!65 &6888173440950244561
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6888173440950244559}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.1409674, y: 0.14974374, z: 1.2094928}
+  m_Center: {x: -0.06875525, y: 0.071618535, z: -0.116845466}
+--- !u!114 &6888173440950244562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6888173440950244559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a56d276c3542c2b44899323aba4b9263, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlaceableBoundsMaterial: {fileID: 2100000, guid: d36438e93d8cebc45af745f035b60969,
+    type: 2}
+  NotPlaceableBoundsMaterial: {fileID: 2100000, guid: 6a07a5d4c6829c1499b7a8b907b75e33,
+    type: 2}
+  PlaceableShadowMaterial: {fileID: 2100000, guid: a25dd465874dfa54799f6e094507ccff,
+    type: 2}
+  NotPlaceableShadowMaterial: {fileID: 2100000, guid: ca6d4215d30dd1d4fb473ff9a009765d,
+    type: 2}
+  PlacementSurface: 1
+  ChildrenToHide: []
 --- !u!223 &7234072757986654379
 Canvas:
   m_ObjectHideFlags: 0
@@ -40722,3 +40796,77 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20080eab29239fc4bba0d1d0da532192, type: 3}
+--- !u!1 &9080982109809512985 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5053237713634235698, guid: 20080eab29239fc4bba0d1d0da532192,
+    type: 3}
+  m_PrefabInstance: {fileID: 9080982109809512984}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &9080982109809512986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9080982109809512985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80e445377f099c04e98064d428efaafe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initiallyActive: 0
+  toggleKeyworlds:
+  - Profiler
+  - Toggle Profiler
+  - Show Profiler
+  - Hide Profiler
+  frameRange: 30
+  frameSampleRate: 0.1
+  windowFollowSpeed: 5
+  windowYawRotation: 20
+  displayedDecimalDigits: 1
+  usedMemoryString: 'Used: {0}MB'
+  peakMemoryString: 'Peak: {0}MB'
+  limitMemoryString: 'Limit: {0}MB'
+  baseColor: {r: 0.3125, g: 0.3125, b: 0.3125, a: 1}
+  targetFrameRateColor: {r: 0.49609375, g: 0.7265625, b: 0, a: 1}
+  missedFrameRateColor: {r: 0.9453125, g: 0.3125, b: 0.1328125, a: 1}
+  memoryUsedColor: {r: 0, g: 0.640625, b: 0.93359375, a: 1}
+  memoryPeakColor: {r: 0.99609375, g: 0.72265625, b: 0, a: 1}
+  memoryLimitColor: {r: 0.5859375, g: 0.5859375, b: 0.5859375, a: 1}
+  defaultMaterial: {fileID: 0}
+--- !u!65 &9080982109809512987
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9080982109809512985}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.1409674, y: 0.14974374, z: 1.2094928}
+  m_Center: {x: -0.06875525, y: 0.071618535, z: -0.116845466}
+--- !u!114 &9080982109809512988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9080982109809512985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a56d276c3542c2b44899323aba4b9263, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlaceableBoundsMaterial: {fileID: 2100000, guid: d36438e93d8cebc45af745f035b60969,
+    type: 2}
+  NotPlaceableBoundsMaterial: {fileID: 2100000, guid: 6a07a5d4c6829c1499b7a8b907b75e33,
+    type: 2}
+  PlaceableShadowMaterial: {fileID: 2100000, guid: a25dd465874dfa54799f6e094507ccff,
+    type: 2}
+  NotPlaceableShadowMaterial: {fileID: 2100000, guid: ca6d4215d30dd1d4fb473ff9a009765d,
+    type: 2}
+  PlacementSurface: 1
+  ChildrenToHide: []
