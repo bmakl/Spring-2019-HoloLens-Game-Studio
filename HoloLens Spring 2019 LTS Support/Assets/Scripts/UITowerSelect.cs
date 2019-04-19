@@ -10,6 +10,7 @@ public class UITowerSelect : MonoBehaviour, IInputClickHandler, IFocusable
     public int towerID;
     private Vector3 originalScale;
     private bool canAfford = false;
+    public GameObject description;
 
     [Header("Tween Info")]
     [SerializeField] float tweenAmmount;
@@ -21,6 +22,7 @@ public class UITowerSelect : MonoBehaviour, IInputClickHandler, IFocusable
     void Start()
     {
         originalScale = transform.localScale;
+        description.SetActive(false);
     }
 
     void Update()
@@ -79,6 +81,49 @@ public class UITowerSelect : MonoBehaviour, IInputClickHandler, IFocusable
             thisHighlight.enabled = false;
         }
 
+        //if the boss is alive
+        if(GameObject.FindWithTag("Boss"))
+        {
+            if(GameObject.FindWithTag("Boss").GetComponent<BaseEnemy>().health > 0)
+            {
+                canAfford = false;
+                Outline thisHighlight = GetComponent<Outline>();
+                thisHighlight.enabled = true;
+                thisHighlight.OutlineColor = Color.magenta;
+            }
+
+        }
+
+        //if the boss is dead and we have enough coins
+        if(GameObject.FindWithTag("Boss"))
+        {
+            if (GameObject.FindWithTag("Boss").GetComponent<BaseEnemy>().health <= 0 && this.CompareTag("Basic Tower") && GameManager.instance.baseCost < GameManager.instance.coins && !canAfford)
+            {
+                canAfford = true;
+                Outline thisHighlight = GetComponent<Outline>();
+                thisHighlight.enabled = false;
+            }
+            else if (GameObject.FindWithTag("Boss").GetComponent<BaseEnemy>().health <= 0 && this.CompareTag("Powerful Tower") && GameManager.instance.powerfulCost < GameManager.instance.coins && !canAfford)
+            {
+                canAfford = true;
+                Outline thisHighlight = GetComponent<Outline>();
+                thisHighlight.enabled = false;
+            }
+            else if (GameObject.FindWithTag("Boss").GetComponent<BaseEnemy>().health <= 0 && this.CompareTag("Melee Tower") && GameManager.instance.meleeCost < GameManager.instance.coins && !canAfford)
+            {
+                canAfford = true;
+                Outline thisHighlight = GetComponent<Outline>();
+                thisHighlight.enabled = false;
+            }
+            else if (GameObject.FindWithTag("Boss").GetComponent<BaseEnemy>().health <= 0 && this.CompareTag("Debuff Tower") && GameManager.instance.debuffCost < GameManager.instance.coins && !canAfford)
+            {
+                canAfford = true;
+                Outline thisHighlight = GetComponent<Outline>();
+                thisHighlight.enabled = false;
+            }
+        }
+        
+
     }
 
     public void OnInputClicked(InputClickedEventData eventData)
@@ -113,10 +158,12 @@ public class UITowerSelect : MonoBehaviour, IInputClickHandler, IFocusable
     public void OnFocusEnter()
     {
         TweenManager.instance.TweenScale(this.transform, tweenAmmount, tweenDuration);//When you look at the object it tweens bigger
+        description.SetActive(true);
     }
 
     public void OnFocusExit()
     {
         TweenManager.instance.Descale(this.transform, originalScale, tweenDuration);//Sets object back to it's original size after you look away
+        description.SetActive(false);
     }
 }
