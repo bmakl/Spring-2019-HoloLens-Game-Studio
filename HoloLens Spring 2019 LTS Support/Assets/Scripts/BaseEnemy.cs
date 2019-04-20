@@ -5,7 +5,6 @@ using GameAnalyticsSDK;
 
 public class BaseEnemy : MonoBehaviour, IInputClickHandler
 {
-
     [Header("Enemy Stats")]
     public float damageToPlayer;
     public float speed;
@@ -25,6 +24,7 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
     [SerializeField] int playerDamage;
     [SerializeField] int SkeletonsKilled;
     [SerializeField] int tapDamage = 5;
+    
 
     public Text successfulHits;
 
@@ -96,7 +96,6 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, str);
         Vector3 dir = target.position - transform.position;
         transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
-        
 
         if (Vector3.Distance(transform.position, target.position) <= 0.01f)//Checks if object is at the next waypoint
         {
@@ -270,5 +269,10 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
             upGrade = false;
         }
 
+    }
+    public void MutateEnemies()
+    {
+        health = health * 1.10f;
+        speed = speed * 1.10f;
     }
 }

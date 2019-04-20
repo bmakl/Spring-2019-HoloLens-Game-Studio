@@ -127,7 +127,6 @@ public class GameManager : MonoBehaviour
             GameAnalytics.NewDesignEvent("Gameplay:Death", (float)GameManager.instance.waveCount);
             StartCoroutine(Restart());
         }
-
         if (waveCount > 10 && enemyCount<=0)
         {
             Debug.Log("You won");
