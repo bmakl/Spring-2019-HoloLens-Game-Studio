@@ -1,16 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using HoloToolkit.Unity.InputModule;
 
-public class UpgradeManager : MonoBehaviour{
+public class UpgradeManager : MonoBehaviour
+{
 
     public static UpgradeManager instance;
-    public BaseTower currentTower;
-    public MeleeTower currentMelee;
+    public GameObject currentTower;
+    //public MeleeTower currentMelee;
     public Text damage;
     public Text fireRate;
     public Text radius;
@@ -24,16 +21,16 @@ public class UpgradeManager : MonoBehaviour{
     public string desc;
     private GameObject towerUI;
 
-    
-public static bool sellTowerBool = true;
+
+    public static bool sellTowerBool = true;
 
     void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
         }
-        else if(instance != this)
+        else if (instance != this)
         {
             Destroy(gameObject);
         }
@@ -54,9 +51,10 @@ public static bool sellTowerBool = true;
     public void displayInfo(GameObject myTower, string _description)
     {
         desc = _description;
+        Debug.Log(myTower.GetComponent<BaseTower>().attackDamage);
         damage.text = "Damage: " + Mathf.RoundToInt(myTower.GetComponent<BaseTower>().attackDamage);
         fireRate.text = "Fire rate: " + Mathf.RoundToInt(myTower.GetComponent<BaseTower>().fireRate);
-        radius.text ="Radius: " + Mathf.RoundToInt(myTower.GetComponent<BaseTower>().radius);
+        radius.text = "Radius: " + Mathf.RoundToInt(myTower.GetComponent<BaseTower>().radius);
         description.text = "Description: " + _description;
         //towerToDisplay.GetComponent<BaseTower>().enabled = false;
     }
@@ -74,12 +72,13 @@ public static bool sellTowerBool = true;
                 }
             }
             Debug.Log("sell tower");
-            GameManager.instance.coins += currentTower.price;
-            currentTower.node.GetComponent<TowerSpawn>().towerPrefab = null;
+            GameManager.instance.coins += currentTower.GetComponent<BaseTower>().price;
+            currentTower.GetComponent<BaseTower>().node.GetComponent<TowerSpawn>().towerPrefab = null;
             currentTower = null;
             Destroy(towerToDelete);
         }
-        
+
+
     }
 
     public void SellMelee()
@@ -88,11 +87,23 @@ public static bool sellTowerBool = true;
         {
 
             Debug.Log("sell tower");
-            GameManager.instance.coins += currentMelee.price;
-            currentMelee.node.GetComponent<TowerSpawn>().towerPrefab = null;
-            currentMelee = null;
+            Debug.Log(currentTower.name);
+            GameManager.instance.coins += currentTower.GetComponent<MeleeTower>().price;
+            currentTower.GetComponent<MeleeTower>().node.GetComponent<TowerSpawn>().towerPrefab = null;
+            currentTower = null;
             Destroy(towerToDelete);
-            Debug.Log(currentMelee.transform.position);
+        }
+    }
+
+    public void Sell()
+    {
+        if(currentTower.CompareTag("Melee Tower"))
+        {
+            SellMelee();
+        }
+        if(currentTower.CompareTag("Basic Tower") || currentTower.CompareTag("Debuff Tower") || currentTower.CompareTag("Powerful Tower"))
+        {
+            SellTower();
         }
     }
 
@@ -100,13 +111,13 @@ public static bool sellTowerBool = true;
     {
         if (GameManager.instance.lastUpgrade == "Melee Tower")
         {
-            currentMelee.Upgrade();
-            displayInfo(currentMelee.gameObject, desc);
+            currentTower.GetComponent<BaseTower>().Upgrade();
+            displayInfo(currentTower.gameObject, desc);
 
         }
         else
         {
-            currentTower.Upgrade();
+            currentTower.GetComponent<BaseTower>().Upgrade();
             displayInfo(currentTower.gameObject, desc);
         }
         if (SceneManager.GetActiveScene().name == "TutorialScene")
@@ -121,8 +132,20 @@ public static bool sellTowerBool = true;
 
     public void UpgradeMelee()
     {
-        currentMelee.Upgrade();
-        displayInfo(currentMelee.gameObject, desc);
+        currentTower.GetComponent<MeleeTower>().Upgrade();
+        displayInfo(currentTower.gameObject, desc);
+    }
+
+    public void Upgrade()
+    {
+        if (currentTower.CompareTag("Melee Tower"))
+        {
+            UpgradeMelee();
+        }
+        if (currentTower.CompareTag("Basic Tower") || currentTower.CompareTag("Debuff Tower") || currentTower.CompareTag("Powerful Tower"))
+        {
+            UpgradeTower();
+        }
     }
     /// <summary>
     /// Disables Sell Button on upgrade cavnas

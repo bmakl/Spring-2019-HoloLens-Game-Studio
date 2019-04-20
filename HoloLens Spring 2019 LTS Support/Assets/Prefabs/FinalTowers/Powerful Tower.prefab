@@ -63,6 +63,7 @@ MonoBehaviour:
   price: 100
   fireRate: 0
   attackDamage: 10
+  lastUpgradeWave: 0
   upgradeCost: 100
   slower: 0.5
   node: {fileID: 0}
@@ -224,7 +225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d55b39b0bd9c4642a36851a95f8d6ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentTower: {fileID: 1186884860751110}
+  currentTower: {fileID: 1016775330079132}
   description: Very powerful Tower
 --- !u!65 &5280464010427296193
 BoxCollider:
@@ -293,6 +294,7 @@ GameObject:
   - component: {fileID: 4788114643306128}
   - component: {fileID: 33092632595046354}
   - component: {fileID: 23353107390304728}
+  - component: {fileID: 5637855550995024970}
   m_Layer: 0
   m_Name: crosstomb:pCube3
   m_TagString: Powerful Tower
@@ -359,6 +361,24 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &5637855550995024970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856495763255996}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.10234957, g: 0.8679245, b: 0.42501658, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &6019905701541381998
 GameObject:
   m_ObjectHideFlags: 0

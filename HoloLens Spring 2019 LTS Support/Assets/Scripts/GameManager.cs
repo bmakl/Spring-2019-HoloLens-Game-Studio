@@ -43,6 +43,14 @@ public class GameManager : MonoBehaviour
     public float ghostCoin = 100f;
     public float batCoin = 50f;
 
+    [Header("Enemy Health Values")]
+    public float pumpkinHealth = 20;
+    public float ghostHealth = 35;
+    public float batHealth = 15;
+    public float skeletonHealth = 10;
+    public float zombieHealth = 60;
+    public float bossHealth = 500;
+
     [Header("Tower Costs")]
     public float meleeCost = 150f;
     public float baseCost = 100f;
@@ -76,6 +84,8 @@ public class GameManager : MonoBehaviour
     public GameObject trapToSpawn;
 
     public bool sendCoinsData = false;
+
+    public bool EndlessModeEnabled;
 
     private void Start()
     {
@@ -132,7 +142,7 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("You won");
             GameAnalytics.NewDesignEvent("Gameplay:Win", (float)GameManager.instance.waveCount);
-            StartCoroutine(Restart());
+           // StartCoroutine(Restart());
         }
 
 
@@ -142,7 +152,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Restarting");
         yield return new WaitForSeconds(5f);
-        SceneManager.LoadScene(2);
+        //SceneManager.LoadScene(2);
     }
     /*
     public IEnumerator SpawnWave()

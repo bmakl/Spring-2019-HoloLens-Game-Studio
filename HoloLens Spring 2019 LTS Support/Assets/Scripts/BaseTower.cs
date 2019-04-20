@@ -11,8 +11,8 @@ public class BaseTower : MonoBehaviour
     public float attackDamage = 10f;
     protected float currentFireRate = 0;
     bool canShoot = true;
-    protected int lastUpgradeWave = 0;
-    protected bool enableUpgrade = true;
+    public   int lastUpgradeWave = 0;
+    protected bool enableUpgrade = false;
     protected SphereCollider sphereCollider;
 
     public float upgradeCost = 100;
@@ -45,7 +45,7 @@ public class BaseTower : MonoBehaviour
 
     [SerializeField] GameObject tempTarget;
     [SerializeField] GameObject currentTarget;
-    [SerializeField] private GameObject radiusUI;
+    [SerializeField] protected GameObject radiusUI;
 
 
 
@@ -510,8 +510,9 @@ public class BaseTower : MonoBehaviour
 
         Debug.Log("Upgraded Tower");
 
-        if (this.CompareTag("Basic Tower"))
+        if (this.CompareTag("Basic Tower") && upgradeCost <= GameManager.instance.coins )
         {
+            GameManager.instance.coins -= upgradeCost;
             attackDamage = attackDamage * 1.25f;
             radius = radius * 1.25f;
             radiusUI.transform.localScale *= 1.25f;
@@ -522,10 +523,12 @@ public class BaseTower : MonoBehaviour
             UpgradeManager.instance.DisableUpgradeButton();
             GameAnalytics.NewDesignEvent("UpgradeTower:Tombstone");
         }
-        if (this.CompareTag("Powerful Tower"))
+        if (this.CompareTag("Powerful Tower") && upgradeCost <= GameManager.instance.coins)
         {
+            GameManager.instance.coins -= upgradeCost;
             attackDamage = attackDamage * 1.25f;
             radius = radius * 1.25f;
+            radiusUI.transform.localScale *= 1.25f;
             sphereCollider.radius = radius; //Sets radius of actual collider
             fireRate = fireRate / 1.1f;
             upgradeCost = upgradeCost * 2;
@@ -533,15 +536,18 @@ public class BaseTower : MonoBehaviour
             UpgradeManager.instance.DisableUpgradeButton();
             GameAnalytics.NewDesignEvent("UpgradeTower:TheHolyWrath");
         }
-        if (this.CompareTag("Debuff Tower"))
+        if (this.CompareTag("Debuff Tower") && upgradeCost <= GameManager.instance.coins)
         {
+            GameManager.instance.coins -= upgradeCost;
             radius = radius * 1.25f;
+            radiusUI.transform.localScale *= 1.25f;
             upgradeCost = upgradeCost * 2;
             slower = slower * 0.9f;
             enableUpgrade = true;
             UpgradeManager.instance.DisableUpgradeButton();
             GameAnalytics.NewDesignEvent("UpgradeTower:CursedTower");
         }
+      
 
     }
 

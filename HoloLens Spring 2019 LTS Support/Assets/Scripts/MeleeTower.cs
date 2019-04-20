@@ -19,7 +19,11 @@ public class MeleeTower : BaseTower
 
     private void Update()
     {
-
+        if (lastUpgradeWave < GameManager.instance.waveCount && enableUpgrade)//Checks if this tower was upgraded this turn
+        {
+            UpgradeManager.instance.EnableUpgradeButton();//If that tower wasn't then we enable upgrade button this turn
+            enableUpgrade = false;
+        }
         attackCountdown -= Time.deltaTime;
 
         if(attackCountdown <= 0)
@@ -42,7 +46,7 @@ public class MeleeTower : BaseTower
                 GameManager.instance.coins += other.gameObject.GetComponent<BaseEnemy>().coinDrop;
                 ParticleManager.instance.DeathParticle(other.transform);
                 other.gameObject.GetComponent<BaseEnemy>().killed = true;
-                Destroy(other.gameObject);
+                Destroy(other.transform.parent.gameObject);
             }
 
         }
@@ -76,8 +80,10 @@ public class MeleeTower : BaseTower
 
         Debug.Log("Upgraded Tower");
 
-        if (this.CompareTag("Melee Tower"))
+        if (this.CompareTag("Melee Tower") && upgradeCost <= GameManager.instance.coins)
         {
+            GameManager.instance.coins -= upgradeCost;
+            radiusUI.transform.localScale *= 1.25f;
             attackDamage = attackDamage * 1.25f;
             radius = radius * 1.25f;
             sphereCollider.radius = radius; //Sets radius of actual collider

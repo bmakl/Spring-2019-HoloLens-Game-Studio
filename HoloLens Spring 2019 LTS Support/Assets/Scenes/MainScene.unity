@@ -155,7 +155,7 @@ PrefabInstance:
         type: 3}
       propertyPath: spaceObjectPrefabs.Array.data[0]
       value: 
-      objectReference: {fileID: 1254364937568156, guid: 7d82aa180f50cc64898698e438005be0,
+      objectReference: {fileID: 1380454860589836, guid: ff5f46dc3d79797419a4cb40d8af85db,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96a423bf5c308b6469e682c00455bfca, type: 3}
