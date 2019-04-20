@@ -42,14 +42,13 @@ public class WaveSpawner : MonoBehaviour
         Wave wave = waves[waveIndex];
         Debug.Log("Wave Spawning");
         inWave = true;
-        
+
         foreach (GameObject e in wave.enemy)
         {
             SpawnEnemy(e);
             GameManager.instance.enemyCount++;
             yield return new WaitForSeconds(1f * wave.spawnRate);
         }
-        GameManager.instance.EndlessWaveCheck = false;
         inWave = false;
         AnalyticsManager.CoinsGained();
         GameManager.instance.Spawn = false;
@@ -66,4 +65,5 @@ public class WaveSpawner : MonoBehaviour
         Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
         enemiesAlive++;
     }
+
 }
