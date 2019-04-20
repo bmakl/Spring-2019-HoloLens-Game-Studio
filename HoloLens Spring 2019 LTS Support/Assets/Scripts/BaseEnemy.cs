@@ -28,13 +28,14 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
 
     public Text successfulHits;
 
+
     #region EnemySetup
     private void Awake()
     {
         if(this.gameObject.CompareTag("Pumpkin"))
         {
             speed = 0.3f;
-            health = 20;
+            health = GameManager.instance.pumpkinHealth;
             coinDrop = GameManager.instance.pumpkinCoin;
             playerDamage = 1;
             slowed = false;
@@ -43,7 +44,7 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
         if(this.gameObject.CompareTag("Ghost"))
         {
             speed = 0.25f;
-            health = 35;
+            health = GameManager.instance.ghostHealth;
             coinDrop = GameManager.instance.ghostCoin;
             playerDamage = 10;
             slowed = false;
@@ -51,7 +52,7 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
         if (this.gameObject.CompareTag("Bat"))
         {
             speed = 0.45f;
-            health = 15;
+            health = GameManager.instance.batHealth;
             coinDrop = GameManager.instance.batCoin;
             playerDamage = 5;
             slowed = false;
@@ -59,7 +60,7 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
         if (this.gameObject.CompareTag("Skeleton"))
         {
             speed = 0.45f;
-            health = 10;
+            health = GameManager.instance.skeletonHealth;
             coinDrop = GameManager.instance.skeletonCoin;
             playerDamage = 10;
             SkeletonHit = false;
@@ -68,7 +69,7 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
         if(this.gameObject.CompareTag("Zombie"))
         {
             speed = 0.1f;
-            health = 60;
+            health = GameManager.instance.zombieHealth;
             coinDrop = 20;
             playerDamage = 1;
             slowed = false;
@@ -76,7 +77,7 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
         if (this.gameObject.CompareTag("Boss"))
         {
             speed = 0.06f;
-            health = 500;
+            health = GameManager.instance.bossHealth;
             coinDrop = 250;
             playerDamage = 1;
             slowed = false;
@@ -87,6 +88,7 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
     void Start()
     {
         target = Waypoints.points[0];
+        
     }
 
     void Update()
@@ -107,10 +109,7 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
             upGrade = true;
         }
 
-        if(GameManager.instance.waveCount % 5 == 0)
-        {
-            this.health += 5;
-        }
+
     }
 
     /// <summary>

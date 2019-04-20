@@ -27,9 +27,15 @@ public class WaveSpawner : MonoBehaviour
             countdown = 0;
             return;
         }
-        if (countdown <= 0 && !inWave)
+        if (countdown <= 0 && !inWave && !GameManager.instance.EndlessModeEnabled)
         {
             StartCoroutine(SpawnWave());
+            countdown = timeBetweenWave;
+            return;
+        }
+        else if(countdown <= 0 && !inWave && GameManager.instance.EndlessModeEnabled)
+        {
+            StartCoroutine(EndlessSpawnWave());
             countdown = timeBetweenWave;
             return;
         }
@@ -42,7 +48,15 @@ public class WaveSpawner : MonoBehaviour
         Wave wave = waves[waveIndex];
         Debug.Log("Wave Spawning");
         inWave = true;
-
+        if (GameManager.instance.waveCount % 5 == 0)
+        {
+            GameManager.instance.pumpkinHealth += 5;
+            GameManager.instance.ghostHealth += 5;
+            GameManager.instance.skeletonHealth += 5;
+            GameManager.instance.batHealth += 5;
+            GameManager.instance.zombieHealth += 5;
+            GameManager.instance.bossHealth += 5;
+        }
         foreach (GameObject e in wave.enemy)
         {
             SpawnEnemy(e);
@@ -56,6 +70,48 @@ public class WaveSpawner : MonoBehaviour
         waveIndex++;
         UpgradeManager.sellTowerBool = true;
         GameManager.instance.sendCoinsData = true;
+
+        if(waveIndex > 34)
+        {
+            GameManager.instance.EndlessModeEnabled = true;
+            waveIndex = 10;
+        }
+
+
+    }
+    IEnumerator EndlessSpawnWave()
+    {
+        UpgradeManager.sellTowerBool = false;
+        Wave wave = waves[waveIndex];
+        Debug.Log("Wave Spawning");
+        inWave = true;
+        if (GameManager.instance.waveCount % 5 == 0)
+        {
+            GameManager.instance.pumpkinHealth += 5;
+            GameManager.instance.ghostHealth += 5;
+            GameManager.instance.skeletonHealth += 5;
+            GameManager.instance.batHealth += 5;
+            GameManager.instance.zombieHealth += 5;
+            GameManager.instance.bossHealth += 5;
+        }
+        foreach (GameObject e in wave.enemy)
+        {
+            SpawnEnemy(e);
+            GameManager.instance.enemyCount++;
+            yield return new WaitForSeconds(1f * wave.spawnRate);
+        }
+        inWave = false;
+        AnalyticsManager.CoinsGained();
+        GameManager.instance.Spawn = false;
+        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "Wave " + GameManager.instance.waveCount.ToString());
+        waveIndex++;
+        UpgradeManager.sellTowerBool = true;
+        GameManager.instance.sendCoinsData = true;
+
+        if (waveIndex > 34)
+        {
+            waveIndex = 10;
+        }
 
 
     }

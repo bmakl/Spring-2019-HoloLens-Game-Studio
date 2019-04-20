@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33314428940431140}
   - component: {fileID: 23040440705930228}
   - component: {fileID: 64850366967707046}
+  - component: {fileID: 6112730827096855431}
   m_Layer: 0
   m_Name: pCylinder2
   m_TagString: Untagged
@@ -92,6 +93,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: 87ada0d4d1c23cc43977801101166a36, type: 3}
+--- !u!114 &6112730827096855431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1029850945479046}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.10234957, g: 0.8679245, b: 0.42501658, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &1658744591980972
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,6 +249,7 @@ MonoBehaviour:
   price: 100
   fireRate: 0
   attackDamage: 10
+  lastUpgradeWave: 0
   upgradeCost: 100
   slower: 0.5
   node: {fileID: 0}
