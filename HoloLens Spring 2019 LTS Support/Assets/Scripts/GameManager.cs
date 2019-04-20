@@ -49,6 +49,12 @@ public class GameManager : MonoBehaviour
     public float debuffCost = 200f;
     public float powerfulCost = 700f;
 
+    [HideInInspector]
+    public string baseDescription = "Medium-ranged tower that offers balanced damage and fire rate",
+        meleeDescription = "Close-range tower with tremendous damage" , 
+        powerfulDescription = "Extraordinary tower with fantastic range and power", 
+        debuffDescription = "Mysterious tower that slows enemies as they pass";
+
     public int enemyType = 0;
     public float timeBetweenWaves = 5f;
     private float countdown = 2f;

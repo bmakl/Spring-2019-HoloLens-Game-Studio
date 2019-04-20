@@ -106,6 +106,11 @@ public class BaseEnemy : MonoBehaviour, IInputClickHandler
         {
             upGrade = true;
         }
+
+        if(GameManager.instance.waveCount % 5 == 0)
+        {
+            this.health += 5;
+        }
     }
 
     /// <summary>
