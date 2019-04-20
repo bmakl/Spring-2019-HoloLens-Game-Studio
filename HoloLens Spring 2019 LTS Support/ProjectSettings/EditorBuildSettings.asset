@@ -11,13 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainScene.unity
     guid: 129e5b48876fa174481b0bc45d266d31
-  - enabled: 0
-    path: Assets/Scenes/PAXScene.unity
-    guid: bd534b03e3ba6bf4abfc07bba2f141bc
   - enabled: 1
     path: Assets/Scenes/TutorialScene.unity
     guid: 03fe11757ffbb11479218b917bfa2ecd
   - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: 6525f0893d0fe28439c36ecead39be2d
+  - enabled: 1
+    path: Assets/Scenes/PAXScene.unity
+    guid: bd534b03e3ba6bf4abfc07bba2f141bc
   m_configObjects: {}

@@ -35,6 +35,11 @@ public class StartMenuBehaviors : MonoBehaviour {
         Debug.Log("Loading Credits");
         SceneManager.LoadScene(3);
     }
+    public void Standard()
+    {
+        Debug.Log("Loading Credits");
+        SceneManager.LoadScene(4);
+    }
 
     public void Settings()
     {

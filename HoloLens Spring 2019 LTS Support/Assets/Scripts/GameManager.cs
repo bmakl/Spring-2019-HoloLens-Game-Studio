@@ -138,11 +138,11 @@ public class GameManager : MonoBehaviour
             StartCoroutine(Restart());
         }
 
-        if (waveCount > 10 && enemyCount<=0)
+        if (health <= 0) 
         {
             Debug.Log("You won");
             GameAnalytics.NewDesignEvent("Gameplay:Win", (float)GameManager.instance.waveCount);
-           // StartCoroutine(Restart());
+           StartCoroutine(Restart());
         }
 
 
@@ -152,7 +152,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Restarting");
         yield return new WaitForSeconds(5f);
-        //SceneManager.LoadScene(2);
+        SceneManager.LoadScene(2);
     }
     /*
     public IEnumerator SpawnWave()

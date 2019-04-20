@@ -34169,7 +34169,7 @@ MonoBehaviour:
     spawnRate: 0.6
   spawnPoint: {fileID: 4700535325594606}
   timeBetweenWave: 2
-  waveIndex: 34
+  waveIndex: 0
 --- !u!1 &1823960144880204
 GameObject:
   m_ObjectHideFlags: 0
