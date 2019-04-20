@@ -15660,7 +15660,6 @@ GameObject:
   - component: {fileID: 4993722648327464}
   - component: {fileID: 114627743739959624}
   - component: {fileID: 65160181915205466}
-  - component: {fileID: 114657509728808560}
   m_Layer: 0
   m_Name: GameBoard 1.0
   m_TagString: Untagged
@@ -15736,39 +15735,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.524811, y: 0.22847795, z: 6.6176724}
   m_Center: {x: 1.0733833, y: -0.38576102, z: 2.0089085}
---- !u!114 &114657509728808560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1380454860589836}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80e445377f099c04e98064d428efaafe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initiallyActive: 0
-  toggleKeyworlds:
-  - Profiler
-  - Toggle Profiler
-  - Show Profiler
-  - Hide Profiler
-  frameRange: 30
-  frameSampleRate: 0.1
-  windowFollowSpeed: 5
-  windowYawRotation: 20
-  displayedDecimalDigits: 1
-  usedMemoryString: 'Used: {0}MB'
-  peakMemoryString: 'Peak: {0}MB'
-  limitMemoryString: 'Limit: {0}MB'
-  baseColor: {r: 0.3125, g: 0.3125, b: 0.3125, a: 1}
-  targetFrameRateColor: {r: 0.49609375, g: 0.7265625, b: 0, a: 1}
-  missedFrameRateColor: {r: 0.9453125, g: 0.3125, b: 0.1328125, a: 1}
-  memoryUsedColor: {r: 0, g: 0.640625, b: 0.93359375, a: 1}
-  memoryPeakColor: {r: 0.99609375, g: 0.72265625, b: 0, a: 1}
-  memoryLimitColor: {r: 0.5859375, g: 0.5859375, b: 0.5859375, a: 1}
-  defaultMaterial: {fileID: 0}
 --- !u!1 &1382394622131698
 GameObject:
   m_ObjectHideFlags: 0
